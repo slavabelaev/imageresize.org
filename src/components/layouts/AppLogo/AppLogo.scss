@@ -1,0 +1,16 @@
+@import "../../../assets/scss/core";
+
+.AppLogo {
+    display: inline-block;
+    transition: $transition-base;
+    &:hover {
+        opacity: .8;
+    }
+    &:active {
+        opacity: 1;
+        transition: none;
+    }
+}
+.AppLogo__image {
+    max-width: 100%;
+}

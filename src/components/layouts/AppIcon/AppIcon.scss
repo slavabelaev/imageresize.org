@@ -1,0 +1,11 @@
+@import "../../../assets/scss/core";
+
+.AppIcon {
+    display: inline-flex;
+    width: $icon-size-default;
+    height: $icon-size-default;
+    min-width: $icon-size-default;
+    min-height: $icon-size-default;
+    background-size: cover;
+    opacity: .6;
+}

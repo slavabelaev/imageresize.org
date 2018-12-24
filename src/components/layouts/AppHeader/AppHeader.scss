@@ -1,0 +1,19 @@
+@import "../../../assets/scss/core";
+
+.AppHeader {
+    .AppHeader__MenuItem {
+        border-left: $border;
+    }
+}
+.AppHeader__MenuList {
+    display: flex;
+}
+.AppHeader__AppIcon {
+    opacity: .5;
+    transition: $transition-base;
+    margin-right: $icon-spacing-between-content;
+}
+.AppHeader__AppLogo {
+    display: flex;
+    flex: 1;
+}
