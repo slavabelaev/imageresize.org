@@ -1,22 +1,32 @@
-import './AppLogo.scss';
-import AppLogoImage from './AppLogo.svg';
-
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
-class AppLogo extends Component {
+import AppLogoImage from './AppLogo.svg';
+
+const styles = theme => ({
+    logo: {
+        display: 'inline-flex'
+    }
+});
+
+class AppLogo extends React.Component {
     render() {
-        const props = this.props;
-        const classNames = 'AppLogo' + (props.className ? ' ' + props.className : '');
+        const { classes } = this.props;
 
         return (
             <Router>
-                <Link to="/" className={classNames}>
-                    <img src={AppLogoImage} alt="ImageResize Logo" className="AppLogo__image" />
+                <Link to="/" className={classes.logo}>
+                    <img src={AppLogoImage} alt="ImageResize Logo" />
                 </Link>
             </Router>
         );
     }
 }
  
-export default AppLogo;
+AppLogo.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(AppLogo);

@@ -1,41 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import green from '@material-ui/core/colors/green';
 
 import AppHeader from './components/layouts/AppHeader/AppHeader';
 import AppFooter from './components/layouts/AppFooter/AppFooter';
 import ImageResizePage from './components/pages/ImageResizePage/ImageResizePage';
 
-import './App.scss';
-
 const theme = createMuiTheme({
   palette: {
-    primary: {
-    // light: will be calculated from palette.primary.main,
-    main: '#ff4400',
-    // dark: will be calculated from palette.primary.main,
-    // contrastText: will be calculated to contrast with palette.primary.main
-    },
-    secondary: {
-    light: '#0066ff',
-    main: '#0044ff',
-    // dark: will be calculated from palette.secondary.main,
-    contrastText: '#ffcc00',
-    },
-    // error: will use the default color
+    primary: blue,
+    secondary: green
+  },
+  typography: {
+    useNextVariants: true,
   },
 });
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
-        <AppHeader className="App__AppHeader"></AppHeader>
-        <Router>
-          <Route path='/' component={ImageResizePage} />
-        </Router>
-        <AppFooter className="App__AppFooter"></AppFooter>
-      </MuiThemeProvider>
+      <React.Fragment>
+        <CssBaseline />
+        <MuiThemeProvider theme={theme}>
+          <AppHeader className="App__AppHeader"></AppHeader>
+          <Router>
+            <Route path='/' component={ImageResizePage} />
+          </Router>
+          <AppFooter className="App__AppFooter"></AppFooter>
+        </MuiThemeProvider>
+      </React.Fragment>
     );
   }
 }
