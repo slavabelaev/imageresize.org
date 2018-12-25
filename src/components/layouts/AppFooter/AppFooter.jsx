@@ -27,6 +27,9 @@ const styles = theme => ({
     },
     ListItemText_title: {
         color: theme.typography.title.color
+    },
+    Grid_socials: {
+        textAlign: 'center'
     }
 });
 
@@ -43,7 +46,7 @@ class AppFooter extends React.Component {
                         <Grid container>
                             <Grid item xs={2}>
                                 <AppLogo className={classes.AppLogo}></AppLogo>
-                                <Grid container>
+                                <Grid className={classes.Grid_socials} container>
                                     <Grid item xs={4}>
                                         <IconButton component="a" target="_blank" href="https://twitter.com/">
                                             <AppIcon icon="twitter" size={16}></AppIcon>

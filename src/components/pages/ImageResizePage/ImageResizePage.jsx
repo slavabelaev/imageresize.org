@@ -23,7 +23,8 @@ const styles = theme => ({
         marginBottom: 72
     },
     Grid_container: {
-        margin: 0
+        margin: 0,
+        padding: 40
     },
     Grid_item: {
         marginBottom: 60
@@ -46,22 +47,20 @@ class ImageResizePage extends React.Component {
                     <ImageResizer className={classes.ImageResizer} />
                 </div>
                 <Divider />
-                <div className={classes.contentContainer}>
-                    <Grid className={classes.Grid_container} container spacing={24}>
-                        <Grid className={classes.Grid_item} item xs={12}>
-                            <Typography variant="h5" component="h2">How does it work?</Typography>
-                            <Typography variant="subtitle1" component="p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </Typography>
-                        </Grid>
-                        <Grid className={classes.Grid_item} item xs={6}>
-                            <Typography variant="h5" component="h2">What does it do?</Typography>
-                            <Typography variant="subtitle1" component="p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </Typography>
-                        </Grid>
-                        <Grid className={classes.Grid_item} item xs={6}>
-                            <Typography variant="h5" component="h2">Why should I use it?</Typography>
-                            <Typography variant="subtitle1" component="p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </Typography>
-                        </Grid>
+                <Grid className={classes.Grid_container} container spacing={40}>
+                    <Grid className={classes.Grid_item} item xs={12}>
+                        <Typography variant="h5" component="h2">How does it work?</Typography>
+                        <Typography variant="subtitle1" component="p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </Typography>
                     </Grid>
-                </div>
+                    <Grid className={classes.Grid_item} item xs={6}>
+                        <Typography variant="h5" component="h2">What does it do?</Typography>
+                        <Typography variant="subtitle1" component="p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </Typography>
+                    </Grid>
+                    <Grid className={classes.Grid_item} item xs={6}>
+                        <Typography variant="h5" component="h2">Why should I use it?</Typography>
+                        <Typography variant="subtitle1" component="p">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </Typography>
+                    </Grid>
+                </Grid>
             </main>
         );
     }

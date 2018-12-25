@@ -38,11 +38,16 @@ const styles = theme => ({
         border: '1px solid',
         borderColor: theme.palette.grey[500],
         borderBottomWidth: 0,
-        opacity: .5,
+        backgroundColor: 'initial',
+        opacity: .54,
         textTransform: 'initial',
         fontSize: '1.125rem',
         fontWeight: 'initial',
         color: theme.palette.grey[700],
+        transition: theme.transitions.create(),
+        '&:not([aria-selected=true]):hover': {
+            opacity: .87
+        },
         '&[aria-selected=true]': {
             backgroundColor: theme.palette.grey[50]
         },

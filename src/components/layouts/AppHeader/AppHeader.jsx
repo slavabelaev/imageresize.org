@@ -25,7 +25,6 @@ const styles = theme => ({
         borderStyle: 'solid',
         borderLeftWidth: 1,
         borderColor: theme.palette.divider,
-        color: theme.palette.grey[600],
         textTransform: 'uppercase',
         '&>i': {
             opacity: .36
@@ -38,7 +37,7 @@ const styles = theme => ({
             backgroundColor: 'initial'
         },
         [theme.breakpoints.up('lg')]: {
-            padding: theme.spacing.unit * 3
+            padding: theme.spacing.unit * 3 + 4
         }
     },
     MenuItem_selected: {
