@@ -20,8 +20,10 @@ const theme = createMuiTheme({
       default: '#fff'
     },
     grey: {
+      50: '#FBFCFD',
       600: 'rgba(0,0,0,.54)'
     },
+    divider: '#E9E9E9',
     text: {
       primary: 'rgba(0,0,0,.64)',
       secondary: 'rgba(0,0,0,.54)'
@@ -50,7 +52,6 @@ const theme = createMuiTheme({
       color: 'rgba(0,0,0,.54)',
     },
     button: {
-      backgroundColor: '#fafafa',
       color: 'rgba(0,0,0,.64)',
       fontWeight: 400,
       fontSize: 14,

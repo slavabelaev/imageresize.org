@@ -91,6 +91,8 @@ const styles = theme => ({
         color: theme.palette.grey[700]
     },
     Button_addCaption: {
+        backgroundColor: '#EBEFF1',
+        borderColor: '#C2CBD0',
         margin: 0
     },
     TextField_search: {
