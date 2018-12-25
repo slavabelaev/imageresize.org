@@ -7,36 +7,42 @@ import List  from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider'
+import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton';
 import AppLogo from '../AppLogo/AppLogo';
 import AppIcon from '../AppIcon/AppIcon';
 
 const styles = theme => ({
-    footer: {
+    root: {
         maxWidth: 1170,
         marginLeft: 'auto',
         marginRight: 'auto'
     },
-    gridContainer: {
-        padding: '80px 40px'
+    container: {
+        padding: 60
     },
-    appLogo: {
+    AppLogo: {
+        maxWidth: 175,
         marginBottom: 60
+    },
+    ListItemText_title: {
+        color: theme.typography.title.color
     }
 });
 
 class AppFooter extends React.Component {
     render() {
+        const props = this.props;
         const { classes } = this.props;
 
         return (
             <Router>
-                <footer className={classes.footer}>
+                <footer className={`${props.className || ''} ${classes.root}`}>
                     <Divider />
-                    <div className={classes.gridContainer}>
-                        <Grid container className={classes.grid}>
+                    <div className={classes.container}>
+                        <Grid container>
                             <Grid item xs={2}>
-                                <AppLogo className={classes.appLogo}></AppLogo>
+                                <AppLogo className={classes.AppLogo}></AppLogo>
                                 <Grid container>
                                     <Grid item xs={4}>
                                         <IconButton component="a" target="_blank" href="https://twitter.com/">
@@ -58,62 +64,62 @@ class AppFooter extends React.Component {
                             <Grid item xs={2}></Grid>
                             <Grid item xs={2}>
                                 <List component="nav">
-                                    <ListItem dense={true} component={Link} to="/image-tools">
-                                        <ListItemText primary="Image Tools" />
+                                    <ListItem button dense={true} component={Link} to="/image-tools">
+                                        <ListItemText primary={<Typography className={classes.ListItemText_title}>Image Tools</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/image-resize">
-                                        <ListItemText primary="Image Resize" />
+                                        <ListItemText primary={<Typography>Image Resize</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/bulk-image-resize">
-                                        <ListItemText primary="Bulk Image Resize" />
+                                        <ListItemText primary={<Typography>Bulk Image Resize</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/image-compressor">
-                                        <ListItemText primary="Image Compressor" />
+                                        <ListItemText primary={<Typography>Image Compressor</Typography>} />
                                     </ListItem>
                                 </List>
                             </Grid>
                             <Grid item xs={2}>
                                 <List component="nav">
-                                    <ListItem dense={true} component={Link} to="/features">
-                                        <ListItemText primary="Features" />
+                                    <ListItem button dense={true} component={Link} to="/features">
+                                        <ListItemText primary={<Typography className={classes.ListItemText_title}>Features</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/crop-images">
-                                        <ListItemText primary="Crop Images" />
+                                        <ListItemText primary={<Typography>Crop Images</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/photo-filters">
-                                        <ListItemText primary="Photo Filters" />
+                                        <ListItemText primary={<Typography>Photo Filters</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/photo-adjust">
-                                        <ListItemText primary="Photo Adjust" />
+                                        <ListItemText primary={<Typography>Photo Adjust</Typography>} />
                                     </ListItem>
                                 </List>
                             </Grid>
                             <Grid item xs={2}>
                                 <List component="nav">
-                                    <ListItem dense={true} component={Link} to="/about">
-                                        <ListItemText primary="About" />
+                                    <ListItem button dense={true} component={Link} to="/about">
+                                        <ListItemText primary={<Typography className={classes.ListItemText_title}>About</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/contact">
-                                        <ListItemText primary="Contact" />
+                                        <ListItemText primary={<Typography>Contact</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/help">
-                                        <ListItemText primary="Help" />
+                                        <ListItemText primary={<Typography>Help</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/feedback">
-                                        <ListItemText primary="Feedback" />
+                                        <ListItemText primary={<Typography>Feedback</Typography>} />
                                     </ListItem>
                                 </List>
                             </Grid>
                             <Grid item xs={2}>
                                 <List component="nav">
-                                    <ListItem dense={true} component={Link} to="/legal">
-                                        <ListItemText primary="Legal" />
+                                    <ListItem button dense={true} component={Link} to="/legal">
+                                        <ListItemText primary={<Typography className={classes.ListItemText_title}>Legal</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/privacy">
-                                        <ListItemText primary="Privacy" />
+                                        <ListItemText primary={<Typography>Privacy</Typography>} />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/terms-of-services">
-                                        <ListItemText primary="Terms of services" />
+                                        <ListItemText primary={<Typography>Terms of services</Typography>} />
                                     </ListItem>
                                 </List>
                             </Grid>

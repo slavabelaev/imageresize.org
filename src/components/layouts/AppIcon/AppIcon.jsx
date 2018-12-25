@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-    icon: {
+    root: {
         display: 'inline-flex',
         backgroundSize: 'cover',
+        opacity: .54,
+        transition: theme.transitions.create()
     }
 });
 
@@ -15,6 +17,7 @@ class AppIcon extends React.Component {
     };
 
     render() {
+        const props = this.props;
         const { classes } = this.props;
         const { size } = this.state;
         const styles = this.props.icon ? {
@@ -26,7 +29,7 @@ class AppIcon extends React.Component {
         } : null;
 
         return (
-            <i className={classes.icon} style={styles}></i>
+            <i className={`${props.className || ''} ${classes.root}`} style={styles}></i>
         );
     }
 }

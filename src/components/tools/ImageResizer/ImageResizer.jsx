@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
 import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -10,35 +9,104 @@ import Typography from '@material-ui/core/Typography';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton'
-import Clear from '@material-ui/icons/Clear';
-import Search from '@material-ui/icons/Search';
-
+import ClearIcon from '@material-ui/icons/Clear';
+import SearchIcon from '@material-ui/icons/Search';
 import LinearProgress from '@material-ui/core/LinearProgress';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
+// Example Data
 import EXAMPLE_DATA from './ImageResizer.data.json';
 
 const styles = theme => ({
     root: {
-        backgroundColor: '#f5f5f5',
+
     },
-    media: {
+    Tabs: {
+        marginBottom: -.5,
+        '& [class*=MuiTabs-indicator]': {
+            display: 'none'
+        }
+    },
+    Tab: {
+        borderTopLeftRadius: theme.shape.borderRadius,
+        borderTopRightRadius: theme.shape.borderRadius,
+        border: '1px solid',
+        borderColor: theme.palette.grey[500],
+        borderBottomWidth: 0,
+        opacity: .5,
+        textTransform: 'initial',
+        fontSize: '1.125rem',
+        fontWeight: 'initial',
+        color: theme.palette.grey[700],
+        '&[aria-selected=true]': {
+            backgroundColor: theme.palette.grey[50]
+        },
+        '&+button': {
+            marginLeft: -1
+        }
+    },
+    SwipeableViews: {
+        border: '1px solid',
+        borderColor: theme.palette.grey[500],
+        borderRadius: theme.shape.borderRadius,
+        borderTopLeftRadius: 0
+    },
+    Toolbar: {
+        padding: theme.spacing.unit * 3,
+        borderBottom: '1px solid',
+        borderBottomColor: theme.palette.grey[500],
+        backgroundColor: theme.palette.grey[50]
+    },
+    Card: {
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: theme.palette.divider,
+        transition: theme.transitions.create(),
+        '&:hover': {
+            borderColor: theme.palette.primary.main,
+            boxShadow: `${theme.palette.primary.main} 0 0 0 1px, ${theme.palette.primary.main} 0 0 8px`
+        }
+    },
+    CardMedia: {
         height: 120
     },
-    button: {
-        margin: theme.spacing.unit,
+    CardHeader: {
+        padding: 12
     },
-    inputUpload: {
+    CardHeader_title: {
+        height: '3em',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        textAlign: 'center',
+        color: theme.palette.grey[700]
+    },
+    Button_addCaption: {
+        margin: 0
+    },
+    TextField_search: {
+        maxWidth: 600,
+        margin: 'auto',
+        backgroundColor: theme.palette.common.white
+    },
+    SearchIcon: {
+        marginRight: theme.spacing.unit
+    },
+    inputFile: {
         display: 'none',
     },
     tabContainer: {
-        padding: 12
+    },
+    gridContainer: {
+        padding: theme.spacing.unit * 3
+    },
+    progressContainer: {
+        paddingTop: theme.spacing.unit * 3,
+        textAlign: 'center'
     }
 });
 
@@ -59,66 +127,78 @@ class ImageResizer extends React.Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const props = this.props;
+        const classes = this.props.classes;
         const { activeTabIndex } = this.state;
         
         return (
-            <div className={classes.root}>
+            <div className={`${props.className || ''} ${classes.root}`}>
                 <Tabs
+                    className={classes.Tabs}
                     value={activeTabIndex}
                     onChange={this.handleTabChange}
-                    indicatorColor="primary"
-                    textColor="primary">
-                    <Tab label="Choose Meme" />
-                    <Tab label="Upload Image" />
+                    indicatorColor="primary">
+                    <Tab 
+                        className={classes.Tab}
+                        label="Choose Meme" />
+                    <Tab 
+                        className={classes.Tab} 
+                        label="Upload Image" />
                 </Tabs>
-                <SwipeableViews index={activeTabIndex}
-                                onChangeIndex={this.handleTabChangeIndex}>
+                <SwipeableViews
+                    className={classes.SwipeableViews} 
+                    index={activeTabIndex}
+                    onChangeIndex={this.handleTabChangeIndex}>
                     <div className={classes.tabContainer}>
-                        <Toolbar>
-                            <Grid container>
-                                <Grid item xs={2}></Grid>
-                                <Grid item xs={8}>
-                                    <TextField
-                                        id="outlined-search"
-                                        label="Search memes"
-                                        type="text"
-                                        margin="normal"
-                                        fullWidth
-                                        variant="outlined"
-                                        InputProps={{
-                                            startAdornment: <Search />,
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton
-                                                        aria-label="Toggle password visibility"
-                                                        onClick={this.handleClickShowPassword}>
-                                                        <Clear />
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            )
-                                        }} />
-                                </Grid>
-                            </Grid>
+                        <Toolbar className={classes.Toolbar}>
+                            <TextField
+                                id="outlined-search"
+                                placeholder="Search memes"
+                                type="text"
+                                margin="normal"
+                                fullWidth
+                                variant="outlined"
+                                className={classes.TextField_search}
+                                InputProps={{
+                                    startAdornment: <SearchIcon className={classes.SearchIcon} />,
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="Clear Search String"
+                                                onClick={this.handleClearSearch}>
+                                                <ClearIcon />
+                                            </IconButton>
+                                        </InputAdornment>
+                                    )
+                                }} />
                         </Toolbar>
-                        <Grid container spacing={24}>
-                            {this.state.images.map((image, index) => 
-                                <Grid item xs={2} key={index}>
-                                    <Card>
-                                        <CardHeader title={image.title} />
-                                        <CardMedia image={image.image} />
-                                        <CardActions>
-                                            <Button variant="outlined" fullWidth size="small">Add Caption</Button>
-                                        </CardActions>
-                                    </Card>
-                                </Grid>
-                            )}
-                        </Grid>
+                        <div className={classes.gridContainer}>
+                            <Grid container spacing={24}>
+                                {this.state.images.map((image, index) => 
+                                    <Grid item xs={2} key={index}>
+                                        <Card className={classes.Card} elevation={0}>
+                                            <CardHeader 
+                                                className={classes.CardHeader}
+                                                title={
+                                                    <Typography className={classes.CardHeader_title}>{image.title}</Typography>
+                                                } />
+                                            <CardMedia image={image.image} className={classes.CardMedia} />
+                                            <CardActions>
+                                                <Button className={classes.Button_addCaption} variant="outlined" fullWidth size="small">Add Caption</Button>
+                                            </CardActions>
+                                        </Card>
+                                    </Grid>
+                                )}
+                            </Grid>
+                            <div className={classes.progressContainer}>
+                                <CircularProgress />
+                            </div>
+                        </div>
                     </div>
                     <div className={classes.tabContainer}>
                         <input
                             accept="image/*"
-                            className={classes.inputUpload}
+                            className={classes.inputFile}
                             id="contained-button-file"
                             multiple
                             type="file"
@@ -129,7 +209,7 @@ class ImageResizer extends React.Component {
                                 size="large" 
                                 color="secondary" 
                                 component="span" 
-                                className={classes.button}>
+                                className={classes.Button}>
                             Choose Image
                             </Button>
                         </label>
