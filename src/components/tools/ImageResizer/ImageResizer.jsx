@@ -36,20 +36,22 @@ const styles = theme => ({
         borderTopLeftRadius: theme.shape.borderRadius,
         borderTopRightRadius: theme.shape.borderRadius,
         border: '1px solid',
-        borderColor: theme.palette.grey[500],
+        borderColor: theme.palette.border.light,
         borderBottomWidth: 0,
         backgroundColor: 'initial',
-        opacity: .54,
         textTransform: 'initial',
         fontSize: '1.125rem',
         fontWeight: 'initial',
-        color: theme.palette.grey[700],
+        color: theme.palette.text.secondary,
         transition: theme.transitions.create(),
         '&:not([aria-selected=true]):hover': {
-            opacity: .87
+            borderColor: theme.palette.border.dark,
+            color: theme.palette.text.primary
         },
         '&[aria-selected=true]': {
-            backgroundColor: theme.palette.grey[50]
+            backgroundColor: theme.palette.grey[50],
+            borderColor: theme.palette.border.dark,
+            color: theme.palette.text.primary
         },
         '&+button': {
             marginLeft: -1
@@ -57,14 +59,14 @@ const styles = theme => ({
     },
     SwipeableViews: {
         border: '1px solid',
-        borderColor: theme.palette.grey[500],
+        borderColor: theme.palette.border.dark,
         borderRadius: theme.shape.borderRadius,
         borderTopLeftRadius: 0
     },
     Toolbar: {
         padding: theme.spacing.unit * 3,
         borderBottom: '1px solid',
-        borderBottomColor: theme.palette.grey[500],
+        borderBottomColor: theme.palette.border.dark,
         backgroundColor: theme.palette.grey[50]
     },
     Card: {
@@ -74,7 +76,7 @@ const styles = theme => ({
         transition: theme.transitions.create(),
         '&:hover': {
             borderColor: theme.palette.primary.main,
-            boxShadow: `${theme.palette.primary.main} 0 0 0 1px, ${theme.palette.primary.main} 0 0 8px`
+            boxShadow: `${theme.palette.primary.main} 0 0 0 1px, rgba(110, 195, 250, .5) 0 0 8px`
         }
     },
     CardMedia: {
@@ -91,7 +93,7 @@ const styles = theme => ({
         color: theme.palette.grey[700]
     },
     Button_addCaption: {
-        backgroundColor: '#EBEFF1',
+        backgroundColor: theme.palette.grey[50],
         borderColor: '#C2CBD0',
         margin: 0
     },

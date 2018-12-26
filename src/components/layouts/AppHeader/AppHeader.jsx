@@ -14,7 +14,6 @@ import AppIcon from '../AppIcon/AppIcon';
 
 const styles = theme => ({
     Toolbar: {
-        marginBottom: -1,
         paddingRight: 0
     },
     MenuList: {
@@ -24,7 +23,7 @@ const styles = theme => ({
     MenuItem: {
         borderStyle: 'solid',
         borderLeftWidth: 1,
-        borderColor: theme.palette.divider,
+        borderColor: theme.palette.border.light,
         textTransform: 'uppercase',
         '&>i': {
             opacity: .36
@@ -33,7 +32,7 @@ const styles = theme => ({
             opacity: .64
         },
         '&:hover': {
-            color: theme.palette.action.active,
+            color: theme.palette.text.primary,
             backgroundColor: 'initial'
         },
         [theme.breakpoints.up('lg')]: {
@@ -42,7 +41,8 @@ const styles = theme => ({
     },
     MenuItem_selected: {
         backgroundColor: theme.palette.grey[50],
-        color: theme.palette.action.active,
+        boxShadow: theme.palette.grey[50] + ' 0 2px 0 0',
+        color: theme.palette.text.primary,
         marginBottom: -1,
         '&>i': {
             opacity: .64
@@ -55,7 +55,7 @@ const styles = theme => ({
         marginRight: 12
     },
     AppBar: {
-        borderColor: theme.palette.divider,
+        borderColor: theme.palette.border.light,
         backgroundColor: theme.palette.grey[50],
         borderStyle: 'solid',
         borderTopWidth: 1,
@@ -65,9 +65,12 @@ const styles = theme => ({
     },
     Tab: {
         textTransform: 'initial',
-        fontSize: theme.typography.fontSize,
         fontSize: '1rem',
         fontWeight: 'initial',
+        transition: theme.transitions.create(),
+        '&:not([aria-selected=true]):hover': {
+            color: theme.palette.text.primary
+        },
         [theme.breakpoints.up('lg')]: {
             minHeight: 70
         }
@@ -98,7 +101,7 @@ class AppHeader extends React.Component {
                                 component={NavLink} 
                                 activeClassName={classes.MenuItem_selected} 
                                 exact={true}
-                                to="/">
+                                to="/image/">
                                 <AppIcon icon="image" className={classes.AppIcon}></AppIcon>
                                 Image Tools
                             </MenuItem>
@@ -106,7 +109,7 @@ class AppHeader extends React.Component {
                                 className={classes.MenuItem}
                                 component={NavLink} 
                                 activeClassName={classes.MenuItem_selected} 
-                                to="/pdf-tools">
+                                to="/pdf/">
                                 <AppIcon icon="pdf" className={classes.AppIcon}></AppIcon>
                                 PDF Tools
                             </MenuItem>
@@ -114,7 +117,7 @@ class AppHeader extends React.Component {
                                 className={classes.MenuItem}
                                 component={NavLink} 
                                 activeClassName={classes.MenuItem_selected} 
-                                to="/convert-tools">
+                                to="/convert/">
                                 <AppIcon icon="converter" className={classes.AppIcon}></AppIcon>
                                 Convert Tools
                             </MenuItem>
@@ -122,7 +125,7 @@ class AppHeader extends React.Component {
                                 className={classes.MenuItem}
                                 component={NavLink} 
                                 activeClassName={classes.MenuItem_selected} 
-                                to="/features">
+                                to="/features/">
                                 <AppIcon icon="features" className={classes.AppIcon}></AppIcon>
                                 Features
                             </MenuItem>
@@ -140,10 +143,10 @@ class AppHeader extends React.Component {
                             indicatorColor="primary"
                             textColor="primary"
                             centered>
-                            <Tab className={classes.Tab} component={NavLink} to="/image-resize" label="Image Resize" />
-                            <Tab className={classes.Tab} component={NavLink} to="/bulk-resize" label="Bulk Resize" />
-                            <Tab className={classes.Tab} component={NavLink} to="/compress-images" label="Compress Images" />
-                            <Tab className={classes.Tab} component={NavLink} to="/features" label="Features" />
+                            <Tab className={classes.Tab} component={NavLink} to="/image/resize" label="Image Resize" />
+                            <Tab className={classes.Tab} component={NavLink} to="/image/bulk-resize" label="Bulk Resize" />
+                            <Tab className={classes.Tab} component={NavLink} to="/image/compress" label="Compress Images" />
+                            <Tab className={classes.Tab} component={NavLink} to="/image/features" label="Features" />
                         </Tabs>
                     </AppBar>
                 </div>

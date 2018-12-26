@@ -21,87 +21,93 @@ const theme = createMuiTheme({
     },
     grey: {
       50: '#FBFCFD',
-      600: 'rgba(0,0,0,.54)'
+      600: 'rgba(0,0,0,.48)'
     },
-    divider: '#E9E9E9',
+    divider: 'rgba(0, 0, 0, 0.12)',
+    border: {
+      light: 'rgba(0, 0, 0, 0.12)',
+      dark: 'rgba(0, 0, 0, 0.36)'
+    },
     text: {
-      primary: 'rgba(0,0,0,.64)',
-      secondary: 'rgba(0,0,0,.54)'
+      primary: 'rgba(0,0,0,.72)',
+      secondary: 'rgba(0,0,0,.48)'
     },
     action: {
-      active: 'rgba(0,0,0,.64)',
       selectedBackground: 'rgba(0,0,0,.024)'
     }
   },
+  shape: {
+    borderRadius: 3
+  },
   typography: {
     useNextVariants: true,
-    color: 'rgba(0,0,0,.64)',
+    color: 'rgba(0,0,0,.72)',
     headline: {
-      color: 'rgba(0,0,0,.64)'
+      color: 'rgba(0,0,0,.72)'
     },
     title: {
-      color: 'rgba(0,0,0,.64)'
+      color: 'rgba(0,0,0,.72)'
     },
     subheading: {
-      color: 'rgba(0,0,0,.54)'
+      color: 'rgba(0,0,0,.48)'
     },
     body2: {
-      color: 'rgba(0,0,0,.54)'
+      color: 'rgba(0,0,0,.48)'
     },
     body1: {
-      color: 'rgba(0,0,0,.54)',
+      color: 'rgba(0,0,0,.48)',
     },
     button: {
-      color: 'rgba(0,0,0,.64)',
+      color: 'rgba(0,0,0,.72)',
       fontWeight: 400,
       fontSize: 14,
       textTransform: 'initial'
     },
     h1: {
-      color: 'rgba(0,0,0,.64)',
+      color: 'rgba(0,0,0,.72)',
       marginBottom: 8
     },
     h2: {
-      color: 'rgba(0,0,0,.64)',
+      color: 'rgba(0,0,0,.72)',
       marginBottom: 8
     },
     h3: {
-      color: 'rgba(0,0,0,.64)',
+      color: 'rgba(0,0,0,.72)',
       marginBottom: 8
     },
     h4: {
-      color: 'rgba(0,0,0,.64)',
+      color: 'rgba(0,0,0,.72)',
       marginBottom: 8
     },
     h5: {
-      color: 'rgba(0,0,0,.64)',
+      color: 'rgba(0,0,0,.72)',
       marginBottom: 8
     },
     h6: {
-      color: 'rgba(0,0,0,.64)',
+      color: 'rgba(0,0,0,.72)',
       marginBottom: 8
     },
     subtitle1: {
-      color: 'rgba(0,0,0,.54)',
+      color: 'rgba(0,0,0,.48)',
       fontSize: '1.125rem'
     },
     subtitle2: {
-      color: 'rgba(0,0,0,.54)'
+      color: 'rgba(0,0,0,.48)'
     },
     body1Next: {
-      color: 'rgba(0,0,0,.54)'
+      color: 'rgba(0,0,0,.48)'
     },
     body2Next: {
-      color: 'rgba(0,0,0,.54)'
+      color: 'rgba(0,0,0,.48)'
     },
     buttonNext: {
-      color: 'rgba(0,0,0,.64)'
+      color: 'rgba(0,0,0,.72)'
     },
     captionNext: {
-      color: 'rgba(0,0,0,.64)'
+      color: 'rgba(0,0,0,.72)'
     },
     overline: {
-      color: 'rgba(0,0,0,.64)'
+      color: 'rgba(0,0,0,.72)'
     }
   }
 });
