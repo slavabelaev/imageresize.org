@@ -19,8 +19,8 @@ import ClearIcon from '@material-ui/icons/Clear';
 import SearchIcon from '@material-ui/icons/Search';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
-// Example Data
-import EXAMPLE_DATA from './ImageResizer.data.json';
+// DEMO DATA
+import DEMO_DATA from '../../../demo/data/images.json';
 
 const styles = theme => ({
     root: {
@@ -119,12 +119,12 @@ const styles = theme => ({
     }
 });
 
-class ImageResizer extends React.Component {
+class ImageResizeTool extends React.Component {
     state = {
         activeTabIndex: 0,
         completed: 0,
         buffer: 80,
-        images: EXAMPLE_DATA.images
+        images: DEMO_DATA.images
     };
     
     handleTabChange = (event, activeTabIndex) => {
@@ -251,8 +251,8 @@ class ImageResizer extends React.Component {
     }
 }
 
-ImageResizer.propTypes = {
+ImageResizeTool.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImageResizer);
+export default withStyles(styles)(ImageResizeTool);

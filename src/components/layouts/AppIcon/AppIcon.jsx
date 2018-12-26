@@ -1,15 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
-const styles = theme => ({
-    root: {
-        display: 'inline-flex',
-        backgroundSize: 'cover',
-        opacity: .54,
-        transition: theme.transitions.create()
-    }
-});
+// Styles
+import styles from './AppIcon.styles';
 
 class AppIcon extends React.Component {
     state = {

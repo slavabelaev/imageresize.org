@@ -11,27 +11,8 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton';
 import AppLogo from '../AppLogo/AppLogo';
 import AppIcon from '../AppIcon/AppIcon';
-
-const styles = theme => ({
-    root: {
-        maxWidth: 1170,
-        marginLeft: 'auto',
-        marginRight: 'auto'
-    },
-    container: {
-        padding: 60
-    },
-    AppLogo: {
-        maxWidth: 175,
-        marginBottom: 60
-    },
-    ListItemText_title: {
-        color: theme.typography.title.color
-    },
-    Grid_socials: {
-        textAlign: 'center'
-    }
-});
+// Styles
+import styles from './AppFooter.styles';
 
 class AppFooter extends React.Component {
     render() {
@@ -48,17 +29,29 @@ class AppFooter extends React.Component {
                                 <AppLogo className={classes.AppLogo}></AppLogo>
                                 <Grid className={classes.Grid_socials} container>
                                     <Grid item xs={4}>
-                                        <IconButton component="a" target="_blank" href="https://twitter.com/">
+                                        <IconButton 
+                                            component="a" 
+                                            target="_blank" 
+                                            href="https://twitter.com/"
+                                        >
                                             <AppIcon icon="twitter" size="small"></AppIcon>
                                         </IconButton>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <IconButton component="a" target="_blank" href="https://www.facebook.com/">
+                                        <IconButton 
+                                            component="a" 
+                                            target="_blank" 
+                                            href="https://www.facebook.com/"
+                                        >
                                             <AppIcon icon="facebook" size="small"></AppIcon>
                                         </IconButton>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <IconButton component="a" target="_blank" href="https://plus.google.com/">
+                                        <IconButton 
+                                            component="a" 
+                                            target="_blank" 
+                                            href="https://plus.google.com/"
+                                        >
                                             <AppIcon icon="google-plus" size="small"></AppIcon>
                                         </IconButton>
                                     </Grid>
@@ -68,7 +61,9 @@ class AppFooter extends React.Component {
                             <Grid item xs={2}>
                                 <List component="nav">
                                     <ListItem button dense={true} component={Link} to="/image-tools">
-                                        <ListItemText primary={<Typography className={classes.ListItemText_title}>Image Tools</Typography>} />
+                                        <ListItemText primary={
+                                            <Typography className={classes.ListItemText_title}>Image Tools</Typography>} 
+                                        />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/image-resize">
                                         <ListItemText primary={<Typography>Image Resize</Typography>} />
@@ -84,7 +79,9 @@ class AppFooter extends React.Component {
                             <Grid item xs={2}>
                                 <List component="nav">
                                     <ListItem button dense={true} component={Link} to="/features">
-                                        <ListItemText primary={<Typography className={classes.ListItemText_title}>Features</Typography>} />
+                                        <ListItemText primary={
+                                            <Typography className={classes.ListItemText_title}>Features</Typography>} 
+                                        />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/crop-images">
                                         <ListItemText primary={<Typography>Crop Images</Typography>} />
@@ -100,7 +97,9 @@ class AppFooter extends React.Component {
                             <Grid item xs={2}>
                                 <List component="nav">
                                     <ListItem button dense={true} component={Link} to="/about">
-                                        <ListItemText primary={<Typography className={classes.ListItemText_title}>About</Typography>} />
+                                        <ListItemText primary={
+                                            <Typography className={classes.ListItemText_title}>About</Typography>} 
+                                        />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/contact">
                                         <ListItemText primary={<Typography>Contact</Typography>} />
@@ -116,7 +115,9 @@ class AppFooter extends React.Component {
                             <Grid item xs={2}>
                                 <List component="nav">
                                     <ListItem button dense={true} component={Link} to="/legal">
-                                        <ListItemText primary={<Typography className={classes.ListItemText_title}>Legal</Typography>} />
+                                        <ListItemText primary={
+                                            <Typography className={classes.ListItemText_title}>Legal</Typography>} 
+                                        />
                                     </ListItem>
                                     <ListItem button dense={true} component={Link} to="/privacy">
                                         <ListItemText primary={<Typography>Privacy</Typography>} />

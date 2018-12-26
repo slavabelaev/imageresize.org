@@ -4,32 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import ImageResizer from '../../tools/ImageResizer/ImageResizer';
-
-const styles = theme => ({
-    root: {
-        maxWidth: 1170,
-        margin: 'auto'
-    },
-    header: {
-        textAlign: 'center',
-        marginBottom: 48
-    },
-    contentContainer: {
-        padding: 60,
-        paddingBottom: 0
-    },
-    ImageResizer: {
-        marginBottom: 72
-    },
-    Grid_container: {
-        margin: 0,
-        padding: 40
-    },
-    Grid_item: {
-        marginBottom: 60
-    }
-});
+import ImageResizeTool from '../../tools/ImageResizeTool/ImageResizeTool';
+// Styles
+import styles from './ImageResizePage.styles';
 
 class ImageResizePage extends React.Component {
     state = {  }
@@ -44,7 +21,7 @@ class ImageResizePage extends React.Component {
                         <Typography variant="h4" component="h1">Meme Maker</Typography>
                         <Typography variant="subtitle1" component="p">Upload Files below to start crop, resize, compress or edit your images</Typography>
                     </header>
-                    <ImageResizer className={classes.ImageResizer} />
+                    <ImageResizeTool className={classes.ImageResizeTool} />
                 </div>
                 <Divider />
                 <Grid className={classes.Grid_container} container spacing={40}>

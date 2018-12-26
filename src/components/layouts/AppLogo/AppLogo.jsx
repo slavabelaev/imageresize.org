@@ -3,19 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import AppLogoImage from './AppLogo.svg';
-
-const styles = theme => ({
-    root: {
-        display: 'inline-flex',
-        transition: theme.transitions.create(),
-        '&:hover': {
-            opacity: .64
-        }
-    },
-    image: {
-        width: '100%'
-    }
-});
+// Styles
+import styles from './AppLogo.styles';
 
 class AppLogo extends React.Component {
     render() {
@@ -24,8 +13,8 @@ class AppLogo extends React.Component {
 
         return (
             <Router>
-                <Link to="/" className={`${props.className || ''} ${classes.root}`}>
-                    <img src={AppLogoImage} alt="ImageResize Logo" className={classes.image} />
+                <Link className={`${props.className || ''} ${classes.root}`} to="/">
+                    <img className={classes.image} src={AppLogoImage} alt="ImageResize Logo" />
                 </Link>
             </Router>
         );
