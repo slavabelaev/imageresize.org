@@ -13,7 +13,9 @@ const styles = theme => ({
 
 class AppIcon extends React.Component {
     state = {
-        size: this.props.size ? this.props.size : 24
+        size: 
+            this.props.size === 'large' ? 32 : 
+            this.props.size === 'small' ? 20 : 24
     };
 
     render() {

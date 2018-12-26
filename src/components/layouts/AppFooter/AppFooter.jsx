@@ -49,17 +49,17 @@ class AppFooter extends React.Component {
                                 <Grid className={classes.Grid_socials} container>
                                     <Grid item xs={4}>
                                         <IconButton component="a" target="_blank" href="https://twitter.com/">
-                                            <AppIcon icon="twitter" size={16}></AppIcon>
+                                            <AppIcon icon="twitter" size="small"></AppIcon>
                                         </IconButton>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <IconButton component="a" target="_blank" href="https://www.facebook.com/">
-                                            <AppIcon icon="facebook" size={16}></AppIcon>
+                                            <AppIcon icon="facebook" size="small"></AppIcon>
                                         </IconButton>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <IconButton component="a" target="_blank" href="https://plus.google.com/">
-                                            <AppIcon icon="google-plus" size={16}></AppIcon>
+                                            <AppIcon icon="google-plus" size="small"></AppIcon>
                                         </IconButton>
                                     </Grid>
                                 </Grid>

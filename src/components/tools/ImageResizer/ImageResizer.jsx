@@ -76,7 +76,7 @@ const styles = theme => ({
         transition: theme.transitions.create(),
         '&:hover': {
             borderColor: theme.palette.primary.main,
-            boxShadow: `${theme.palette.primary.main} 0 0 0 1px, rgba(110, 195, 250, .5) 0 0 8px`
+            boxShadow: `${theme.palette.primary.main} 0 0 0 1px, rgba(41, 182, 246, .5) 0 0 8px`
         }
     },
     CardMedia: {
@@ -175,7 +175,7 @@ class ImageResizer extends React.Component {
                                             <IconButton
                                                 aria-label="Clear Search String"
                                                 onClick={this.handleClearSearch}>
-                                                <ClearIcon />
+                                                <ClearIcon fontSize="small" />
                                             </IconButton>
                                         </InputAdornment>
                                     )
