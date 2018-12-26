@@ -13,7 +13,7 @@ lightGreen.dark = lightGreen[500];
 lightGreen.contrastText = "rgba(255, 255, 255, 1)";
 
 const theme = createMuiTheme({
-  shadows: ["none"],
+  shadows: [null],
   palette: {
     primary: lightBlue,
     secondary: lightGreen,

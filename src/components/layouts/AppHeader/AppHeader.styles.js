@@ -1,4 +1,7 @@
 const styles = theme => ({
+    root: {
+
+    },
     Toolbar: {
         paddingRight: 0
     },
