@@ -6,18 +6,18 @@ import AppLogoImage from './AppLogo.svg';
 // Styles
 import styles from './AppLogo.styles';
 
-class AppLogo extends React.Component {
-    render() {
-        const props = this.props;
-        const { classes } = this.props;
-
-        return (
-            <Link className={`${props.className || ''} ${classes.root}`} to="/image/resize">
-                <img className={classes.image} src={AppLogoImage} alt="ImageResize Logo" />
-            </Link>
-        );
-    }
-}
+const AppLogo = (props) => (
+    <Link 
+        className={`${props.className || ''} ${props.classes.root}`} 
+        to="/image/resize"
+    >
+        <img 
+            className={props.classes.image} 
+            src={AppLogoImage} 
+            alt="ImageResize Logo" 
+        />
+    </Link>
+);
  
 AppLogo.propTypes = {
     classes: PropTypes.object.isRequired,

@@ -7,19 +7,11 @@ import Typography from '@material-ui/core/Typography';
 import styles from './TermsOfServicePage.styles';
 import TermsOfService from './terms-of-service.md';
 
-class TermsOfServicePage extends React.Component {
-    state = {  }
-    render() {
-        const props = this.props;
-        const { classes } = this.props;
-
-        return (
-            <div className={`${props.className || ''} ${classes.root}`}>
-                <ReactMarkdown className='section' source={TermsOfService} />
-            </div>
-        );
-    }
-}
+const TermsOfServicePage = ({ className, classes }) => (
+    <div className={`${className || ''} ${classes.root}`}>
+        <ReactMarkdown className='section' source={TermsOfService} />
+    </div>
+);
  
 TermsOfServicePage.propTypes = {
     classes: PropTypes.object.isRequired,
