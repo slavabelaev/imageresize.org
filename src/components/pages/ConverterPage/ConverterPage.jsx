@@ -6,9 +6,9 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import ImageResizeTool from '../../tools/ImageResizeTool/ImageResizeTool';
 // Styles
-import styles from './Convert_JPG_to_PDF_Page.styles';
+import styles from './ConverterPage.styles';
 
-class Convert_JPG_to_PDF_Page extends React.Component {
+class ConverterPage extends React.Component {
     state = {  }
     render() {
         const props = this.props;
@@ -43,8 +43,8 @@ class Convert_JPG_to_PDF_Page extends React.Component {
     }
 }
  
-Convert_JPG_to_PDF_Page.propTypes = {
+ConverterPage.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Convert_JPG_to_PDF_Page);
+export default withStyles(styles)(ConverterPage);

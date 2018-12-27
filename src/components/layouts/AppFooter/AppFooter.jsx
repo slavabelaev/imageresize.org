@@ -122,8 +122,8 @@ class AppFooter extends React.Component {
                                     <ListItem button dense={true} component={Link} to="/privacy">
                                         <ListItemText primary={<Typography>Privacy</Typography>} />
                                     </ListItem>
-                                    <ListItem button dense={true} component={Link} to="/terms-of-services">
-                                        <ListItemText primary={<Typography>Terms of services</Typography>} />
+                                    <ListItem button dense={true} component={Link} to="/terms-of-service">
+                                        <ListItemText primary={<Typography>Terms of Service</Typography>} />
                                     </ListItem>
                                 </List>
                             </Grid>

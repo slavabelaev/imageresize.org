@@ -3,7 +3,13 @@ const styles = theme => ({
 
     },
     Toolbar: {
-        paddingRight: 0
+        paddingRight: 0,
+        borderColor: theme.palette.border.light,
+        borderStyle: 'solid',
+        borderTopWidth: 0,
+        borderBottomWidth: 1,
+        borderLeftWidth: 0,
+        borderRightWidth: 0
     },
     MenuList: {
         display: 'flex',
@@ -47,7 +53,7 @@ const styles = theme => ({
         borderColor: theme.palette.border.light,
         backgroundColor: theme.palette.grey[50],
         borderStyle: 'solid',
-        borderTopWidth: 1,
+        borderTopWidth: 0,
         borderBottomWidth: 1,
         borderLeftWidth: 0,
         borderRightWidth: 0

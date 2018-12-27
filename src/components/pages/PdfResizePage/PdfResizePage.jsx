@@ -6,9 +6,9 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import ImageResizeTool from '../../tools/ImageResizeTool/ImageResizeTool';
 // Styles
-import styles from './Convert_PDF_to_JPG_Page.styles';
+import styles from './PdfResizePage.styles';
 
-class Convert_PDF_to_JPG_Page extends React.Component {
+class PdfResizePage extends React.Component {
     state = {  }
     render() {
         const props = this.props;
@@ -18,7 +18,7 @@ class Convert_PDF_to_JPG_Page extends React.Component {
             <div className={`${props.className || ''} ${classes.root}`}>
                 <div className={classes.contentContainer}>
                     <header className={classes.header}>
-                        <Typography variant="h4" component="h1">Convert PDF to JPG</Typography>
+                        <Typography variant="h4" component="h1">PDF Resize</Typography>
                         <Typography variant="subtitle1" component="p">Upload Files below to start crop, resize, compress or edit your images</Typography>
                     </header>
                     <ImageResizeTool className={classes.ImageResizeTool} />
@@ -43,8 +43,8 @@ class Convert_PDF_to_JPG_Page extends React.Component {
     }
 }
  
-Convert_PDF_to_JPG_Page.propTypes = {
+PdfResizePage.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Convert_PDF_to_JPG_Page);
+export default withStyles(styles)(PdfResizePage);
