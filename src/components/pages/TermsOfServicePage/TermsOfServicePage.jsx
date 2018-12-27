@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 // Styles
 import styles from './TermsOfServicePage.styles';
 import TermsOfService from './terms-of-service.md';
