@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,7 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
 import AppLogo from '../AppLogo/AppLogo';
-import AppIcon from '../AppIcon/AppIcon';
+import AppIcon from '../../common/AppIcon/AppIcon';
 // Styles
 import styles from './AppHeader.styles';
 // Routes
@@ -30,71 +30,68 @@ class AppHeader extends React.Component {
         const { classes } = this.props;
 
         return (
-            <Router>
-                <header className={`${props.className || ''} ${classes.root}`}>
-                    <Toolbar className={classes.Toolbar}>
-                        <AppLogo></AppLogo>
-                        <MenuList 
-                            className={classes.MenuList}
-                            component="nav" 
-                            disablePadding
-                        >
-                            {routes.map((route, index) => !route.showInMenu ? null :
-                                <MenuItem 
-                                    key={index}
-                                    className={classes.MenuItem}
-                                    activeClassName={classes.MenuItem_selected}
-                                    component={NavLink}  
-                                    exact={route.exact}
-                                    to={route.path}
-                                >
-                                    <AppIcon 
-                                        className={classes.AppIcon} 
-                                        icon={route.icon} 
-                                    />
-                                    {route.title}
-                                </MenuItem>
-                            )}
-                        </MenuList>
-                    </Toolbar>
+            <header className={`${props.className || ''} ${classes.root}`}>
+                <Toolbar className={classes.Toolbar}>
+                    <AppLogo />
+                    <MenuList 
+                        className={classes.MenuList}
+                        component="nav" 
+                        disablePadding
+                    >
+                        {routes.map((route, index) => !route.showInMenu ? null :
+                            <MenuItem 
+                                key={index}
+                                className={classes.MenuItem}
+                                activeClassName={classes.MenuItem_selected}
+                                component={NavLink}
+                                to={route.path}
+                            >
+                                <AppIcon 
+                                    className={classes.AppIcon} 
+                                    icon={route.icon} 
+                                />
+                                {route.title}
+                            </MenuItem>
+                        )}
+                    </MenuList>
+                </Toolbar>
 
-                    {routes.map((route, index) => !route.showInMenu ? null :
-                        <Route 
-                            key={index}
-                            path={route.path}
-                            render={(props) =>
-                                <AppBar 
-                                    className={classes.AppBar} 
-                                    component="div"
-                                    elevation={0} 
-                                    position="static" 
-                                    color="default"
+                {routes.map((route, index) => !route.showInMenu ? null :
+                    <Route 
+                        key={index}
+                        path={route.path}
+                        render={(props) =>
+                            <AppBar 
+                                className={classes.AppBar} 
+                                component="div"
+                                elevation={0} 
+                                position="static" 
+                                color="default"
+                            >
+                                <Tabs
+                                    className={classes.Tabs}
+                                    value={this.getActiveTabValue(props.location, route)}
+                                    onChange={this.handleTabChange}
+                                    indicatorColor="primary"
+                                    textColor="primary"
+                                    centered
                                 >
-                                    <Tabs
-                                        className={classes.Tabs}
-                                        value={this.getActiveTabValue(props.location, route)}
-                                        onChange={this.handleTabChange}
-                                        indicatorColor="primary"
-                                        textColor="primary"
-                                        centered
-                                    >
-                                        {route.children.map((routeChild, index) => 
-                                            <Tab 
-                                                key={index}
-                                                className={classes.Tab} 
-                                                component={NavLink} 
-                                                to={`${route.path}/${routeChild.path}`}
-                                                value={`${route.path}/${routeChild.path}`}
-                                                label={routeChild.title}
-                                            />
-                                        )}
-                                    </Tabs>
-                                </AppBar>
-                            }
-                        />
-                    )}
-                </header>
-            </Router>
+                                    {route.children.map((routeChild, index) => 
+                                        <Tab 
+                                            key={index}
+                                            className={classes.Tab} 
+                                            component={NavLink} 
+                                            to={route.path + '/' + routeChild.path}
+                                            value={route.path + '/' + routeChild.path}
+                                            label={routeChild.title}
+                                        />
+                                    )}
+                                </Tabs>
+                            </AppBar>
+                        }
+                    />
+                )}
+            </header>
         );
     }
 }

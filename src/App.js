@@ -1,29 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { MuiThemeProvider, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider } from '@material-ui/core/styles';
-import AppTheme from './App.theme';
 import AppHeader from './components/layouts/AppHeader/AppHeader';
-import AppContent from './components/layouts/AppContent/AppContent';
 import AppFooter from './components/layouts/AppFooter/AppFooter';
+// Theme
+import theme from './App.theme';
 // Styles
 import styles from './App.styles';
+// Routes
+import routes from './App.routes';
 
 class App extends React.Component {
   render() {
-    const props = this.props;
     const classes = this.props.classes;
 
     return (
-      <div className={`${props.className || ''} ${classes.root}`}>
-        <MuiThemeProvider theme={AppTheme}>
-          <CssBaseline />
-          <AppHeader></AppHeader>
-          <AppContent></AppContent>
-          <AppFooter></AppFooter>
-        </MuiThemeProvider>
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className={classes.root}>
+          <AppHeader />
+          <main className={classes.main}>
+            {routes.map((route, index) =>
+              <React.Fragment key={index}>
+                {route.redirectTo ? 
+                  <Redirect 
+                    from={route.path} 
+                    to={route.redirectTo} 
+                  /> :
+                  <Route  
+                    key={index}
+                    path={route.path} 
+                    exact={route.exact} 
+                    component={route.component} 
+                  />
+                }
+                {route.children ? route.children.map((routeChild, index) => 
+                  <Route 
+                    key={index} 
+                    path={`${route.path}/${routeChild.path}`}
+                    exact={route.exact}
+                    component={routeChild.component} 
+                  />
+                ) : null}
+              </React.Fragment>
+            )}
+          </main>
+          <AppFooter />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

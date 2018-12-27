@@ -10,7 +10,7 @@ import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton';
 import AppLogo from '../AppLogo/AppLogo';
-import AppIcon from '../AppIcon/AppIcon';
+import AppIcon from '../../common/AppIcon/AppIcon';
 // Styles
 import styles from './AppFooter.styles';
 
@@ -60,36 +60,36 @@ class AppFooter extends React.Component {
                             <Grid item xs={2}></Grid>
                             <Grid item xs={2}>
                                 <List component="nav">
-                                    <ListItem button dense={true} component={Link} to="/image-tools">
+                                    <ListItem button dense={true} component={Link} to="/image">
                                         <ListItemText primary={
                                             <Typography className={classes.ListItemText_title}>Image Tools</Typography>} 
                                         />
                                     </ListItem>
-                                    <ListItem button dense={true} component={Link} to="/image-resize">
+                                    <ListItem button dense={true} component={Link} to="/image/resize">
                                         <ListItemText primary={<Typography>Image Resize</Typography>} />
                                     </ListItem>
-                                    <ListItem button dense={true} component={Link} to="/bulk-image-resize">
+                                    <ListItem button dense={true} component={Link} to="/image/bulk-resize">
                                         <ListItemText primary={<Typography>Bulk Image Resize</Typography>} />
                                     </ListItem>
-                                    <ListItem button dense={true} component={Link} to="/image-compressor">
+                                    <ListItem button dense={true} component={Link} to="/image/compress">
                                         <ListItemText primary={<Typography>Image Compressor</Typography>} />
                                     </ListItem>
                                 </List>
                             </Grid>
                             <Grid item xs={2}>
                                 <List component="nav">
-                                    <ListItem button dense={true} component={Link} to="/features">
+                                    <ListItem button dense={true} component={Link} to="/feature">
                                         <ListItemText primary={
                                             <Typography className={classes.ListItemText_title}>Features</Typography>} 
                                         />
                                     </ListItem>
-                                    <ListItem button dense={true} component={Link} to="/crop-images">
+                                    <ListItem button dense={true} component={Link} to="/feature/cropping">
                                         <ListItemText primary={<Typography>Crop Images</Typography>} />
                                     </ListItem>
-                                    <ListItem button dense={true} component={Link} to="/photo-filters">
+                                    <ListItem button dense={true} component={Link} to="/feature/editing">
                                         <ListItemText primary={<Typography>Photo Filters</Typography>} />
                                     </ListItem>
-                                    <ListItem button dense={true} component={Link} to="/photo-adjust">
+                                    <ListItem button dense={true} component={Link} to="/feature/compressing">
                                         <ListItemText primary={<Typography>Photo Adjust</Typography>} />
                                     </ListItem>
                                 </List>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 // Styles
 import styles from './AppContent.styles';
 // Routes
@@ -13,27 +13,32 @@ class AppContent extends React.Component {
         const { classes } = this.props;
 
         return (
-            <Router>
-                <main className={`${props.className || ''} ${classes.root}`}>
-                    {routes.map((route, index) =>
-                        <div key={index}>
-                            <Route 
+            <main className={`${props.className || ''} ${classes.root}`}>
+                {routes.map((route, index) =>
+                    <React.Fragment key={index}>
+                        {route.redirectTo ? 
+                            <Redirect 
+                                from={route.path} 
+                                to={route.redirectTo} 
+                            /> :
+                            <Route  
+                                key={index}
                                 path={route.path} 
                                 exact={route.exact} 
                                 component={route.component} 
                             />
-                            {route.children ? route.children.map((routeChild, index) => 
-                                <Route 
-                                    key={index} 
-                                    path={`${route.path}/${routeChild.path}`}
-                                    exact={routeChild.exact}
-                                    component={routeChild.component} 
-                                />
-                            ) : null}
-                        </div>
-                    )}
-                </main>
-            </Router>
+                        }
+                        {route.children ? route.children.map((routeChild, index) => 
+                            <Route 
+                                key={index} 
+                                path={`${route.path}/${routeChild.path}`}
+                                exact={route.exact}
+                                component={routeChild.component} 
+                            />
+                        ) : null}
+                    </React.Fragment>
+                )}
+            </main>
         );
     }
 }

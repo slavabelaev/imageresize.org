@@ -6,9 +6,9 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import ImageResizeTool from '../../tools/ImageResizeTool/ImageResizeTool';
 // Styles
-import styles from './ImageResizePage.styles';
+import styles from './FeatureEditingPage.styles';
 
-class ImageResizePage extends React.Component {
+class FeatureEditingPage extends React.Component {
     state = {  }
     render() {
         const props = this.props;
@@ -18,7 +18,7 @@ class ImageResizePage extends React.Component {
             <div className={`${props.className || ''} ${classes.root}`}>
                 <div className={classes.contentContainer}>
                     <header className={classes.header}>
-                        <Typography variant="h4" component="h1">Image Resize</Typography>
+                        <Typography variant="h4" component="h1">Feature Editing</Typography>
                         <Typography variant="subtitle1" component="p">Upload Files below to start crop, resize, compress or edit your images</Typography>
                     </header>
                     <ImageResizeTool className={classes.ImageResizeTool} />
@@ -43,8 +43,8 @@ class ImageResizePage extends React.Component {
     }
 }
  
-ImageResizePage.propTypes = {
+FeatureEditingPage.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImageResizePage);
+export default withStyles(styles)(FeatureEditingPage);
