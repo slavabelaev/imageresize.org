@@ -17,12 +17,23 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton'
 import ClearIcon from '@material-ui/icons/Clear';
 import SearchIcon from '@material-ui/icons/Search';
+import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
 // Styles
 import styles from './ImageResizeTool.styles';
 // DEMO DATA
 import DEMO_DATA from '../../../demo/data/images.json';
+
+const TabContainer = ({ className, children }) => (
+    <Typography className={className || ''} component="div">
+        {children}
+    </Typography>
+);
+  
+TabContainer.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 class ImageResizeTool extends React.Component {
     state = {
@@ -36,17 +47,20 @@ class ImageResizeTool extends React.Component {
         this.setState({ activeTabIndex });
     };
 
-    handleTabChangeIndex = index => {
+    handleChangeActiveTabIndex = index => {
         this.setState({ activeTabIndex: index });
     };
 
+    handleUploadCancel = () => {
+
+    };
+
     render() {
-        const props = this.props;
-        const classes = this.props.classes;
+        const { className, classes } = this.props;
         const { activeTabIndex } = this.state;
         
         return (
-            <div className={`${props.className || ''} ${classes.root}`}>
+            <Typography component="div" className={`${className || ''} ${classes.root}`}>
                 <Tabs
                     className={classes.Tabs}
                     value={activeTabIndex}
@@ -60,10 +74,11 @@ class ImageResizeTool extends React.Component {
                         label="Upload Image" />
                 </Tabs>
                 <SwipeableViews
+                    animateHeight
                     className={classes.SwipeableViews} 
                     index={activeTabIndex}
-                    onChangeIndex={this.handleTabChangeIndex}>
-                    <div className={classes.tabContainer}>
+                    onChangeIndex={this.handleChangeActiveTabIndex}>
+                    <TabContainer className={classes.TabContainer}>
                         <Toolbar className={classes.Toolbar}>
                             <TextField
                                 id="outlined-search"
@@ -74,7 +89,7 @@ class ImageResizeTool extends React.Component {
                                 variant="outlined"
                                 className={classes.TextField_search}
                                 InputProps={{
-                                    startAdornment: <SearchIcon className={classes.SearchIcon} />,
+                                    startAdornment: <SearchIcon className={classes.Icon} />,
                                     endAdornment: (
                                         <InputAdornment position="end">
                                             <IconButton
@@ -108,50 +123,62 @@ class ImageResizeTool extends React.Component {
                                 <CircularProgress />
                             </div>
                         </div>
-                    </div>
-                    <div className={classes.tabContainer}>
-                        <input
-                            accept="image/*"
-                            className={classes.inputFile}
-                            id="contained-button-file"
-                            multiple
-                            type="file"
-                        />
-                        <label htmlFor="contained-button-file">
-                            <Button 
-                                variant="contained"
-                                size="large" 
-                                color="secondary" 
-                                component="span" 
-                                className={classes.Button}>
-                            Choose Image
-                            </Button>
-                        </label>
-                        <Typography variant="subtitle1">or, drop PDF files here</Typography>
-                        <TextField
-                            id="outlined-simple-start-adornment"
-                            variant="outlined"
-                            fullWidth
-                            placeholder="http://"
-                            type="url"
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="end">
-                                        <Button
-                                            variant="contained"
-                                            size="large"
-                                            color="secondary">Go</Button>
-                                    </InputAdornment>
-                                )
-                            }} />
-                        <LinearProgress 
-                            color="secondary" 
-                            variant="buffer" 
-                            value={this.state.completed} 
-                            valueBuffer={this.state.buffer} />
-                    </div>
+                    </TabContainer>
+                    <TabContainer className={classes.TabContainer}>
+                        <Typography className={classes.uploadFileContainer} component="div">
+                            <input
+                                accept="image/*"
+                                className={classes.input_uploadFile}
+                                id="upload-file"
+                                multiple
+                                type="file"
+                            />
+                            <label htmlFor="upload-file">
+                                <Button 
+                                    variant="contained"
+                                    size="large" 
+                                    color="secondary" 
+                                    component="span" 
+                                    className={classes.Button}>
+                                    <AddPhotoAlternateIcon className={classes.Icon} /> 
+                                    Choose Image
+                                </Button>
+                            </label>
+                            <Typography className={classes.Typography_uploadFile} variant="subtitle1">or, drop files here</Typography>
+                            <TextField
+                                className={classes.TextField_fileUrl}
+                                id="file-url"
+                                variant="outlined"
+                                fullWidth
+                                placeholder="http://"
+                                type="url"
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <Button
+                                                variant="contained"
+                                                size="large"
+                                                color="secondary">Go</Button>
+                                        </InputAdornment>
+                                    )
+                                }} />
+                            <Typography className={classes.uploadingContainer} component="div">
+                                <LinearProgress 
+                                    className={classes.LinearProgress}
+                                    color="secondary" 
+                                    variant="buffer" 
+                                    value={this.state.completed} 
+                                    valueBuffer={this.state.buffer} />
+                                <IconButton
+                                    aria-label="Remove uploading"
+                                    onClick={this.handleUploadCancel}>
+                                    <ClearIcon fontSize="small" />
+                                </IconButton>
+                            </Typography>
+                        </Typography>
+                    </TabContainer>
                 </SwipeableViews>
-            </div>
+            </Typography>
         );
     }
 }

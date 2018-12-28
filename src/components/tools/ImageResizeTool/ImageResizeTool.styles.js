@@ -78,13 +78,29 @@ const styles = theme => ({
         margin: 'auto',
         backgroundColor: theme.palette.common.white
     },
-    SearchIcon: {
+    Icon: {
         marginRight: theme.spacing.unit
     },
-    inputFile: {
+    input_uploadFile: {
         display: 'none',
     },
-    tabContainer: {
+    chooseMemeContainer: {
+    },
+    uploadFileContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        padding: theme.spacing.unit * 4
+    },
+    TextField_fileUrl: {
+        maxWidth: 600,
+        marginBottom: theme.spacing.unit * 2,
+    },
+    Typography_uploadFile: {
+        paddingTop: theme.spacing.unit * 3,
+        paddingBottom: theme.spacing.unit * 3,
     },
     gridContainer: {
         padding: theme.spacing.unit * 3
@@ -92,6 +108,15 @@ const styles = theme => ({
     progressContainer: {
         paddingTop: theme.spacing.unit * 3,
         textAlign: 'center'
+    },
+    uploadingContainer: {
+        display: 'flex',
+        alignItems: 'center'
+    },
+    LinearProgress: {
+        width: '100vw',
+        minWidth: 240,
+        maxWidth: 750
     }
 });
 
