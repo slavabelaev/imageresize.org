@@ -51,9 +51,7 @@ class ImageResizeTool extends React.Component {
         this.setState({ activeTabIndex: index });
     };
 
-    handleUploadCancel = () => {
-
-    };
+    handleUploadCancel = () => {};
 
     render() {
         const { className, classes } = this.props;
@@ -81,13 +79,13 @@ class ImageResizeTool extends React.Component {
                     <TabContainer className={classes.TabContainer}>
                         <Toolbar className={classes.Toolbar}>
                             <TextField
-                                id="outlined-search"
+                                id="search"
                                 placeholder="Search memes"
                                 type="text"
                                 margin="normal"
                                 fullWidth
                                 variant="outlined"
-                                className={classes.TextField_search}
+                                className={classes.TextField}
                                 InputProps={{
                                     startAdornment: <SearchIcon className={classes.Icon} />,
                                     endAdornment: (
@@ -144,9 +142,9 @@ class ImageResizeTool extends React.Component {
                                     Choose Image
                                 </Button>
                             </label>
-                            <Typography className={classes.Typography_uploadFile} variant="subtitle1">or, drop files here</Typography>
+                            <Typography className={classes.Typography_uploadFile} variant="subtitle1">or, drop here</Typography>
                             <TextField
-                                className={classes.TextField_fileUrl}
+                                className={classes.TextField}
                                 id="file-url"
                                 variant="outlined"
                                 fullWidth

@@ -185,7 +185,7 @@ const AppHeader = ({ className, classes }) => {
                         activeClassName={classes.MenuItem_selected}
                         component={NavLink}
                         to="/image/resize"
-                        isActive={() => isPathMatch('/image')}
+                        isActive={() => isPathMatch('/image/')}
                     >
                         <AppIcon className={classes.AppIcon} icon="image" />
                         Image Tools
@@ -195,7 +195,7 @@ const AppHeader = ({ className, classes }) => {
                         activeClassName={classes.MenuItem_selected}
                         component={NavLink}
                         to="/pdf/resize"
-                        isActive={() => isPathMatch('/pdf')}
+                        isActive={() => isPathMatch('/pdf/')}
                     >
                         <AppIcon className={classes.AppIcon} icon="pdf" />
                         PDF Tools
@@ -205,7 +205,7 @@ const AppHeader = ({ className, classes }) => {
                         activeClassName={classes.MenuItem_selected}
                         component={NavLink}
                         to="/convert/jpg-to-pdf"
-                        isActive={() => isPathMatch('/convert')}
+                        isActive={() => isPathMatch('/convert/')}
                     >
                         <AppIcon className={classes.AppIcon} icon="converter" />
                         Convert Tools
@@ -215,7 +215,7 @@ const AppHeader = ({ className, classes }) => {
                         activeClassName={classes.MenuItem_selected}
                         component={NavLink}
                         to="/feature/cropping"
-                        isActive={() => isPathMatch('/feature')}
+                        isActive={() => isPathMatch('/feature/')}
                     >
                         <AppIcon className={classes.AppIcon} icon="features" />
                         Features

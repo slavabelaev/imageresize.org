@@ -73,8 +73,8 @@ const styles = theme => ({
         borderColor: '#C2CBD0',
         margin: 0
     },
-    TextField_search: {
-        maxWidth: 600,
+    TextField: {
+        maxWidth: 624,
         margin: 'auto',
         backgroundColor: theme.palette.common.white
     },
@@ -92,11 +92,8 @@ const styles = theme => ({
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: theme.spacing.unit * 4
-    },
-    TextField_fileUrl: {
-        maxWidth: 600,
-        marginBottom: theme.spacing.unit * 2,
+        padding: theme.spacing.unit * 4,
+        backgroundColor: theme.palette.grey[50]
     },
     Typography_uploadFile: {
         paddingTop: theme.spacing.unit * 3,
@@ -110,6 +107,7 @@ const styles = theme => ({
         textAlign: 'center'
     },
     uploadingContainer: {
+        marginTop: theme.spacing.unit * 2,
         display: 'flex',
         alignItems: 'center'
     },

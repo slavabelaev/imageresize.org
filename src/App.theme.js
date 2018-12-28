@@ -14,7 +14,7 @@ lightGreen.contrastText = "rgba(255, 255, 255, 1)";
 
 const theme = createMuiTheme({
   custom: {
-    
+
   },
   shadows: [null],
   palette: {
@@ -24,7 +24,7 @@ const theme = createMuiTheme({
       default: '#fff'
     },
     grey: {
-      50: '#FBFCFD',
+      50: '#FAFBFB',
       600: '#757575'
     },
     divider: 'rgba(0, 0, 0, 0.12)',
