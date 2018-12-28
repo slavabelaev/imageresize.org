@@ -49,7 +49,7 @@ const styles = theme => ({
     AppIcon: {
         marginRight: 12
     },
-    AppBar: {
+    Tabs: {
         borderColor: theme.palette.border.light,
         backgroundColor: theme.palette.grey[50],
         borderStyle: 'solid',
