@@ -3,7 +3,7 @@ const styles = theme => ({
 
     },
     Tabs: {
-        marginBottom: -.5,
+        marginBottom: -1,
         '& [class*=MuiTabs-indicator]': {
             display: 'none'
         }

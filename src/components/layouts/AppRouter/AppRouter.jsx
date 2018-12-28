@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
+import MemeMakerPage from '../../pages/MemeMakerPage/MemeMakerPage';
 import ImageResizePage from '../../pages/ImageResizePage/ImageResizePage';
 import ImageBulkResizePage from '../../pages/ImageBulkResizePage/ImageBulkResizePage';
 import ImageCompressPage from '../../pages/ImageCompressPage/ImageCompressPage';
@@ -17,7 +18,7 @@ import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 
 const AppRouter = () => (
     <Switch>
-        <Redirect path="/" exact={true} to="/image/resize" />
+        <Route path="/" exact={true} component={MemeMakerPage} />
         <Route path="/image/resize" component={ImageResizePage} />
         <Route path="/image/bulk-resize" component={ImageBulkResizePage} />
         <Route path="/image/compress" component={ImageCompressPage} />

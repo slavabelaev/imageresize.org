@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import ImageResizeTool from '../../tools/ImageResizeTool/ImageResizeTool';
+import MemeMaker from '../../tools/MemeMaker/MemeMaker';
 // Styles
 import styles from './FeatureEditingPage.styles';
 
@@ -15,7 +15,7 @@ const FeatureEditingPage = ({ className, classes }) => (
                 <Typography variant="h4" component="h1">Feature Editing</Typography>
                 <Typography variant="subtitle1" component="p">Upload Files below to start crop, resize, compress or edit your images</Typography>
             </header>
-            <ImageResizeTool className={classes.ImageResizeTool} />
+            <MemeMaker className={classes.MemeMaker} />
         </div>
         <Divider />
         <Grid className={classes.Grid_container} container spacing={40}>

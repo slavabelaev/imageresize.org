@@ -21,7 +21,7 @@ import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
 // Styles
-import styles from './ImageResizeTool.styles';
+import styles from './MemeMaker.styles';
 // DEMO DATA
 import DEMO_DATA from '../../../demo/data/images.json';
 
@@ -35,7 +35,7 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-class ImageResizeTool extends React.Component {
+class MemeMaker extends React.Component {
     state = {
         activeTabIndex: 0,
         completed: 0,
@@ -181,8 +181,8 @@ class ImageResizeTool extends React.Component {
     }
 }
 
-ImageResizeTool.propTypes = {
+MemeMaker.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImageResizeTool);
+export default withStyles(styles)(MemeMaker);

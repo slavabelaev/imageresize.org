@@ -11,7 +11,7 @@ const styles = theme => ({
         padding: 60,
         paddingBottom: 0
     },
-    ImageResizeTool: {
+    MemeMaker: {
         marginBottom: 72
     },
     Grid_container: {

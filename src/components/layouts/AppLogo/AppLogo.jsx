@@ -9,12 +9,12 @@ import styles from './AppLogo.styles';
 const AppLogo = (props) => (
     <Link 
         className={`${props.className || ''} ${props.classes.root}`} 
-        to="/image/resize"
+        to="/"
     >
         <img 
             className={props.classes.image} 
             src={AppLogoImage} 
-            alt="ImageResize Logo" 
+            alt="ImageResize.org Logo" 
         />
     </Link>
 );

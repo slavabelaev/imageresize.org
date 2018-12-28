@@ -6,13 +6,13 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import MemeMaker from '../../tools/MemeMaker/MemeMaker';
 // Styles
-import styles from './ImageResizePage.styles';
+import styles from './MemeMakerPage.styles';
 
-const ImageResizePage = ({ className, classes }) => (
+const MemeMakerPage = ({ className, classes }) => (
     <div className={`${className || ''} ${classes.root}`}>
         <div className={classes.contentContainer}>
             <header className={classes.header}>
-                <Typography variant="h4" component="h1">Image Resize</Typography>
+                <Typography variant="h4" component="h1">Meme Maker</Typography>
                 <Typography variant="subtitle1" component="p">Upload Files below to start crop, resize, compress or edit your images</Typography>
             </header>
             <MemeMaker className={classes.MemeMaker} />
@@ -35,8 +35,8 @@ const ImageResizePage = ({ className, classes }) => (
     </div>
 );
  
-ImageResizePage.propTypes = {
+MemeMakerPage.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImageResizePage);
+export default withStyles(styles)(MemeMakerPage);
