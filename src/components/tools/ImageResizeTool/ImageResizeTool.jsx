@@ -142,7 +142,7 @@ class ImageResizeTool extends React.Component {
                                     Choose Image
                                 </Button>
                             </label>
-                            <Typography className={classes.Typography_uploadFile} variant="subtitle1">or, drop here</Typography>
+                            <Typography className={classes.Typography_uploadFile} variant="subtitle1">or, drop Image here</Typography>
                             <TextField
                                 className={classes.TextField}
                                 id="file-url"

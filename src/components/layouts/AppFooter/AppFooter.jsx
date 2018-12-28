@@ -54,70 +54,62 @@ const AppFooter = ({ className, classes }) => (
                 <Grid item xs={2}></Grid>
                 <Grid item xs={2}>
                     <List component="nav">
-                        <ListItem button dense={true} component={Link} to="/image">
-                            <ListItemText primary={
-                                <Typography className={classes.ListItemText_title}>Image Tools</Typography>} 
-                            />
+                        <ListItem dense={true}>
+                            <ListItemText className={classes.ListItemText_title} primary="Image Tools" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/image/resize">
-                            <ListItemText primary={<Typography>Image Resize</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Image Resize" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/image/bulk-resize">
-                            <ListItemText primary={<Typography>Bulk Image Resize</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Bulk Image Resize" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/image/compress">
-                            <ListItemText primary={<Typography>Image Compressor</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Image Compressor" />
                         </ListItem>
                     </List>
                 </Grid>
                 <Grid item xs={2}>
                     <List component="nav">
-                        <ListItem button dense={true} component={Link} to="/feature">
-                            <ListItemText primary={
-                                <Typography className={classes.ListItemText_title}>Features</Typography>} 
-                            />
+                        <ListItem dense={true}>
+                            <ListItemText className={classes.ListItemText_title} primary="Features" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/feature/cropping">
-                            <ListItemText primary={<Typography>Crop Images</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Crop Images" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/feature/editing">
-                            <ListItemText primary={<Typography>Photo Filters</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Photo Filters" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/feature/compressing">
-                            <ListItemText primary={<Typography>Photo Adjust</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Photo Adjust" />
                         </ListItem>
                     </List>
                 </Grid>
                 <Grid item xs={2}>
                     <List component="nav">
-                        <ListItem button dense={true} component={Link} to="/about">
-                            <ListItemText primary={
-                                <Typography className={classes.ListItemText_title}>About</Typography>} 
-                            />
+                        <ListItem dense={true}>
+                            <ListItemText className={classes.ListItemText_title} primary="About" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/contact">
-                            <ListItemText primary={<Typography>Contact</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Contact" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/help">
-                            <ListItemText primary={<Typography>Help</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Help" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/feedback">
-                            <ListItemText primary={<Typography>Feedback</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Feedback" />
                         </ListItem>
                     </List>
                 </Grid>
                 <Grid item xs={2}>
                     <List component="nav">
-                        <ListItem button dense={true} component={Link} to="/legal">
-                            <ListItemText primary={
-                                <Typography className={classes.ListItemText_title}>Legal</Typography>} 
-                            />
+                        <ListItem dense={true}>
+                            <ListItemText className={classes.ListItemText_title} primary="Legal" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/privacy">
-                            <ListItemText primary={<Typography>Privacy</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Privacy" />
                         </ListItem>
                         <ListItem button dense={true} component={Link} to="/terms-of-service">
-                            <ListItemText primary={<Typography>Terms of Service</Typography>} />
+                            <ListItemText className={classes.ListItemText} primary="Terms of Service" />
                         </ListItem>
                     </List>
                 </Grid>

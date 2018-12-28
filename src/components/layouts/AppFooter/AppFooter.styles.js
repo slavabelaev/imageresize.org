@@ -11,8 +11,16 @@ const styles = theme => ({
         maxWidth: 175,
         marginBottom: 60
     },
+    ListItemText: {
+        fontSize: '.875rem',
+        padding: 0
+    },
     ListItemText_title: {
-        color: theme.typography.title.color
+        fontSize: '.875rem',
+        padding: 0,
+        '&>span': {
+            color: theme.typography.title.color
+        }
     },
     Grid_socials: {
         textAlign: 'center'
