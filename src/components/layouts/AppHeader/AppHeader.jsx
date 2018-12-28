@@ -138,7 +138,7 @@ const AppHeader = ({ className, classes }) => {
             />
         </Tabs>
     );
-    
+
     const FeaturesTabs = ({ match, location }) => (
         <Tabs
             className={classes.Tabs}
@@ -215,7 +215,7 @@ const AppHeader = ({ className, classes }) => {
                         activeClassName={classes.MenuItem_selected}
                         component={NavLink}
                         to="/feature/cropping"
-                        isActive={() => isPathMatch('/convert')}
+                        isActive={() => isPathMatch('/feature')}
                     >
                         <AppIcon className={classes.AppIcon} icon="features" />
                         Features
