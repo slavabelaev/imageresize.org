@@ -63,7 +63,7 @@ const styles = theme => ({
     Tab: {
         textTransform: 'initial',
         fontWeight: 'initial',
-        fontSize: theme.typography.fontSize,
+        fontSize: '1rem',
         '&[aria-selected=true]': {
             fontWeight: 500,
             color: theme.palette.text.primary

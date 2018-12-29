@@ -5,12 +5,12 @@ import lightGreen from '@material-ui/core/colors/lightGreen';
 import './assets/fonts/Gotham/Gotham.css';
 
 lightBlue.light = lightBlue[300];
-lightBlue.main = '#6EC3FA';
+lightBlue.main = lightBlue[400];
 lightBlue.dark = lightBlue[500];
 lightGreen.contrastText = "rgba(255, 255, 255, 1)";
 
 lightGreen.light = lightGreen[300];
-lightGreen.main = '#A3D86D';
+lightGreen.main = lightGreen[400];
 lightGreen.dark = lightGreen[500];
 lightGreen.contrastText = "rgba(255, 255, 255, 1)";
 
