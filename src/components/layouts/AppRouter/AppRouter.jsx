@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import MemeMakerPage from '../../pages/MemeMakerPage/MemeMakerPage';
 import ImageResizePage from '../../pages/ImageResizePage/ImageResizePage';

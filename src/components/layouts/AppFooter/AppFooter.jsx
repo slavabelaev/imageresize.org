@@ -19,7 +19,7 @@ const AppFooter = ({ className, classes }) => (
         <Divider />
         <div className={classes.container}>
             <Grid container>
-                <Grid item xs={2}>
+                <Grid item xs={4}>
                     <AppLogo className={classes.AppLogo}></AppLogo>
                     <Grid className={classes.Grid_socials} container>
                         <Grid item xs={4}>
@@ -50,8 +50,8 @@ const AppFooter = ({ className, classes }) => (
                             </IconButton>
                         </Grid>
                     </Grid>
+                    <Typography>© 2013 - 2018 Imageresize.org</Typography>
                 </Grid>
-                <Grid item xs={2}></Grid>
                 <Grid item xs={2}>
                     <List component="nav">
                         <ListItem dense={true}>

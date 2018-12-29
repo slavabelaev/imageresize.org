@@ -5,12 +5,12 @@ import lightGreen from '@material-ui/core/colors/lightGreen';
 import './assets/fonts/Gotham/Gotham.css';
 
 lightBlue.light = lightBlue[300];
-lightBlue.main = lightBlue[400];
+lightBlue.main = '#6EC3FA';
 lightBlue.dark = lightBlue[500];
 lightGreen.contrastText = "rgba(255, 255, 255, 1)";
 
 lightGreen.light = lightGreen[300];
-lightGreen.main = lightGreen[400];
+lightGreen.main = '#A3D86D';
 lightGreen.dark = lightGreen[500];
 lightGreen.contrastText = "rgba(255, 255, 255, 1)";
 
@@ -48,7 +48,6 @@ const theme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: fontFamily,
     color: '#616161',
     headline: {
       fontFamily: fontFamily,
@@ -60,20 +59,19 @@ const theme = createMuiTheme({
     },
     subheading: {
       fontFamily: fontFamily,
-      color: '#9E9E9E'
+      color: '#888888'
     },
     body2: {
       fontFamily: fontFamily,
-      color: '#9E9E9E'
+      color: '#888888'
     },
     body1: {
       fontFamily: fontFamily,
-      color: '#9E9E9E',
+      color: '#888888',
     },
     button: {
       fontFamily: fontFamily,
       color: '#616161',
-      fontWeight: 400,
       fontSize: 14,
       textTransform: 'initial'
     },
@@ -109,20 +107,20 @@ const theme = createMuiTheme({
     },
     subtitle1: {
       fontFamily: fontFamily,
-      color: '#9E9E9E',
+      color: '#888888',
       fontSize: '1.125rem'
     },
     subtitle2: {
       fontFamily: fontFamily,
-      color: '#9E9E9E'
+      color: '#888888'
     },
     body1Next: {
       fontFamily: fontFamily,
-      color: '#9E9E9E'
+      color: '#888888'
     },
     body2Next: {
       fontFamily: fontFamily,
-      color: '#9E9E9E'
+      color: '#888888'
     },
     buttonNext: {
       fontFamily: fontFamily,

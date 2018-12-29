@@ -19,11 +19,14 @@ const styles = theme => ({
         fontSize: '.875rem',
         padding: 0,
         '&>span': {
-            color: theme.typography.title.color
+            color: theme.typography.title.color,
+            fontWeight: 500,
         }
     },
     Grid_socials: {
-        textAlign: 'center'
+        textAlign: 'center',
+        maxWidth: 175,
+        marginBottom: theme.spacing.unit * 3
     }
 });
 

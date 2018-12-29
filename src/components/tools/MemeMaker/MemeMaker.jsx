@@ -20,6 +20,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
 // Styles
 import styles from './MemeMaker.styles';
 // DEMO DATA
@@ -35,34 +40,84 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
+const EditCaptionDialog = ({ open, onClose }) => (
+    <Dialog
+        onClose={onClose}
+        aria-labelledby="Edit Caption Dialog"
+        open={open}
+    >
+        <DialogTitle 
+            id="edit-caption-dialog-title" 
+            onClose={onClose}>
+            Edit Text
+        </DialogTitle>
+        <DialogContent>
+            <Typography gutterBottom>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
+                facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum
+                at eros.
+            </Typography>
+            <Typography gutterBottom>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+                lacus vel augue laoreet rutrum faucibus dolor auctor.
+            </Typography>
+            <Typography gutterBottom>
+                Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
+                scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
+                auctor fringilla.
+            </Typography>
+        </DialogContent>
+        <DialogActions>
+            <Button 
+                onClick={onClose} 
+                color="primary">
+                Save changes
+            </Button>
+        </DialogActions>
+    </Dialog>
+)
+
 class MemeMaker extends React.Component {
     state = {
         activeTabIndex: 0,
-        completed: 0,
-        buffer: 80,
+        uploadingProgressCompleted: 0,
+        uploadingProgressBuffer: 80,
+        isEditCaptionDialogOpen: false, 
         images: DEMO_DATA.images
     };
     
-    handleTabChange = (event, activeTabIndex) => {
+    changeActiveTabIndexOnClick = (event, activeTabIndex) => {
         this.setState({ activeTabIndex });
     };
 
-    handleChangeActiveTabIndex = index => {
-        this.setState({ activeTabIndex: index });
+    changeActiveTabIndex = activeTabIndex => {
+        this.setState({ activeTabIndex });
     };
 
-    handleUploadCancel = () => {};
+    cancelUpload = () => {};
+
+    editCaptionDialogOpen = () => {
+        this.setState({ isEditCaptionDialogOpen: true });
+    };
+
+    editCaptionDialogClose = () => {
+        this.setState({ isEditCaptionDialogOpen: false });
+    };
 
     render() {
         const { className, classes } = this.props;
-        const { activeTabIndex } = this.state;
-        
+        const { activeTabIndex, isEditCaptionDialogOpen } = this.state;
+
         return (
             <Typography component="div" className={`${className || ''} ${classes.root}`}>
+                <EditCaptionDialog 
+                    open={isEditCaptionDialogOpen} 
+                    onClose={this.editCaptionDialogClose} 
+                />
                 <Tabs
                     className={classes.Tabs}
                     value={activeTabIndex}
-                    onChange={this.handleTabChange}
+                    onChange={this.changeActiveTabIndexOnClick}
                     indicatorColor="primary">
                     <Tab 
                         className={classes.Tab}
@@ -75,7 +130,7 @@ class MemeMaker extends React.Component {
                     animateHeight
                     className={classes.SwipeableViews} 
                     index={activeTabIndex}
-                    onChangeIndex={this.handleChangeActiveTabIndex}>
+                    onChangeIndex={this.changeActiveTabIndex}>
                     <TabContainer className={classes.TabContainer}>
                         <Toolbar className={classes.Toolbar}>
                             <TextField
@@ -111,7 +166,13 @@ class MemeMaker extends React.Component {
                                                 } />
                                             <CardMedia image={image.image} className={classes.CardMedia} />
                                             <CardActions>
-                                                <Button className={classes.Button_addCaption} variant="outlined" fullWidth size="small">Add Caption</Button>
+                                                <Button 
+                                                    className={classes.Button_addCaption} 
+                                                    variant="outlined" 
+                                                    fullWidth 
+                                                    size="small"
+                                                    onClick={this.editCaptionDialogOpen}
+                                                >Add Caption</Button>
                                             </CardActions>
                                         </Card>
                                     </Grid>
@@ -165,11 +226,11 @@ class MemeMaker extends React.Component {
                                     className={classes.LinearProgress}
                                     color="secondary" 
                                     variant="buffer" 
-                                    value={this.state.completed} 
-                                    valueBuffer={this.state.buffer} />
+                                    value={this.state.uploadingProgressCompleted} 
+                                    valueBuffer={this.state.uploadingProgressBuffer} />
                                 <IconButton
                                     aria-label="Remove uploading"
-                                    onClick={this.handleUploadCancel}>
+                                    onClick={this.cancelUpload}>
                                     <ClearIcon fontSize="small" />
                                 </IconButton>
                             </Typography>

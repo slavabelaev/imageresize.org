@@ -16,6 +16,7 @@ const styles = theme => ({
         marginLeft: 'auto'
     },
     MenuItem: {
+        fontSize: theme.typography.fontSize,
         borderStyle: 'solid',
         borderLeftWidth: 1,
         borderColor: theme.palette.border.light,
@@ -38,6 +39,7 @@ const styles = theme => ({
         backgroundColor: theme.palette.grey[50],
         boxShadow: theme.palette.grey[50] + ' 0 2px 0 0',
         color: theme.palette.text.primary,
+        fontWeight: 500,
         marginBottom: -1,
         '&>i': {
             opacity: .64
@@ -60,9 +62,12 @@ const styles = theme => ({
     },
     Tab: {
         textTransform: 'initial',
-        fontSize: '1rem',
         fontWeight: 'initial',
-        transition: theme.transitions.create(),
+        fontSize: theme.typography.fontSize,
+        '&[aria-selected=true]': {
+            fontWeight: 500,
+            color: theme.palette.text.primary
+        },
         '&:not([aria-selected=true]):hover': {
             color: theme.palette.text.primary
         },

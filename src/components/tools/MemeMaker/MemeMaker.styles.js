@@ -16,8 +16,8 @@ const styles = theme => ({
         borderBottomWidth: 0,
         backgroundColor: 'initial',
         textTransform: 'initial',
-        fontSize: '1.125rem',
-        fontWeight: 'initial',
+        fontWeight: 500,
+        fontSize: '1rem',
         color: theme.palette.text.secondary,
         transition: theme.transitions.create(),
         '&:not([aria-selected=true]):hover': {
