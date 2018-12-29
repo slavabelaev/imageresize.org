@@ -5,11 +5,11 @@ const styles = theme => ({
         marginRight: 'auto'
     },
     container: {
-        padding: 60
+        padding: theme.spacing.unit * 7.5
     },
     AppLogo: {
         maxWidth: 175,
-        marginBottom: 60
+        marginBottom: theme.spacing.unit * 5
     },
     ListItemText: {
         fontSize: '.875rem',

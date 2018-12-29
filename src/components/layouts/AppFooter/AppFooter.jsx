@@ -50,10 +50,10 @@ const AppFooter = ({ className, classes }) => (
                             </IconButton>
                         </Grid>
                     </Grid>
-                    <Typography>© 2013 - 2018 Imageresize.org</Typography>
+                    <Typography component="div">© 2013 - 2018 Imageresize.org</Typography>
                 </Grid>
                 <Grid item xs={2}>
-                    <List component="nav">
+                    <List disablePadding component="nav">
                         <ListItem dense={true}>
                             <ListItemText className={classes.ListItemText_title} primary="Image Tools" />
                         </ListItem>
@@ -69,7 +69,7 @@ const AppFooter = ({ className, classes }) => (
                     </List>
                 </Grid>
                 <Grid item xs={2}>
-                    <List component="nav">
+                    <List disablePadding component="nav">
                         <ListItem dense={true}>
                             <ListItemText className={classes.ListItemText_title} primary="Features" />
                         </ListItem>
@@ -85,7 +85,7 @@ const AppFooter = ({ className, classes }) => (
                     </List>
                 </Grid>
                 <Grid item xs={2}>
-                    <List component="nav">
+                    <List disablePadding component="nav">
                         <ListItem dense={true}>
                             <ListItemText className={classes.ListItemText_title} primary="About" />
                         </ListItem>
@@ -101,7 +101,7 @@ const AppFooter = ({ className, classes }) => (
                     </List>
                 </Grid>
                 <Grid item xs={2}>
-                    <List component="nav">
+                    <List disablePadding component="nav">
                         <ListItem dense={true}>
                             <ListItemText className={classes.ListItemText_title} primary="Legal" />
                         </ListItem>
