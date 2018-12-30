@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import ImageManager from '../ImageManager/ImageManager';
+import MemeEditor from '../MemeEditor/MemeEditor';
 // Styles
 import styles from './MemeMaker.styles';
 // DEMO DATA
@@ -16,14 +17,16 @@ class MemeMaker extends React.Component {
 
         return (
             <Typography component="div" className={`${className || ''} ${classes.root}`}>
-                <ImageManager 
+                <MemeEditor />
+                {/* <ImageManager 
                     dataSource={MEME_DATASOURCE.images} 
                     labels={{
                         chooseTab: 'Choose Meme',
                         uploadTab: 'Upload Image',
-                        searchPlaceholder: 'Search memes'
+                        search: 'Search memes',
+                        selectButton: 'Add Caption'
                     }}
-                />
+                /> */}
             </Typography>
         );
     }

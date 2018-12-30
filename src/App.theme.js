@@ -4,43 +4,62 @@ import lightGreen from '@material-ui/core/colors/lightGreen';
 // App Font
 import './assets/fonts/Gotham/Gotham.css';
 
+const white = 'rgba(255,255,255,1)';
+
 lightBlue.light = lightBlue[300];
 lightBlue.main = lightBlue[400];
 lightBlue.dark = lightBlue[500];
-lightGreen.contrastText = "rgba(255, 255, 255, 1)";
+lightGreen.contrastText = white;
 
 lightGreen.light = lightGreen[300];
 lightGreen.main = lightGreen[400];
 lightGreen.dark = lightGreen[500];
-lightGreen.contrastText = "rgba(255, 255, 255, 1)";
+lightGreen.contrastText = white;
+
+const grey = {
+  50: '#FAFBFB',
+  100: '#f5f5f5',
+  200: '#e9e9e9',
+  300: '#e0e0e0',
+  400: '#bdbdbd',
+  500: '#9e9e9e',
+  600: '#888888',
+  700: '#616161',
+  800: '#424242',
+  900: '#212121',
+  'A100': '#d5d5d5',
+  'A200': '#aaaaaa',
+  'A400': '#303030',
+  'A700': '#616161',
+}
+
+const spacing = {
+  unit: 8
+};
 
 const fontFamily = '"Gotham", "Roboto", "Helvetica", "Arial", sans-serif';
-const theme = createMuiTheme({
-  custom: {
 
+const theme = createMuiTheme({
+  spacing: {
+    unit: spacing.unit
   },
-  shadows: ["none"],
+  shadows: ['none'],
   palette: {
+    white: white,
     primary: lightBlue,
     secondary: lightGreen,
+    grey: grey,
     background: {
-      default: '#fff'
+      default: white
     },
-    grey: {
-      50: '#FAFBFB',
-      600: '#757575'
-    },
-    divider: 'rgba(0, 0, 0, 0.12)',
+    divider: grey[200],
     border: {
-      light: 'rgba(0, 0, 0, 0.12)',
-      dark: 'rgba(0, 0, 0, 0.36)'
+      light: grey[200],
+      dark: grey[500]
     },
     text: {
-      primary: '#616161',
-      secondary: '#757575'
-    },
-    action: {
-      selectedBackground: 'rgba(0,0,0,.024)'
+      primary: grey[700],
+      secondary: grey[600]
     }
   },
   shape: {
@@ -48,91 +67,85 @@ const theme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    color: '#616161',
+    color: grey[700],
     headline: {
       fontFamily: fontFamily,
-      color: '#616161'
+      color: grey[700]
     },
     title: {
       fontFamily: fontFamily,
-      color: '#616161'
+      color: grey[700]
     },
     subheading: {
       fontFamily: fontFamily,
-      color: '#888888'
+      color: grey[600]
     },
     body2: {
       fontFamily: fontFamily,
-      color: '#888888'
+      color: grey[600]
     },
     body1: {
       fontFamily: fontFamily,
-      color: '#888888',
+      color: grey[600],
     },
     button: {
       fontFamily: fontFamily,
-      color: '#616161',
+      color: grey[700],
       fontSize: 14,
       textTransform: 'initial'
     },
     h1: {
       fontFamily: fontFamily,
-      color: '#616161',
-      marginBottom: 8
+      color: grey[700]
     },
     h2: {
       fontFamily: fontFamily,
-      color: '#616161',
-      marginBottom: 8
+      color: grey[700]
     },
     h3: {
       fontFamily: fontFamily,
-      color: '#616161',
-      marginBottom: 8
+      color: grey[700]
     },
     h4: {
       fontFamily: fontFamily,
-      color: '#616161',
-      marginBottom: 8
+      color: grey[700]
     },
     h5: {
       fontFamily: fontFamily,
-      color: '#616161',
-      marginBottom: 8
+      color: grey[700]
     },
     h6: {
       fontFamily: fontFamily,
-      color: '#616161',
-      marginBottom: 8
+      color: grey[700]
     },
     subtitle1: {
       fontFamily: fontFamily,
-      color: '#888888',
+      color: grey[600],
       fontSize: '1.125rem'
     },
     subtitle2: {
       fontFamily: fontFamily,
-      color: '#888888'
+      color: grey[600]
     },
     body1Next: {
       fontFamily: fontFamily,
-      color: '#888888'
+      color: grey[600]
     },
     body2Next: {
       fontFamily: fontFamily,
-      color: '#888888'
+      color: grey[600]
     },
     buttonNext: {
       fontFamily: fontFamily,
-      color: '#616161'
+      color: grey[700]
     },
     captionNext: {
       fontFamily: fontFamily,
-      color: '#616161'
+      color: grey[700]
     },
     overline: {
       fontFamily: fontFamily,
-      color: '#616161'
+      color: grey[700]
     }
   }
 });

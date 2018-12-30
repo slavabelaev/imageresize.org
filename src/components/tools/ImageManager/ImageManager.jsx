@@ -35,10 +35,11 @@ TabContainer.propTypes = {
 
 class ImageManager extends React.Component {
     state = {
+        labels: this.props.labels || {},
+        images: this.props.dataSource ? this.props.dataSource : require('./ImageManager.demo.json'),
         activeTabIndex: 0,
         uploadingProgressCompleted: 0,
-        uploadingProgressBuffer: 80,
-        images: this.props.dataSource ? this.props.dataSource : require('./ImageManager.demo.json')
+        uploadingProgressBuffer: 80
     };
     
     changeActiveTabIndexOnClick = (event, activeTabIndex) => {
@@ -52,8 +53,8 @@ class ImageManager extends React.Component {
     cancelUpload = () => {};
 
     render() {
-        const { className, classes, labels } = this.props;
-        const { activeTabIndex } = this.state;
+        const { className, classes } = this.props;
+        const { labels, activeTabIndex } = this.state;
 
         return (
             <Typography component="div" className={`${className || ''} ${classes.root}`}>
@@ -64,10 +65,10 @@ class ImageManager extends React.Component {
                     indicatorColor="primary">
                     <Tab 
                         className={classes.Tab}
-                        label={labels ? labels.chooseTab : 'Choose Image'} />
+                        label={labels.chooseTab || 'Choose Image'} />
                     <Tab 
                         className={classes.Tab} 
-                        label={labels ? labels.uploadTab : 'Upload Image'} />
+                        label={labels.uploadTab || 'Upload Image'} />
                 </Tabs>
                 <SwipeableViews
                     animateHeight
@@ -78,7 +79,7 @@ class ImageManager extends React.Component {
                         <Toolbar className={classes.Toolbar}>
                             <TextField
                                 id="search"
-                                placeholder={labels ? labels.uploadTab : 'Search'}
+                                placeholder={labels.search || 'Search'}
                                 type="text"
                                 margin="normal"
                                 fullWidth
@@ -114,7 +115,7 @@ class ImageManager extends React.Component {
                                                     variant="outlined" 
                                                     fullWidth 
                                                     size="small"
-                                                >Add Caption</Button>
+                                                >{labels.selectButton || 'Select'}</Button>
                                             </CardActions>
                                         </Card>
                                     </Grid>
