@@ -1,7 +1,6 @@
 const styles = theme => ({
-    root: {
-        
-    }
+    root: {},
+    colorPicker: {}
 });
 
 export default styles;

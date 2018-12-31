@@ -30,7 +30,9 @@ const TextDialog = ({ open, onClose }) => (
         aria-labelledby="Edit Text"
         aria-describedby="Edit Text in Meme Image"
     >
-        <DialogTitle id="alert-dialog-title">Edit Text</DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+            <Typography variant="headline">Edit Text</Typography>
+        </DialogTitle>
         <Divider />
         <DialogContent style={{padding: 24}}>
             <MemeTextEditor />
@@ -86,20 +88,26 @@ class IconDialog extends React.Component {
                 aria-labelledby="Edit Text"
                 aria-describedby="Edit Text in Meme Image"
             >
-                <DialogTitle id="alert-dialog-title">Choose Icons</DialogTitle>
+                <DialogTitle id="alert-dialog-title">
+                    <Typography variant="headline">Choose Icons</Typography>    
+                </DialogTitle>
+                <Divider />
                 <DialogContent>
-                    <Grid container>
+                    <Grid container spacing={12}>
                         {iconUrls.map((iconUrl, index) => (
                             <Grid item xs={2} key={index}>
                                 <FormControlLabel 
+                                    style={{margin: 0}}
                                     value={iconUrl} 
-                                    control={<Radio name="icon" />}
+                                    name="icon"
+                                    control={<Radio style={{position: 'absolute'}} />}
                                     label={<img src={iconUrl} width="100" height="100" />}
                                 />
                             </Grid>
                         ))}
                     </Grid>
                 </DialogContent>
+                <Divider />
                 <DialogActions>
                 <Button 
                     onClick={onClose} 
