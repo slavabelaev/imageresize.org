@@ -1,6 +1,12 @@
 const styles = theme => ({
     root: {},
-    colorPicker: {}
+    colorPickerContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        '&[hidden]': {
+            display: 'none'
+        }
+    }
 });
 
 export default styles;

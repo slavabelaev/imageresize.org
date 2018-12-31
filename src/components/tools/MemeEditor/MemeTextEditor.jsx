@@ -68,8 +68,8 @@ class MemeTextEditor extends React.Component {
         styles: this.styleTypes[0],
         styleTypes: this.styleTypes,
 
-        isFontColorPickerShow: false,
-        isTextOutlineColorPickerShow: false,
+        isColorPickerShow: false,
+        isTextStrokeColorPickerShow: false,
     };
 
     statePropertyChange = ({ target }) => {
@@ -156,21 +156,20 @@ class MemeTextEditor extends React.Component {
                     </Grid>
                     <Grid item xs={1}>
                         <Checkbox
-                            checked={this.isTextOutlineColorPickerShow}
+                            checked={this.isTextStrokeColorPickerShow}
                             onChange={this.statePropertyChange}
-                            name="isTextOutlineColorPickerShow"
+                            name="isTextStrokeColorPickerShow"
                             style={{color: styles.WebkitTextStrokeColor}}
                             icon={<BorderColorIcon />}
                             checkedIcon={<BorderColorIcon />}
                             aria-label="Custom Color"
                         />
                     </Grid>
-                    <Grid item xs={6} style={{
-                        display: this.state.isTextOutlineColorPickerShow ? 'flex' : 'none',
-                        alignItems: 'center'
-                    }}>
-                        <HuePicker 
-                            className={classes.colorPicker}
+                    <Grid item xs={6} 
+                        className={classes.colorPickerContainer}
+                        hidden={!this.state.isTextStrokeColorPickerShow}
+                    >
+                        <HuePicker
                             color={styles.WebkitTextStrokeColor} 
                             onChange={this.textStrokeColorChange}
                         />
@@ -297,22 +296,22 @@ class MemeTextEditor extends React.Component {
                             aria-label="White"
                         />
                         <Checkbox
-                            checked={this.isFontColorPickerShow}
+                            checked={this.isColorPickerShow}
                             onChange={this.statePropertyChange}
-                            name="isFontColorPickerShow"
-                            style={{color: styles.fontColor}}
+                            name="isColorPickerShow"
+                            style={{color: styles.color}}
                             icon={<FormatColorTextIcon />}
                             checkedIcon={<FormatColorTextIcon />}
                             aria-label="Custom Color"
                         />
                         {/* /Control */}
                     </Grid>
-                    <Grid item xs={6} style={{
-                        display: this.state.isFontColorPickerShow ? 'flex' : 'none',
-                        alignItems: 'center'
-                    }}>
-                        <HuePicker 
-                            className={classes.colorPicker}
+                    <Grid 
+                        item xs={6} 
+                        className={classes.colorPickerContainer}
+                        hidden={!this.state.isColorPickerShow}
+                    >
+                        <HuePicker
                             color={styles.color} 
                             onChange={this.colorChange}
                         />
