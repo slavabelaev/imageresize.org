@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import ClearIcon from '@material-ui/icons/Clear';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import FormatShapesIcon from '@material-ui/icons/FormatShapes';
@@ -30,9 +32,7 @@ const TextDialog = ({ open, onClose }) => (
         aria-labelledby="Edit Text"
         aria-describedby="Edit Text in Meme Image"
     >
-        <DialogTitle id="alert-dialog-title">
-            <Typography variant="headline">Edit Text</Typography>
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">Edit Text</DialogTitle>
         <Divider />
         <DialogContent style={{padding: 24}}>
             <MemeTextEditor />
@@ -88,9 +88,7 @@ class IconDialog extends React.Component {
                 aria-labelledby="Edit Text"
                 aria-describedby="Edit Text in Meme Image"
             >
-                <DialogTitle id="alert-dialog-title">
-                    <Typography variant="headline">Choose Icons</Typography>    
-                </DialogTitle>
+                <DialogTitle id="alert-dialog-title">Choose Icons</DialogTitle>
                 <Divider />
                 <DialogContent>
                     <Grid container spacing={12}>

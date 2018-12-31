@@ -25,42 +25,82 @@ import HighlightIcon from '@material-ui/icons/Highlight';
 import styles from './MemeTextEditor.styles';
 
 class MemeTextEditor extends React.Component {
+    styleTypes = [
+        {
+            fontSize: 20,
+            color: '#616161',
+            textAlign: 'center',
+            WebkitTextStrokeWidth: 0,
+            WebkitTextStrokeColor: '#000000',
+            fontWeight: 'normal',
+            fontStyle: 'normal',
+            textTransform: 'uppercase',
+            textShadow: 'none',
+            lineHeight: 2
+        },
+        {
+            fontSize: 24,
+            color: '#1A8D5F',
+            textAlign: 'right',
+            WebkitTextStrokeWidth: 0,
+            WebkitTextStrokeColor: '#000000',
+            fontWeight: 'bold',
+            fontStyle: 'normal',
+            textTransform: 'uppercase',
+            textShadow: 'none',
+            lineHeight: 2
+        },
+        {
+            fontSize: 32,
+            color: '#D0021B',
+            textAlign: 'left',
+            WebkitTextStrokeWidth: 0,
+            WebkitTextStrokeColor: '#000000',
+            fontWeight: 'normal',
+            fontStyle: 'normal',
+            textTransform: 'uppercase',
+            textShadow: 'none',
+            lineHeight: 2
+        }
+    ];
     state = {
         text: 'This is my image text',
-        fontSize: 20,
-        fontColor: '#616161',
-        textAlign: 'center',
-        textOutlineWidth: 5,
-        textOutlineColor: 'blue',
-        isFontWeightBold: false,
-        isFontStyleItalic: false,
-        isTextTransformUppercase: true,
-        hasTextShadow: false,
+        styles: this.styleTypes[0],
+        styleTypes: this.styleTypes,
 
         isFontColorPickerShow: false,
         isTextOutlineColorPickerShow: false,
     };
 
-    handleChange = ({ target }) => {
-        this.setState({ 
-            [target.name]: target.value ? target.value : target.checked
-        });
-    };
-
-    fontColorChange = ({ hex }) => {
-        this.setState({ 
-            fontColor: hex
-        });
+    statePropertyChange = ({ target }) => {
+        this.setState({ [target.name]: target.value ? target.value : target.checked });
     }
 
-    textOutlineColorChange = ({ hex }) => {
-        this.setState({ 
-            textOutlineColor: hex
-        });
+    styleTypeChange = ({ target }) => {
+        this.setState({ styles: target.value });
+    };
+
+    stylePropertyChange = ({ target }) => {
+        const styles = {...this.state.styles};
+        styles[target.name] = target.value ? target.value : target.checked;
+        this.setState({ styles: styles });
+    };
+
+    colorChange = ({ hex }) => {
+        const styles = {...this.state.styles};
+        styles.color = hex;
+        this.setState({ styles: styles });
+    }
+
+    textStrokeColorChange = ({ hex }) => {
+        const styles = {...this.state.styles};
+        styles.WebkitTextStrokeColor = hex;
+        this.setState({ styles: styles });
     }
 
     render() {
         const { className, classes } = this.props;
+        const { styleTypes, text, styles } = this.state;
         
         return (
             <div className={`${className || ''} ${classes.root}`}>
@@ -69,53 +109,42 @@ class MemeTextEditor extends React.Component {
                         <TextField
                             rows={1}
                             multiline
-                            defaultValue={this.state.text}
+                            defaultValue={text}
                             variant="outlined"
                             fullWidth
-                            inputProps={{
-                                style: {
-                                    textAlign: this.state.textAlign,
-                                    fontSize: this.state.fontSize,
-                                    lineHeight: 1,
-                                    fontWeight: this.state.isFontWeightBold ? 'bold' : 'normal',
-                                    fontStyle: this.state.isFontStyleItalic ? 'italic' : 'normal',
-                                    textTransform: this.state.isTextTransformUppercase ? 'uppercase' : 'none',
-                                    color: this.state.fontColor,
-                                    textShadow: this.state.hasTextShadow ? '0 0 12px rgba(0,0,0,.5)' : 'none'
-                                }
-                            }}
-                            onChange={this.handleChange}
+                            inputProps={{ style: styles }}
+                            onChange={this.stylePropertyChange}
                         />
                     </Grid>
                     <Grid item xs={3}>
                         {/* Control */}
                         <FormControl variant="outlined" fullWidth>
-                            <InputLabel htmlFor="font-size">Type</InputLabel>
+                            <InputLabel htmlFor="style-type">Style</InputLabel>
                             <Select
-                                value={this.state.fontSize}
-                                onChange={this.handleChange}
+                                value={styleTypes[0]}
+                                onChange={this.styleTypeChange}
                                 input={
                                     <OutlinedInput
                                         labelWidth={36}
-                                        name="fontSize"
-                                        id="font-size"
+                                        name="styleType"
+                                        id="style-type"
                                     />
                                 }
                             >
-                                <MenuItem value={20}>Font 1</MenuItem>
-                                <MenuItem value={24}>Font 2</MenuItem>
-                                <MenuItem value={28}>Font 3</MenuItem>
-                                <MenuItem value={32}>Font 4</MenuItem>
-                                <MenuItem value={36}>Font 5</MenuItem>
+                            {styleTypes.map((styleType, index) => (
+                                <MenuItem value={styleType} style={styleType} key={index}>
+                                    Font {index + 1}
+                                </MenuItem>
+                            ))}
                             </Select>
                         </FormControl>
                         {/* /Control */}
                     </Grid>
                     <Grid item xs={2}>
                         <TextField
-                            value={this.state.textOutlineWidth}
-                            onChange={this.handleChange}
-                            name="textOutlineWidth"
+                            value={styles.WebkitTextStrokeWidth}
+                            onChange={this.stylePropertyChange}
+                            name="WebkitTextStrokeWidth"
                             label="Outline"
                             type="number"
                             fullWidth
@@ -128,9 +157,9 @@ class MemeTextEditor extends React.Component {
                     <Grid item xs={1}>
                         <Checkbox
                             checked={this.isTextOutlineColorPickerShow}
-                            onChange={this.handleChange}
+                            onChange={this.statePropertyChange}
                             name="isTextOutlineColorPickerShow"
-                            style={{color: this.state.textOutlineColor}}
+                            style={{color: styles.WebkitTextStrokeColor}}
                             icon={<BorderColorIcon />}
                             checkedIcon={<BorderColorIcon />}
                             aria-label="Custom Color"
@@ -142,15 +171,15 @@ class MemeTextEditor extends React.Component {
                     }}>
                         <HuePicker 
                             className={classes.colorPicker}
-                            color={this.state.textOutlineColor} 
-                            onChange={this.textOutlineColorChange}
+                            color={styles.WebkitTextStrokeColor} 
+                            onChange={this.textStrokeColorChange}
                         />
                     </Grid>
                     <Grid item xs={6}>
                         {/* Control */}
                         <Radio
-                            checked={this.state.textAlign === 'left'}
-                            onChange={this.handleChange}
+                            checked={styles.textAlign === 'left'}
+                            onChange={this.stylePropertyChange}
                             value="left"
                             name="textAlign"
                             icon={<FormatAlignLeftIcon />}
@@ -159,8 +188,8 @@ class MemeTextEditor extends React.Component {
                             aria-label="Left"
                         />
                         <Radio
-                            checked={this.state.textAlign === 'center'}
-                            onChange={this.handleChange}
+                            checked={styles.textAlign === 'center'}
+                            onChange={this.stylePropertyChange}
                             value="center"
                             name="textAlign"
                             icon={<FormatAlignCenterIcon />}
@@ -169,8 +198,8 @@ class MemeTextEditor extends React.Component {
                             aria-label="Center"
                         />
                         <Radio
-                            checked={this.state.textAlign === 'right'}
-                            onChange={this.handleChange}
+                            checked={styles.textAlign === 'right'}
+                            onChange={this.stylePropertyChange}
                             value="right"
                             name="textAlign"
                             icon={<FormatAlignRightIcon />}
@@ -179,38 +208,42 @@ class MemeTextEditor extends React.Component {
                             aria-label="Right"
                         />
                         <Checkbox
-                            checked={this.state.isFontWeightBold}
-                            onChange={this.handleChange}
-                            name="isFontWeightBold"
+                            checked={styles.fontWeight === 'bold'}
+                            onChange={this.stylePropertyChange}
+                            name="fontWeight"
+                            value={styles.fontWeight !== 'bold' ? 'bold' : 'normal'}
                             icon={<FormatBoldIcon />}
                             checkedIcon={<FormatBoldIcon />}
                             color="primary"
                             aria-label="Bold"
                         />
                         <Checkbox
-                            checked={this.state.isTextTransformUppercase}
-                            onChange={this.handleChange}
-                            name="isTextTransformUppercase"
+                            checked={styles.textTransform === 'uppercase'}
+                            onChange={this.stylePropertyChange}
+                            name="textTransform"
+                            value={styles.textTransform !== 'uppercase' ? 'uppercase' : 'none'}
                             icon={<FormatSizeIcon />}
                             checkedIcon={<FormatSizeIcon />}
                             color="primary"
                             aria-label="Uppercase"
                         />
                         <Checkbox
-                            checked={this.state.isFontStyleItalic}
-                            onChange={this.handleChange}
-                            name="isFontStyleItalic"
+                            checked={styles.fontStyle === 'italic'}
+                            onChange={this.stylePropertyChange}
+                            name="fontStyle"
+                            value={styles.fontStyle !== 'italic' ? 'italic' : 'normal'}
                             icon={<FormatItalicIcon />}
                             checkedIcon={<FormatItalicIcon />}
                             color="primary"
                             aria-label="Italic"
                         />
                         <Checkbox
-                            checked={this.state.hasTextShadow}
-                            onChange={this.handleChange}
+                            checked={styles.textShadow !== 'none'}
+                            onChange={this.stylePropertyChange}
+                            name="textShadow"
+                            value={styles.textShadow !== 'none' ? 'none' : '0 0 12px rgba(0,0,0,.5)'}
                             icon={<HighlightIcon />}
                             checkedIcon={<HighlightIcon />}
-                            name="hasTextShadow"
                             color="primary"
                             aria-label="Has Text Shadow?"
                         />
@@ -219,55 +252,55 @@ class MemeTextEditor extends React.Component {
                     <Grid item xs={6}>
                         {/* Control */}
                         <Radio
-                            checked={this.state.fontColor === '#000000'}
-                            onChange={this.handleChange}
+                            checked={styles.color === '#000000'}
+                            onChange={this.stylePropertyChange}
                             value="#000000"
-                            name="fontColor"
+                            name="color"
                             icon={<LensIcon />}
                             style={{color: '#000000'}}
                             aria-label="Black"
                         />
                         <Radio
-                            checked={this.state.fontColor === '#1A8D5F'}
-                            onChange={this.handleChange}
+                            checked={styles.color === '#1A8D5F'}
+                            onChange={this.stylePropertyChange}
                             value="#1A8D5F"
-                            name="fontColor"
+                            name="color"
                             icon={<LensIcon />}
                             style={{color: '#1A8D5F'}}
                             aria-label="Green"
                         />
                         <Radio
-                            checked={this.state.fontColor === '#D0021B'}
-                            onChange={this.handleChange}
+                            checked={styles.color === '#D0021B'}
+                            onChange={this.stylePropertyChange}
                             value="#D0021B"
-                            name="fontColor"
+                            name="color"
                             icon={<LensIcon />}
                             style={{color: '#D0021B'}}
                             aria-label="Red"
                         />
                         <Radio
-                            checked={this.state.fontColor === '#268EF9'}
-                            onChange={this.handleChange}
+                            checked={styles.color === '#268EF9'}
+                            onChange={this.stylePropertyChange}
                             value="#268EF9"
-                            name="fontColor"
+                            name="color"
                             icon={<LensIcon />}
                             style={{color: '#268EF9'}}
                             aria-label="Blue"
                         />
                         <Radio
-                            checked={this.state.fontColor === '#F1F1F1'}
-                            onChange={this.handleChange}
+                            checked={styles.color === '#F1F1F1'}
+                            onChange={this.stylePropertyChange}
                             value="#F1F1F1"
-                            name="fontColor"
+                            name="color"
                             icon={<LensIcon />}
                             style={{color: '#F1F1F1'}}
                             aria-label="White"
                         />
                         <Checkbox
                             checked={this.isFontColorPickerShow}
-                            onChange={this.handleChange}
+                            onChange={this.statePropertyChange}
                             name="isFontColorPickerShow"
-                            style={{color: this.state.fontColor}}
+                            style={{color: styles.fontColor}}
                             icon={<FormatColorTextIcon />}
                             checkedIcon={<FormatColorTextIcon />}
                             aria-label="Custom Color"
@@ -280,8 +313,8 @@ class MemeTextEditor extends React.Component {
                     }}>
                         <HuePicker 
                             className={classes.colorPicker}
-                            color={this.state.fontColor} 
-                            onChange={this.fontColorChange}
+                            color={styles.color} 
+                            onChange={this.colorChange}
                         />
                     </Grid>
                 </Grid>
