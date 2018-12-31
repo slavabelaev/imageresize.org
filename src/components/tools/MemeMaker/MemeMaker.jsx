@@ -17,7 +17,6 @@ class MemeMaker extends React.Component {
 
         return (
             <Typography component="div" className={`${className || ''} ${classes.root}`}>
-                <MemeEditor />
                 {/* <ImageManager 
                     dataSource={MEME_DATASOURCE.images} 
                     labels={{
@@ -27,6 +26,7 @@ class MemeMaker extends React.Component {
                         selectButton: 'Add Caption'
                     }}
                 /> */}
+                <MemeEditor />
             </Typography>
         );
     }

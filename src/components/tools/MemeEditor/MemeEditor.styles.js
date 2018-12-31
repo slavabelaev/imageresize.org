@@ -21,7 +21,6 @@ const styles = theme => ({
     },
     canvas: {
         width: '100%',
-        height: 570,
         marginBottom: theme.spacing.unit * 3,
         opacity: 0,
         transition: theme.transitions.create()
