@@ -1,7 +1,7 @@
 import React from 'react';
-import { HuePicker } from 'react-color';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { HuePicker } from 'react-color';
+import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
@@ -22,6 +22,7 @@ import FormatColorTextIcon from '@material-ui/icons/FormatColorText';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 // Styles
+import { withStyles } from '@material-ui/core/styles';
 import styles from './TextEditor.styles';
 
 class TextEditor extends React.Component {
@@ -103,7 +104,7 @@ class TextEditor extends React.Component {
         const { styleTypes, text, styles } = this.state;
         
         return (
-            <div className={`${className || ''} ${classes.root}`}>
+            <Typography component="div" className={`${className || ''} ${classes.root}`}>
                 <Grid container spacing={24}>
                     <Grid item xs={12}>
                         <TextField
@@ -315,7 +316,7 @@ class TextEditor extends React.Component {
                         />
                     </Grid>
                 </Grid>
-            </div>
+            </Typography>
         )
     };
 }

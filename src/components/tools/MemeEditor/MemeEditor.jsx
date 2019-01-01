@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,8 +10,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import FormatShapesIcon from '@material-ui/icons/FormatShapes';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio';
 import Dialog from '@material-ui/core/Dialog';
 import Divider from '@material-ui/core/Divider';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -21,7 +17,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import TextEditor from './TextEditor';
+import IconList from './IconList';
 // Styles
+import { withStyles } from '@material-ui/core/styles';
 import styles from './MemeEditor.styles';
 
 const TextDialog = ({ open, onClose }) => (
@@ -32,7 +30,7 @@ const TextDialog = ({ open, onClose }) => (
         aria-labelledby="Edit Text"
         aria-describedby="Edit Text in Meme Image"
     >
-        <DialogTitle id="alert-dialog-title">Edit Text</DialogTitle>
+        <DialogTitle>Edit Text</DialogTitle>
         <Divider />
         <DialogContent style={{padding: 24}}>
             <TextEditor />
@@ -58,67 +56,31 @@ const TextDialog = ({ open, onClose }) => (
     </Dialog>
 );
 
-class IconDialog extends React.Component {
-    state = {
-        iconUrls: [
-            'https://picsum.photos/100/100/?random&1',
-            'https://picsum.photos/100/100/?random&2',
-            'https://picsum.photos/100/100/?random&3',
-            'https://picsum.photos/100/100/?random&4',
-            'https://picsum.photos/100/100/?random&5',
-            'https://picsum.photos/100/100/?random&6',
-            'https://picsum.photos/100/100/?random&7',
-            'https://picsum.photos/100/100/?random&8',
-            'https://picsum.photos/100/100/?random&9',
-            'https://picsum.photos/100/100/?random&10',
-            'https://picsum.photos/100/100/?random&11',
-            'https://picsum.photos/100/100/?random&12'
-        ]
-    }
-
-    render() {
-        const { iconUrls } = this.state;
-        const { open, onClose } = this.props;
-
-        return (
-            <Dialog
-                open={open}
-                onClose={onClose}
-                maxWidth="md"
-                aria-labelledby="Edit Text"
-                aria-describedby="Edit Text in Meme Image"
-            >
-                <DialogTitle id="alert-dialog-title">Choose Icons</DialogTitle>
-                <Divider />
-                <DialogContent>
-                    <Grid container spacing={12}>
-                        {iconUrls.map((iconUrl, index) => (
-                            <Grid item xs={2} key={index}>
-                                <FormControlLabel 
-                                    style={{margin: 0}}
-                                    value={iconUrl} 
-                                    name="icon"
-                                    control={<Radio style={{position: 'absolute'}} />}
-                                    label={<img src={iconUrl} width="100" height="100" />}
-                                />
-                            </Grid>
-                        ))}
-                    </Grid>
-                </DialogContent>
-                <Divider />
-                <DialogActions>
-                <Button 
-                    onClick={onClose} 
-                    variant="contained" 
-                    color="primary"
-                >
-                    Add to Meme
-                </Button>
-                </DialogActions>
-            </Dialog>
-        )
-    };
-}
+const IconDialog = ({ open, onClose }) => (
+    <Dialog
+        open={open}
+        onClose={onClose}
+        maxWidth="md"
+        aria-labelledby="Edit Text"
+        aria-describedby="Edit Text in Meme Image"
+    >
+        <DialogTitle>Choose Icons</DialogTitle>
+        <Divider />
+        <DialogContent style={{padding: 24}}>
+            <IconList />
+        </DialogContent>
+        <Divider />
+        <DialogActions>
+        <Button 
+            onClick={onClose} 
+            variant="contained" 
+            color="primary"
+        >
+            Add to Meme
+        </Button>
+        </DialogActions>
+    </Dialog>
+);
 
 class MemeEditor extends React.Component {
     state = {

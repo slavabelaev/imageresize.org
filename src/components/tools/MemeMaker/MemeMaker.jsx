@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import ImageManager from '../ImageManager/ImageManager';
 import MemeEditor from '../MemeEditor/MemeEditor';
 // Styles
+import { withStyles } from '@material-ui/core/styles';
 import styles from './MemeMaker.styles';
-// DEMO DATA
-import MEME_DATASOURCE from '../../../demo/data/images.json';
 
 class MemeMaker extends React.Component {
     state = {};
@@ -17,8 +15,7 @@ class MemeMaker extends React.Component {
 
         return (
             <Typography component="div" className={`${className || ''} ${classes.root}`}>
-                {/* <ImageManager 
-                    dataSource={MEME_DATASOURCE.images} 
+                {/* <ImageManager
                     labels={{
                         chooseTab: 'Choose Meme',
                         uploadTab: 'Upload Image',

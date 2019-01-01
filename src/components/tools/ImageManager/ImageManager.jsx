@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -21,7 +20,10 @@ import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
 // Styles
+import { withStyles } from '@material-ui/core/styles';
 import styles from './ImageManager.styles';
+// DEMO DATA
+import DEMO_IMAGES_DATA from '../../../assets/demo/data/images.json';
 
 const TabContainer = ({ className, children }) => (
     <Typography className={className || ''} component="div">
@@ -36,17 +38,17 @@ TabContainer.propTypes = {
 class ImageManager extends React.Component {
     state = {
         labels: this.props.labels || {},
-        images: this.props.dataSource ? this.props.dataSource : require('./ImageManager.demo.json'),
+        images: DEMO_IMAGES_DATA || [],
         activeTabIndex: 0,
         uploadingProgressCompleted: 0,
         uploadingProgressBuffer: 80
     };
     
-    changeActiveTabIndexOnClick = (event, activeTabIndex) => {
+    onChangeTabIndex = (event, activeTabIndex) => {
         this.setState({ activeTabIndex });
     };
 
-    changeActiveTabIndex = activeTabIndex => {
+    changeTabIndex = activeTabIndex => {
         this.setState({ activeTabIndex });
     };
 
@@ -61,7 +63,7 @@ class ImageManager extends React.Component {
                 <Tabs
                     className={classes.Tabs}
                     value={activeTabIndex}
-                    onChange={this.changeActiveTabIndexOnClick}
+                    onChange={this.onChangeTabIndex}
                     indicatorColor="primary">
                     <Tab 
                         className={classes.Tab}
@@ -74,7 +76,7 @@ class ImageManager extends React.Component {
                     animateHeight
                     className={classes.SwipeableViews} 
                     index={activeTabIndex}
-                    onChangeIndex={this.changeActiveTabIndex}>
+                    onChangeIndex={this.changeTabIndex}>
                     <TabContainer className={classes.TabContainer}>
                         <Toolbar className={classes.Toolbar}>
                             <TextField
@@ -108,7 +110,7 @@ class ImageManager extends React.Component {
                                                 title={
                                                     <Typography className={classes.CardHeader_title}>{image.title}</Typography>
                                                 } />
-                                            <CardMedia image={image.image} className={classes.CardMedia} />
+                                            <CardMedia image={image.url} className={classes.CardMedia} />
                                             <CardActions>
                                                 <Button 
                                                     className={classes.Button_addCaption} 
