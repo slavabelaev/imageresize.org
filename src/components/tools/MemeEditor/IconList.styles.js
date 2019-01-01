@@ -3,9 +3,7 @@ const styles = theme => ({
     FormControlLabel: {
         margin: 0,
         '&[aria-selected=true] img': {
-            borderColor: theme.palette.primary.main,
-            borderStyle: 'solid',
-            borderWidth: 3
+            boxShadow: theme.states.selected.boxShadow
         }
     },
     Radio: {
@@ -14,7 +12,8 @@ const styles = theme => ({
     },
     image: {
         width: 100,
-        height: 100
+        height: 100,
+        borderRadius: theme.shape.borderRadius
     }
 });
 

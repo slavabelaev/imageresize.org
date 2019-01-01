@@ -22,7 +22,7 @@ import IconList from './IconList';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './MemeEditor.styles';
 
-const TextDialog = ({ open, onClose }) => (
+const TextDialog = ({ classes, open, onClose }) => (
     <Dialog
         open={open}
         onClose={onClose}
@@ -30,7 +30,15 @@ const TextDialog = ({ open, onClose }) => (
         aria-labelledby="Edit Text"
         aria-describedby="Edit Text in Meme Image"
     >
-        <DialogTitle>Edit Text</DialogTitle>
+        <DialogTitle>
+            Edit Text
+            <IconButton 
+                className={classes.IconButton_closeDialog}
+                onClick={onClose}
+            >
+                <ClearIcon />
+            </IconButton>
+        </DialogTitle>
         <Divider />
         <DialogContent style={{padding: 24}}>
             <TextEditor />
@@ -56,7 +64,7 @@ const TextDialog = ({ open, onClose }) => (
     </Dialog>
 );
 
-const IconDialog = ({ open, onClose }) => (
+const IconDialog = ({ classes, open, onClose }) => (
     <Dialog
         open={open}
         onClose={onClose}
@@ -64,7 +72,15 @@ const IconDialog = ({ open, onClose }) => (
         aria-labelledby="Edit Text"
         aria-describedby="Edit Text in Meme Image"
     >
-        <DialogTitle>Choose Icons</DialogTitle>
+        <DialogTitle>
+            Choose Icons
+            <IconButton 
+                className={classes.IconButton_closeDialog}
+                onClick={onClose}
+            >
+                <ClearIcon />
+            </IconButton>
+        </DialogTitle>
         <Divider />
         <DialogContent style={{padding: 24}}>
             <IconList />
@@ -118,10 +134,12 @@ class MemeEditor extends React.Component {
                 <TextDialog
                     open={this.state.isTextDialogOpen}
                     onClose={this.toggleTextDialog}
+                    classes={classes}
                 />
                 <IconDialog
                     open={this.state.isIconDialogOpen}
                     onClose={this.toggleIconDialog}
+                    classes={classes}
                 />
                 <Typography 
                     className={classes.Typography_title} 

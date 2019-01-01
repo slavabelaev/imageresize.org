@@ -188,8 +188,7 @@ class ImageManager extends React.Component {
 }
 
 ImageManager.propTypes = {
-    classes: PropTypes.object.isRequired,
-    dataSource: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ImageManager);

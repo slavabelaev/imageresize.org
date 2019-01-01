@@ -1,6 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import lightBlue from '@material-ui/core/colors/lightBlue';
 import lightGreen from '@material-ui/core/colors/lightGreen';
+import red from '@material-ui/core/colors/red';
 // App Font
 import './assets/fonts/Gotham/Gotham.css';
 
@@ -9,12 +10,16 @@ const white = 'rgba(255,255,255,1)';
 lightBlue.light = lightBlue[300];
 lightBlue.main = lightBlue[400];
 lightBlue.dark = lightBlue[500];
-lightGreen.contrastText = white;
+lightBlue.contrastText = white;
 
 lightGreen.light = lightGreen[300];
 lightGreen.main = lightGreen[400];
 lightGreen.dark = lightGreen[500];
 lightGreen.contrastText = white;
+
+red.light = red[300];
+red.main = red[400];
+red.dark = red[500];
 
 const grey = {
   50: '#FAFBFB',
@@ -40,6 +45,15 @@ const spacing = {
 const fontFamily = '"Gotham", "Roboto", "Helvetica", "Arial", sans-serif';
 
 const theme = createMuiTheme({
+  states: {
+    hover: {
+      boxShadow: `${lightBlue.main} 0 0 0 1px`
+    },
+    selected: {
+      boxShadow: `${lightBlue.main} 0 0 0 3px`
+    }
+  },
+
   spacing: {
     unit: spacing.unit
   },
@@ -57,6 +71,7 @@ const theme = createMuiTheme({
     white: white,
     primary: lightBlue,
     secondary: lightGreen,
+    error: red,
     grey: grey,
     background: {
       default: white

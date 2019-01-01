@@ -40,6 +40,12 @@ const styles = theme => ({
     Button: {
         marginRight: theme.spacing.unit * 2,
         backgroundColor: theme.palette.white
+    },
+    IconButton_closeDialog: {
+        position: 'absolute',
+        right: theme.spacing.unit * 2,
+        top: theme.spacing.unit * 2,
+        color: theme.palette.error.main
     }
 });
 
