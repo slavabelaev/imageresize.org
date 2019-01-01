@@ -96,6 +96,7 @@ const theme = createMuiTheme({
     body1: {
       fontFamily: fontFamily,
       color: grey[600],
+      fontSize: '1.125rem'
     },
     button: {
       fontFamily: fontFamily,
@@ -129,8 +130,7 @@ const theme = createMuiTheme({
     },
     subtitle1: {
       fontFamily: fontFamily,
-      color: grey[600],
-      fontSize: '1.125rem'
+      color: grey[600]
     },
     subtitle2: {
       fontFamily: fontFamily,
