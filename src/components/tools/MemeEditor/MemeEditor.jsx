@@ -20,7 +20,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-import MemeTextEditor from './MemeTextEditor';
+import TextEditor from './TextEditor';
 // Styles
 import styles from './MemeEditor.styles';
 
@@ -35,7 +35,7 @@ const TextDialog = ({ open, onClose }) => (
         <DialogTitle id="alert-dialog-title">Edit Text</DialogTitle>
         <Divider />
         <DialogContent style={{padding: 24}}>
-            <MemeTextEditor />
+            <TextEditor />
         </DialogContent>
         <Divider />
         <DialogActions>
@@ -127,20 +127,11 @@ class MemeEditor extends React.Component {
         isIconDialogOpen: false
     };
 
-    openTextDialog = () => {
-        this.setState({ isTextDialogOpen: true });
+    toggleTextDialog = () => {
+        this.setState({ isTextDialogOpen: !this.state.isTextDialogOpen });
     };
-    
-    closeTextDialog = () => {
-        this.setState({ isTextDialogOpen: false });
-    };
-
-    openIconDialog = () => {
-        this.setState({ isIconDialogOpen: true });
-    };
-    
-    closeIconDialog = () => {
-        this.setState({ isIconDialogOpen: false });
+    toggleIconDialog = () => {
+        this.setState({ isIconDialogOpen: !this.state.isIconDialogOpen });
     };
 
     componentDidMount() {
@@ -164,11 +155,11 @@ class MemeEditor extends React.Component {
             <Typography component="div" className={`${className || ''} ${classes.root}`}>
                 <TextDialog
                     open={this.state.isTextDialogOpen}
-                    onClose={this.closeTextDialog}
+                    onClose={this.toggleTextDialog}
                 />
                 <IconDialog
                     open={this.state.isIconDialogOpen}
-                    onClose={this.closeIconDialog}
+                    onClose={this.toggleIconDialog}
                 />
                 <Typography 
                     className={classes.Typography_title} 
@@ -186,7 +177,7 @@ class MemeEditor extends React.Component {
                     <Button 
                         className={classes.Button} 
                         variant="outlined"
-                        onClick={this.openTextDialog}
+                        onClick={this.toggleTextDialog}
                     >
                         <FormatShapesIcon className={classes.icon} />
                         Add Text
@@ -194,7 +185,7 @@ class MemeEditor extends React.Component {
                     <Button 
                         className={classes.Button} 
                         variant="outlined"
-                        onClick={this.openIconDialog}
+                        onClick={this.toggleIconDialog}
                     >
                         <InsertEmoticonIcon className={classes.icon} />
                         Add Icon

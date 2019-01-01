@@ -20,11 +20,11 @@ import FormatAlignRightIcon from '@material-ui/icons/FormatAlignRight';
 import LensIcon from '@material-ui/icons/Lens';
 import FormatColorTextIcon from '@material-ui/icons/FormatColorText';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
-import HighlightIcon from '@material-ui/icons/Highlight';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
 // Styles
-import styles from './MemeTextEditor.styles';
+import styles from './TextEditor.styles';
 
-class MemeTextEditor extends React.Component {
+class TextEditor extends React.Component {
     styleTypes = [
         {
             fontSize: 20,
@@ -36,7 +36,7 @@ class MemeTextEditor extends React.Component {
             fontStyle: 'normal',
             textTransform: 'uppercase',
             textShadow: 'none',
-            lineHeight: 2
+            lineHeight: 2.4
         },
         {
             fontSize: 24,
@@ -48,7 +48,7 @@ class MemeTextEditor extends React.Component {
             fontStyle: 'normal',
             textTransform: 'uppercase',
             textShadow: 'none',
-            lineHeight: 2
+            lineHeight: 2.4
         },
         {
             fontSize: 32,
@@ -60,7 +60,7 @@ class MemeTextEditor extends React.Component {
             fontStyle: 'normal',
             textTransform: 'uppercase',
             textShadow: 'none',
-            lineHeight: 2
+            lineHeight: 2.4
         }
     ];
     state = {
@@ -72,27 +72,27 @@ class MemeTextEditor extends React.Component {
         isTextStrokeColorPickerShow: false,
     };
 
-    statePropertyChange = ({ target }) => {
+    changeStateProperty = ({ target }) => {
         this.setState({ [target.name]: target.value ? target.value : target.checked });
     }
 
-    styleTypeChange = ({ target }) => {
+    changeStyleType = ({ target }) => {
         this.setState({ styles: target.value });
     };
 
-    stylePropertyChange = ({ target }) => {
+    changeStyleProperty = ({ target }) => {
         const styles = {...this.state.styles};
         styles[target.name] = target.value ? target.value : target.checked;
         this.setState({ styles: styles });
     };
 
-    colorChange = ({ hex }) => {
+    changeTextColor = ({ hex }) => {
         const styles = {...this.state.styles};
         styles.color = hex;
         this.setState({ styles: styles });
     }
 
-    textStrokeColorChange = ({ hex }) => {
+    changeTextStrokeColor = ({ hex }) => {
         const styles = {...this.state.styles};
         styles.WebkitTextStrokeColor = hex;
         this.setState({ styles: styles });
@@ -113,16 +113,15 @@ class MemeTextEditor extends React.Component {
                             variant="outlined"
                             fullWidth
                             inputProps={{ style: styles }}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                         />
                     </Grid>
                     <Grid item xs={3}>
-                        {/* Control */}
                         <FormControl variant="outlined" fullWidth>
                             <InputLabel htmlFor="style-type">Style</InputLabel>
                             <Select
                                 value={styleTypes[0]}
-                                onChange={this.styleTypeChange}
+                                onChange={this.changeStyleType}
                                 input={
                                     <OutlinedInput
                                         labelWidth={36}
@@ -132,18 +131,21 @@ class MemeTextEditor extends React.Component {
                                 }
                             >
                             {styleTypes.map((styleType, index) => (
-                                <MenuItem value={styleType} style={styleType} key={index}>
+                                <MenuItem 
+                                    value={styleType} 
+                                    style={styleType} 
+                                    key={index}
+                                >
                                     Font {index + 1}
                                 </MenuItem>
                             ))}
                             </Select>
                         </FormControl>
-                        {/* /Control */}
                     </Grid>
                     <Grid item xs={2}>
                         <TextField
                             value={styles.WebkitTextStrokeWidth}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             name="WebkitTextStrokeWidth"
                             label="Outline"
                             type="number"
@@ -157,7 +159,7 @@ class MemeTextEditor extends React.Component {
                     <Grid item xs={1}>
                         <Checkbox
                             checked={this.isTextStrokeColorPickerShow}
-                            onChange={this.statePropertyChange}
+                            onChange={this.changeStateProperty}
                             name="isTextStrokeColorPickerShow"
                             style={{color: styles.WebkitTextStrokeColor}}
                             icon={<BorderColorIcon />}
@@ -171,14 +173,13 @@ class MemeTextEditor extends React.Component {
                     >
                         <HuePicker
                             color={styles.WebkitTextStrokeColor} 
-                            onChange={this.textStrokeColorChange}
+                            onChange={this.changeTextStrokeColor}
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        {/* Control */}
                         <Radio
                             checked={styles.textAlign === 'left'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             value="left"
                             name="textAlign"
                             icon={<FormatAlignLeftIcon />}
@@ -188,7 +189,7 @@ class MemeTextEditor extends React.Component {
                         />
                         <Radio
                             checked={styles.textAlign === 'center'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             value="center"
                             name="textAlign"
                             icon={<FormatAlignCenterIcon />}
@@ -198,7 +199,7 @@ class MemeTextEditor extends React.Component {
                         />
                         <Radio
                             checked={styles.textAlign === 'right'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             value="right"
                             name="textAlign"
                             icon={<FormatAlignRightIcon />}
@@ -208,7 +209,7 @@ class MemeTextEditor extends React.Component {
                         />
                         <Checkbox
                             checked={styles.fontWeight === 'bold'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             name="fontWeight"
                             value={styles.fontWeight !== 'bold' ? 'bold' : 'normal'}
                             icon={<FormatBoldIcon />}
@@ -218,7 +219,7 @@ class MemeTextEditor extends React.Component {
                         />
                         <Checkbox
                             checked={styles.textTransform === 'uppercase'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             name="textTransform"
                             value={styles.textTransform !== 'uppercase' ? 'uppercase' : 'none'}
                             icon={<FormatSizeIcon />}
@@ -228,7 +229,7 @@ class MemeTextEditor extends React.Component {
                         />
                         <Checkbox
                             checked={styles.fontStyle === 'italic'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             name="fontStyle"
                             value={styles.fontStyle !== 'italic' ? 'italic' : 'normal'}
                             icon={<FormatItalicIcon />}
@@ -238,21 +239,19 @@ class MemeTextEditor extends React.Component {
                         />
                         <Checkbox
                             checked={styles.textShadow !== 'none'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             name="textShadow"
                             value={styles.textShadow !== 'none' ? 'none' : '0 0 12px rgba(0,0,0,.5)'}
-                            icon={<HighlightIcon />}
-                            checkedIcon={<HighlightIcon />}
+                            icon={<WbSunnyIcon />}
+                            checkedIcon={<WbSunnyIcon />}
                             color="primary"
                             aria-label="Has Text Shadow?"
                         />
-                        {/* /Control */}
                     </Grid>
                     <Grid item xs={6}>
-                        {/* Control */}
                         <Radio
                             checked={styles.color === '#000000'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             value="#000000"
                             name="color"
                             icon={<LensIcon />}
@@ -261,7 +260,7 @@ class MemeTextEditor extends React.Component {
                         />
                         <Radio
                             checked={styles.color === '#1A8D5F'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             value="#1A8D5F"
                             name="color"
                             icon={<LensIcon />}
@@ -270,7 +269,7 @@ class MemeTextEditor extends React.Component {
                         />
                         <Radio
                             checked={styles.color === '#D0021B'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             value="#D0021B"
                             name="color"
                             icon={<LensIcon />}
@@ -279,7 +278,7 @@ class MemeTextEditor extends React.Component {
                         />
                         <Radio
                             checked={styles.color === '#268EF9'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             value="#268EF9"
                             name="color"
                             icon={<LensIcon />}
@@ -288,7 +287,7 @@ class MemeTextEditor extends React.Component {
                         />
                         <Radio
                             checked={styles.color === '#F1F1F1'}
-                            onChange={this.stylePropertyChange}
+                            onChange={this.changeStyleProperty}
                             value="#F1F1F1"
                             name="color"
                             icon={<LensIcon />}
@@ -297,14 +296,13 @@ class MemeTextEditor extends React.Component {
                         />
                         <Checkbox
                             checked={this.isColorPickerShow}
-                            onChange={this.statePropertyChange}
+                            onChange={this.changeStateProperty}
                             name="isColorPickerShow"
                             style={{color: styles.color}}
                             icon={<FormatColorTextIcon />}
                             checkedIcon={<FormatColorTextIcon />}
                             aria-label="Custom Color"
                         />
-                        {/* /Control */}
                     </Grid>
                     <Grid 
                         item xs={6} 
@@ -313,7 +311,7 @@ class MemeTextEditor extends React.Component {
                     >
                         <HuePicker
                             color={styles.color} 
-                            onChange={this.colorChange}
+                            onChange={this.changeTextColor}
                         />
                     </Grid>
                 </Grid>
@@ -322,8 +320,8 @@ class MemeTextEditor extends React.Component {
     };
 }
 
-MemeTextEditor.propTypes = {
+TextEditor.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MemeTextEditor);
+export default withStyles(styles)(TextEditor);
