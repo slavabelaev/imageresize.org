@@ -41,29 +41,46 @@ class ImageManager extends React.Component {
         images: DEMO_IMAGES_DATA || [],
         activeTabIndex: 0,
         uploadingProgressCompleted: 0,
-        uploadingProgressBuffer: 80
+        uploadingProgressBuffer: 80,
+        searchQuery: ''
     };
     
-    onChangeTabIndex = (event, activeTabIndex) => {
+    handleTabChange = (event, activeTabIndex) => {
         this.setState({ activeTabIndex });
     };
 
-    changeTabIndex = activeTabIndex => {
+    handleTabSwipe = activeTabIndex => {
         this.setState({ activeTabIndex });
     };
 
-    cancelUpload = () => {};
+    handleSelect = () => {}
+
+    handleSelectFromDevice = () => {}
+
+    handleSelectFromUrl = () => {}
+
+    handleUpload = () => {}
+    
+    handleUploadCancel = () => {}
+
+    handleSearchQueryChange = (event) => {
+        this.setState({ searchQuery: event.target.value });
+    }
+
+    handleSearchQueryClear = () => {
+        this.setState({ searchQuery: '' });
+    }
 
     render() {
         const { className, classes } = this.props;
-        const { labels, activeTabIndex } = this.state;
+        const { labels, activeTabIndex, searchQuery } = this.state;
 
         return (
             <div className={`${className || ''} ${classes.root}`}>
                 <Tabs
                     className={classes.Tabs}
                     value={activeTabIndex}
-                    onChange={this.onChangeTabIndex}
+                    onChange={this.handleTabChange}
                     indicatorColor="primary">
                     <Tab 
                         className={classes.Tab}
@@ -76,7 +93,7 @@ class ImageManager extends React.Component {
                     animateHeight
                     className={classes.SwipeableViews} 
                     index={activeTabIndex}
-                    onChangeIndex={this.changeTabIndex}>
+                    onChangeIndex={this.handleTabSwipe}>
                     <TabContainer className={classes.TabContainer}>
                         <Toolbar className={classes.Toolbar}>
                             <TextField
@@ -93,12 +110,15 @@ class ImageManager extends React.Component {
                                         <InputAdornment position="end">
                                             <IconButton
                                                 aria-label="Clear Search String"
-                                                onClick={this.handleClearSearch}>
+                                                onClick={this.handleSearchQueryClear}>
                                                 <ClearIcon fontSize="small" />
                                             </IconButton>
                                         </InputAdornment>
                                     )
-                                }} />
+                                }}
+                                value={searchQuery}
+                                onChange={this.handleSearchQueryChange}
+                            />
                         </Toolbar>
                         <div className={classes.gridContainer}>
                             <Grid container spacing={24}>
@@ -117,6 +137,7 @@ class ImageManager extends React.Component {
                                                     variant="outlined" 
                                                     fullWidth 
                                                     size="small"
+                                                    onClick={this.handleSelect}
                                                 >{labels.selectButton || 'Select'}</Button>
                                             </CardActions>
                                         </Card>
@@ -136,6 +157,7 @@ class ImageManager extends React.Component {
                                 id="upload-file"
                                 multiple
                                 type="file"
+                                onChange={this.handleSelectFromDevice}
                             />
                             <label htmlFor="upload-file">
                                 <Button 
@@ -143,7 +165,8 @@ class ImageManager extends React.Component {
                                     size="large" 
                                     color="secondary" 
                                     component="span" 
-                                    className={classes.Button}>
+                                    className={classes.Button}
+                                >
                                     <AddPhotoAlternateIcon className={classes.Icon} /> 
                                     Choose Image
                                 </Button>
@@ -162,7 +185,9 @@ class ImageManager extends React.Component {
                                             <Button
                                                 variant="contained"
                                                 size="large"
-                                                color="secondary">Go</Button>
+                                                color="secondary"
+                                                onClick={this.handleSelectFromUrl}
+                                            >Go</Button>
                                         </InputAdornment>
                                     )
                                 }} />
@@ -175,7 +200,7 @@ class ImageManager extends React.Component {
                                     valueBuffer={this.state.uploadingProgressBuffer} />
                                 <IconButton
                                     aria-label="Remove uploading"
-                                    onClick={this.cancelUpload}>
+                                    onClick={this.handleUploadCancel}>
                                     <ClearIcon fontSize="small" />
                                 </IconButton>
                             </Typography>

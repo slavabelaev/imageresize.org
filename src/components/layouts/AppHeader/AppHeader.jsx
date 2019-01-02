@@ -12,9 +12,8 @@ import AppIcon from '../../common/AppIcon/AppIcon';
 // Styles
 import styles from './AppHeader.styles';
 
+const isPathMatch = (path) => !!window.location.pathname.match(path);
 const AppHeader = ({ className, classes }) => {
-    const isPathMatch = (path) => !!window.location.pathname.match(path);
-
     const ImageToolsTabs = ({ match, location }) => (
         <Tabs
             className={classes.Tabs}

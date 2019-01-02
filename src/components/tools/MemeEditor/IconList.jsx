@@ -15,7 +15,7 @@ class IconList extends React.Component {
         icons: DEMO_ICONS_DATA || []
     };
 
-    changeSelectedIcon = ({ target }) => {
+    handleSelect = ({ target }) => {
         const iconIndex = target.value;
         const selectedIcon = this.state.icons[iconIndex];
         this.setState({ selectedIcon: selectedIcon });
@@ -35,7 +35,7 @@ class IconList extends React.Component {
                                 aria-selected={selectedIcon === icon}
                                 checked={selectedIcon === icon}
                                 className={classes.FormControlLabel}
-                                onChange={this.changeSelectedIcon}
+                                onChange={this.handleSelect}
                                 name="icon"
                                 value={String(index)}
                                 control={

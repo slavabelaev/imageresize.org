@@ -11,10 +11,6 @@ import styles from './MemeMakerPage.styles';
 const MemeMakerPage = ({ className, classes }) => (
     <div className={`${className || ''} ${classes.root}`}>
         <div className={classes.contentContainer}>
-            <header className={classes.header}>
-                <Typography variant="h4" component="h1" gutterBottom>Meme Maker</Typography>
-                <Typography variant="body1">Upload Files below to start crop, resize, compress or edit your images</Typography>
-            </header>
             <MemeMaker className={classes.MemeMaker} />
         </div>
         <Divider />

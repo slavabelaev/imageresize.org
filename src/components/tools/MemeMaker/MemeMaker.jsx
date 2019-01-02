@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -11,15 +12,21 @@ import ShareImage from '../../tools/ShareImage/ShareImage';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './MemeMaker.styles';
 
-const MemeImageManager = () => (
-    <ImageManager
-        labels={{
-            chooseTab: 'Choose Meme',
-            uploadTab: 'Upload Image',
-            search: 'Search memes',
-            selectButton: 'Add Caption'
-        }}
-    />
+const MemeImageManager = ({ classes }) => (
+    <div>
+        <header className={classes.header}>
+            <Typography variant="h4" component="h1" gutterBottom>Meme Maker</Typography>
+            <Typography variant="body1">Select or Upload image below to make Meme</Typography>
+        </header>
+        <ImageManager
+            labels={{
+                chooseTab: 'Choose Meme',
+                uploadTab: 'Upload Image',
+                search: 'Search memes',
+                selectButton: 'Add Caption'
+            }}
+        />
+    </div>
 )
 
 class MemeMaker extends React.Component {
@@ -28,17 +35,25 @@ class MemeMaker extends React.Component {
         activeStep: 0
     };
 
-    goNext = () => {
+    scrollToTop() {
+        if (!document.body.scrollIntoView) return;
+        this.refs.root.scrollIntoView();
+    }
+
+    handleGoNext = () => {
         const { activeStep } = this.state;
         this.setState({ activeStep: activeStep + 1 });
+        this.scrollToTop();
     };
 
-    goBack = () => {
+    handleGoBack = () => {
         this.setState(state => ({ activeStep: state.activeStep - 1 }));
+        this.scrollToTop();
     };
 
-    reset = () => {
+    handleReset = () => {
         this.setState({ activeStep: 0 });
+        this.scrollToTop();
     };
     
     render() {
@@ -47,7 +62,7 @@ class MemeMaker extends React.Component {
         const steps = [
             { 
                 label: 'Select Image',
-                content: (<MemeImageManager />)
+                content: (<MemeImageManager classes={classes} />)
             },
             { 
                 label: 'Make Meme',
@@ -55,14 +70,14 @@ class MemeMaker extends React.Component {
             },
             { 
                 label: 'Download or Share',
-                content: (<ShareImage imageUrl={imageUrl} onCreateNew={this.reset} />)
+                content: (<ShareImage imageUrl={imageUrl} onCreateNew={this.handleReset} />)
             }
         ];
         const lastStep = (steps.length - 1);
         const getStepContent = (index) => steps[index].content;
 
         return (
-            <div className={`${className || ''} ${classes.root}`}>
+            <div className={`${className || ''} ${classes.root}`} ref="root">
                 <Stepper activeStep={activeStep}>
                     {steps.map((step, index) => (
                         <Step key={index}>
@@ -75,20 +90,22 @@ class MemeMaker extends React.Component {
                 </div>
                 {activeStep < lastStep ? (
                     <div className={classes.actions}>
+                        {activeStep > 0 ? (
                         <Button
                             size="large"
-                            disabled={activeStep === 0}
-                            onClick={this.goBack}
+                            hidden={activeStep === 0}
+                            onClick={this.handleGoBack}
                             className={classes.button}
                         >
                             Back
                         </Button>
+                        ) : null}
                         <Button
                             variant="contained"
                             color={activeStep === 1 ? 'secondary' : 'primary'}
                             size="large"
                             disabled={activeStep === lastStep}
-                            onClick={this.goNext}
+                            onClick={this.handleGoNext}
                             className={classes.button}
                         >
                             {(activeStep === 0) ? 'Make It' : null}

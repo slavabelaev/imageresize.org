@@ -24,12 +24,12 @@ class EmbedList extends React.Component {
         isCopiedMessageShow: false
     }
 
-    copy = (copyString) => {
+    handleCopy = (copyString) => {
         copyToClipboard(copyString);
         this.setState({ isCopiedMessageShow: true });
     }
 
-    closeCopiedMessage = (event, reason) => {
+    handleCopiedMessageHide = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
@@ -68,7 +68,7 @@ class EmbedList extends React.Component {
                                 <Button 
                                     variant="outlined" 
                                     size="large"
-                                    onClick={() => this.copy(embed.content)}
+                                    onClick={() => this.handleCopy(embed.content)}
                                 >Copy</Button>
                             )
                         }}
@@ -78,7 +78,7 @@ class EmbedList extends React.Component {
     
                 <Snackbar
                     open={state.isCopiedMessageShow}
-                    onClose={this.closeCopiedMessage}
+                    onClose={this.handleCopiedMessageHide}
                     autoHideDuration={1200}
                     message="Copied!"
                 />

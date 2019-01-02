@@ -3,10 +3,6 @@ const styles = theme => ({
         maxWidth: 1170,
         margin: 'auto'
     },
-    header: {
-        textAlign: 'center',
-        marginBottom: 48
-    },
     contentContainer: {
         padding: 60,
         paddingBottom: 0
