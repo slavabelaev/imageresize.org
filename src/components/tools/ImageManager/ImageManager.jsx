@@ -59,7 +59,7 @@ class ImageManager extends React.Component {
         const { labels, activeTabIndex } = this.state;
 
         return (
-            <Typography component="div" className={`${className || ''} ${classes.root}`}>
+            <div className={`${className || ''} ${classes.root}`}>
                 <Tabs
                     className={classes.Tabs}
                     value={activeTabIndex}
@@ -129,7 +129,7 @@ class ImageManager extends React.Component {
                         </div>
                     </TabContainer>
                     <TabContainer className={classes.TabContainer}>
-                        <Typography className={classes.uploadFileContainer} component="div">
+                        <div className={classes.uploadFileContainer}>
                             <input
                                 accept="image/*"
                                 className={classes.input_uploadFile}
@@ -148,7 +148,7 @@ class ImageManager extends React.Component {
                                     Choose Image
                                 </Button>
                             </label>
-                            <Typography className={classes.Typography_uploadFile} variant="subtitle1">or, drop Image here</Typography>
+                            <Typography className={classes.Typography_uploadFile} variant="body1">or, drop Image here</Typography>
                             <TextField
                                 className={classes.TextField}
                                 id="file-url"
@@ -179,10 +179,10 @@ class ImageManager extends React.Component {
                                     <ClearIcon fontSize="small" />
                                 </IconButton>
                             </Typography>
-                        </Typography>
+                        </div>
                     </TabContainer>
                 </SwipeableViews>
-            </Typography>
+            </div>
         );
     }
 }

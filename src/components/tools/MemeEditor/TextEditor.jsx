@@ -104,7 +104,7 @@ class TextEditor extends React.Component {
         const { styleTypes, text, styles } = this.state;
         
         return (
-            <Typography component="div" className={`${className || ''} ${classes.root}`}>
+            <div className={`${className || ''} ${classes.root}`}>
                 <Grid container spacing={24}>
                     <Grid item xs={12}>
                         <TextField
@@ -316,7 +316,7 @@ class TextEditor extends React.Component {
                         />
                     </Grid>
                 </Grid>
-            </Typography>
+            </div>
         )
     };
 }

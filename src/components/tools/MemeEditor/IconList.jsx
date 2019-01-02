@@ -27,7 +27,7 @@ class IconList extends React.Component {
         const { selectedIcon, icons } = this.state;
         
         return (
-            <Typography component="div" className={`${className || ''} ${classes.root}`}>
+            <div className={`${className || ''} ${classes.root}`}>
                 <Grid container spacing={24}>
 
                     {icons.map((icon, index) => (
@@ -54,7 +54,7 @@ class IconList extends React.Component {
                     ))}
 
                 </Grid>
-            </Typography>
+            </div>
         )
     };
 }

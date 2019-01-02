@@ -98,6 +98,7 @@ const theme = createMuiTheme({
     },
     title: {
       fontFamily: fontFamily,
+      fontWeight: 400,
       color: grey[700]
     },
     subheading: {

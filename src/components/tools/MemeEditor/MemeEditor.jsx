@@ -99,8 +99,13 @@ const IconDialog = ({ classes, open, onClose }) => (
 );
 
 class MemeEditor extends React.Component {
+    imageWidth = window.outerWidth > this.imageWidth ? this.imageWidth : window.outerWidth;
+    imageHeight = (this.imageWidth * 0.76);
+
     state = {
-        imageUrl: 'https://picsum.photos/750/570/?random',
+        imageUrl: `https://picsum.photos/${this.imageWidth}/${this.imageHeight}/?random`,
+        imageWidth: this.imageWidth,
+        imageHeight: this.imageHeight,
         isTextDialogOpen: false,
         isIconDialogOpen: false
     };
@@ -117,8 +122,8 @@ class MemeEditor extends React.Component {
         const canvas = refs.canvas;
         const canvasContext = canvas.getContext('2d');
         const image = new Image();
-        canvas.width = window.outerWidth > 750 ? 750 : window.outerWidth;
-        canvas.height = canvas.width * 0.76;
+        canvas.width = state.imageWidth;
+        canvas.height = state.imageHeight;
         image.src = state.imageUrl;
         image.onload = function() {
             canvasContext.drawImage(image, 0, 0);
@@ -130,7 +135,7 @@ class MemeEditor extends React.Component {
         const { className, classes } = this.props;
 
         return (
-            <Typography component="div" className={`${className || ''} ${classes.root}`}>
+            <div className={`${className || ''} ${classes.root}`}>
                 <TextDialog
                     open={this.state.isTextDialogOpen}
                     onClose={this.toggleTextDialog}
@@ -144,15 +149,14 @@ class MemeEditor extends React.Component {
                 <Typography 
                     className={classes.Typography_title} 
                     component="h3" 
-                    variant="h5"
-                >Add Text or icons to "XYZ" memes</Typography>
-                <Typography className={classes.canvasContainer} component="div">
+                    variant="h5">Add Text or icons to "XYZ" memes</Typography>
+                <div className={classes.canvasContainer}>
                     <CircularProgress className={classes.CircularProgress} />                
                     <canvas
                         className={classes.canvas} 
-                        ref="canvas" 
+                        ref="canvas"
                     />
-                </Typography>
+                </div>
                 <Toolbar className={classes.Toolbar}>
                     <Button 
                         className={classes.Button} 
@@ -171,7 +175,7 @@ class MemeEditor extends React.Component {
                         Add Icon
                     </Button>
                 </Toolbar>
-            </Typography>
+            </div>
         );
     }
 }
