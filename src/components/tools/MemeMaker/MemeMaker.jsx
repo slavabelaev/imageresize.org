@@ -6,6 +6,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import ImageManager from '../ImageManager/ImageManager';
 import MemeEditor from '../MemeEditor/MemeEditor';
+import ShareImage from '../../tools/ShareImage/ShareImage';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
 import styles from './MemeMaker.styles';
@@ -21,23 +22,9 @@ const MemeImageManager = () => (
     />
 )
 
-const steps = [
-    { 
-        label: 'Select Image',
-        content: (<MemeImageManager />)
-    },
-    { 
-        label: 'Make Meme',
-        content: (<MemeEditor />)
-    },
-    { 
-        label: 'Download or Share',
-        content: (<MemeEditor />)
-    }
-];
-
 class MemeMaker extends React.Component {
     state = {
+        imageUrl: 'https://picsum.photos/750/570/?',
         activeStep: 0
     };
 
@@ -53,13 +40,26 @@ class MemeMaker extends React.Component {
     reset = () => {
         this.setState({ activeStep: 0 });
     };
-
-    getStepContent = (index) => steps[index].content;
     
     render() {
         const { className, classes } = this.props;
-        const { activeStep } = this.state;
+        const { activeStep, imageUrl } = this.state;
+        const steps = [
+            { 
+                label: 'Select Image',
+                content: (<MemeImageManager />)
+            },
+            { 
+                label: 'Make Meme',
+                content: (<MemeEditor imageUrl={imageUrl} />)
+            },
+            { 
+                label: 'Download or Share',
+                content: (<ShareImage imageUrl={imageUrl} onCreateNew={this.reset} />)
+            }
+        ];
         const lastStep = (steps.length - 1);
+        const getStepContent = (index) => steps[index].content;
 
         return (
             <div className={`${className || ''} ${classes.root}`}>
@@ -71,28 +71,31 @@ class MemeMaker extends React.Component {
                     ))}
                 </Stepper>
                 <div className={classes.content}>
-                    {this.getStepContent(activeStep)}
+                    {getStepContent(activeStep)}
                 </div>
-                <div className={classes.actions}>
-                    <Button
-                        size="large"
-                        disabled={activeStep === 0}
-                        onClick={this.goBack}
-                        className={classes.button}
-                    >
-                        Back
-                    </Button>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        disabled={activeStep === lastStep}
-                        onClick={this.goNext}
-                        className={classes.button}
-                    >
-                        Next
-                    </Button>
-                </div>
+                {activeStep < lastStep ? (
+                    <div className={classes.actions}>
+                        <Button
+                            size="large"
+                            disabled={activeStep === 0}
+                            onClick={this.goBack}
+                            className={classes.button}
+                        >
+                            Back
+                        </Button>
+                        <Button
+                            variant="contained"
+                            color={activeStep === 1 ? 'secondary' : 'primary'}
+                            size="large"
+                            disabled={activeStep === lastStep}
+                            onClick={this.goNext}
+                            className={classes.button}
+                        >
+                            {(activeStep === 0) ? 'Make It' : null}
+                            {(activeStep === 1) ? 'Save and Download' : null}
+                        </Button>
+                    </div>
+                ) : null}
             </div>
         );
     }

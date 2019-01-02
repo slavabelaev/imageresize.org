@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import MemeMaker from '../../tools/MemeMaker/MemeMaker';
-import ImageShare from '../../tools/ImageShare/ImageShare';
 // Styles
 import styles from './MemeMakerPage.styles';
 
@@ -16,8 +15,7 @@ const MemeMakerPage = ({ className, classes }) => (
                 <Typography variant="h4" component="h1" gutterBottom>Meme Maker</Typography>
                 <Typography variant="body1">Upload Files below to start crop, resize, compress or edit your images</Typography>
             </header>
-            {/* <MemeMaker className={classes.MemeMaker} /> */}
-            <ImageShare />
+            <MemeMaker className={classes.MemeMaker} />
         </div>
         <Divider />
         <Grid className={classes.Grid_container} container spacing={40}>
