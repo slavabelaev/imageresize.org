@@ -146,7 +146,7 @@ class MemeEditor extends React.Component {
                 />
                 <Typography 
                     className={classes.Typography_title} 
-                    component="h3" 
+                    component="h2" 
                     variant="h5">Add Text or icons to "XYZ" memes</Typography>
                 <div className={classes.canvasContainer}>
                     <CircularProgress className={classes.CircularProgress} />                

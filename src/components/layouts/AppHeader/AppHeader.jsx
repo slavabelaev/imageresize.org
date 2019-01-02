@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import { Route, NavLink } from 'react-router-dom';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -10,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import AppLogo from '../AppLogo/AppLogo';
 import AppIcon from '../../common/AppIcon/AppIcon';
 // Styles
+import { withStyles } from '@material-ui/core/styles';
 import styles from './AppHeader.styles';
 
 const isPathMatch = (path) => !!window.location.pathname.match(path);

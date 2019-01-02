@@ -49,7 +49,7 @@ class EmbedList extends React.Component {
         return (
             <section className={`${className || ''} ${classes.root}`}>
                 <Typography 
-                    component="h3" 
+                    component="h2" 
                     variant="h5"
                     gutterBottom
                 >Image Links</Typography>

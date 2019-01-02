@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import List  from '@material-ui/core/List';
@@ -12,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AppLogo from '../AppLogo/AppLogo';
 import AppIcon from '../../common/AppIcon/AppIcon';
 // Styles
+import { withStyles } from '@material-ui/core/styles';
 import styles from './AppFooter.styles';
 
 const AppFooter = ({ className, classes }) => (
