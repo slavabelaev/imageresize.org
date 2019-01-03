@@ -4,7 +4,7 @@ const styles = theme => ({
     },
     Tabs: {
         marginBottom: -1,
-        '& [class*=MuiTabs-indicator]': {
+        '& [role=tablist]>span': {
             display: 'none'
         }
     },
