@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import MemeMaker from '../../tools/MemeMaker/MemeMaker';
 // Styles
 import styles from './ConverterPage.styles';
 
@@ -15,7 +14,6 @@ const ConverterPage = ({ className, classes }) => (
                 <Typography variant="h4" component="h1" gutterBottom>Convert JPG to PDF</Typography>
                 <Typography variant="body1">Upload Files below to start crop, resize, compress or edit your images</Typography>
             </header>
-            <MemeMaker className={classes.MemeMaker} />
         </div>
         <Divider />
         <Grid className={classes.Grid_container} container spacing={40}>

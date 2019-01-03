@@ -40,8 +40,6 @@ class ImageManager extends React.Component {
         labels: this.props.labels || {},
         images: DEMO_IMAGES_DATA || [],
         activeTabIndex: 0,
-        uploadingProgressCompleted: 0,
-        uploadingProgressBuffer: 80,
         searchQuery: ''
     };
     
@@ -195,9 +193,8 @@ class ImageManager extends React.Component {
                                 <LinearProgress 
                                     className={classes.LinearProgress}
                                     color="secondary" 
-                                    variant="buffer" 
-                                    value={this.state.uploadingProgressCompleted} 
-                                    valueBuffer={this.state.uploadingProgressBuffer} />
+                                    variant="determinate" 
+                                    value={80} />
                                 <IconButton
                                     aria-label="Remove uploading"
                                     onClick={this.handleUploadCancel}>

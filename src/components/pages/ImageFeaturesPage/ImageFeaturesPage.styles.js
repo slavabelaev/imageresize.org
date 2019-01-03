@@ -1,25 +1,18 @@
 const styles = theme => ({
     root: {
-        maxWidth: 1170,
+        maxWidth: theme.breakpoints.values.lg,
         margin: 'auto'
     },
     header: {
         textAlign: 'center',
-        marginBottom: 48
-    },
-    contentContainer: {
-        padding: 60,
-        paddingBottom: 0
-    },
-    MemeMaker: {
-        marginBottom: 72
+        paddingTop: theme.spacing.unit * 9,
     },
     Grid_container: {
         margin: 0,
-        padding: 40
+        padding: theme.spacing.unit * 6
     },
     Grid_item: {
-        marginBottom: 60
+        marginBottom: theme.spacing.unit * 8
     }
 });
 

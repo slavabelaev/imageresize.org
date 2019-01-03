@@ -109,8 +109,8 @@ class ShareImage extends React.Component {
     };
     
     render() {
-        const { className, classes } = this.props;
         const { state, props } = this;
+        const { className, classes } = props;
 
         return (
             <div className={`${className || ''} ${classes.root}`}>

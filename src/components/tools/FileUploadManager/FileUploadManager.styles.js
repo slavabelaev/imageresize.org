@@ -34,42 +34,10 @@ const styles = theme => ({
         }
     },
     SwipeableViews: {
-        border: '1px solid',
-        borderColor: theme.palette.border.dark,
         borderRadius: theme.shape.borderRadius,
-        borderTopLeftRadius: 0
-    },
-    Toolbar: {
-        padding: theme.spacing.unit * 3,
-        borderBottom: '1px solid',
-        borderBottomColor: theme.palette.border.dark,
-        backgroundColor: theme.palette.grey[50]
-    },
-    Card: {
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderColor: theme.palette.divider,
-        transition: theme.transitions.create(),
-        '&:hover': {
-            borderColor: theme.palette.primary.main,
-            boxShadow: theme.states.hover.boxShadow
-        }
-    },
-    CardMedia: {
-        height: 120
-    },
-    CardHeader: {
-        padding: theme.spacing.unit * 1.5
-    },
-    CardHeader_title: {
-        height: '3em',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        textAlign: 'center',
-        color: theme.palette.grey[700]
-    },
-    Button_addCaption: {
-        margin: 0
+        borderTopLeftRadius: 0,
+        backgroundColor: theme.palette.grey[50],
+        backgroundImage: theme.palette.border.dashedBorderImageDark,
     },
     TextField: {
         maxWidth: theme.breakpoints.values.sm,
@@ -82,8 +50,6 @@ const styles = theme => ({
     input_uploadFile: {
         display: 'none',
     },
-    chooseMemeContainer: {
-    },
     uploadFileContainer: {
         display: 'flex',
         flexDirection: 'column',
@@ -91,14 +57,10 @@ const styles = theme => ({
         justifyContent: 'center',
         textAlign: 'center',
         padding: theme.spacing.unit * 4,
-        backgroundColor: theme.palette.grey[50]
+        minHeight: 200
     },
     Typography_uploadFile: {
-        paddingTop: theme.spacing.unit * 3,
-        paddingBottom: theme.spacing.unit * 3,
-    },
-    gridContainer: {
-        padding: theme.spacing.unit * 3
+        paddingTop: theme.spacing.unit * 3
     },
     progressContainer: {
         paddingTop: theme.spacing.unit * 3,
@@ -110,9 +72,39 @@ const styles = theme => ({
         alignItems: 'center'
     },
     LinearProgress: {
-        width: '100vw',
-        minWidth: 240,
-        maxWidth: 750
+        width: '100%'
+    },
+    ListItemSecondaryAction_file: {
+        display: 'flex',
+        alignItems: 'center'
+    },
+    LinearProgress_file: {
+        minWidth: 100
+    },
+    ListItem_file: {
+        minHeight: theme.spacing.unit * 7,
+        backgroundColor: theme.palette.grey[50],
+        borderColor: theme.palette.border.dark,
+        borderRadius: theme.shape.borderRadius,
+        marginBottom: (theme.spacing.unit * 2) + (theme.spacing.unit / 2),
+        backgroundImage: theme.palette.border.dashedBorderImageDark,
+        transition: theme.transitions.create(),
+        transitionProperty: 'background-color',
+        '&:hover': {
+            backgroundColor: theme.palette.primary[50],
+            backgroundImage: theme.palette.border.dashedBorderImagePrimary
+        }
+    },
+    uploadInfo: {
+        position: 'absolute',
+        bottom: 0,
+        top: 0,
+        right: 0,
+        paddingLeft: theme.spacing.unit * 3,
+        paddingRight: theme.spacing.unit * 3,
+        margin: 'auto',
+        display: 'flex',
+        alignItems: 'center',
     }
 });
 

@@ -42,6 +42,9 @@ const spacing = {
   unit: 8
 };
 
+const dashedBorderImageDark = `url("data:image/svg+xml;utf8,<svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill: none; stroke: ${grey[600]}; stroke-width: 1; stroke-dasharray: 7 14'/></svg>")`;
+const dashedBorderImagePrimary = dashedBorderImageDark.replace(/stroke:.*?;/, `stroke: ${lightBlue.main};`);
+
 const fontFamily = '"Gotham", "Roboto", "Helvetica", "Arial", sans-serif';
 
 const theme = createMuiTheme({
@@ -62,7 +65,7 @@ const theme = createMuiTheme({
       xs: 0,
       sm: 600,
       md: 800,
-      lg: 1280,
+      lg: 1170,
       xl: 1920,
     }
   },
@@ -79,7 +82,9 @@ const theme = createMuiTheme({
     divider: grey[200],
     border: {
       light: grey[200],
-      dark: grey[500]
+      dark: grey[500],
+      dashedBorderImageDark: dashedBorderImageDark,
+      dashedBorderImagePrimary: dashedBorderImagePrimary
     },
     text: {
       primary: grey[700],
