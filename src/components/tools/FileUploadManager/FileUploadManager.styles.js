@@ -50,13 +50,13 @@ const styles = theme => ({
     input_uploadFile: {
         display: 'none',
     },
-    uploadFileContainer: {
+    tabContent: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: theme.spacing.unit * 4,
+        padding: theme.spacing.unit * 5,
         minHeight: 200
     },
     Typography_uploadFile: {

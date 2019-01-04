@@ -37,36 +37,14 @@ const styles = theme => ({
         borderRadius: theme.shape.borderRadius,
         borderTopLeftRadius: 0,
         backgroundColor: theme.palette.grey[50],
-        backgroundImage: theme.palette.border.dashedBorderImageDark,
+        borderColor: theme.palette.border.dark,
+        borderStyle: 'solid',
+        borderWidth: 1
     },
-    TextField: {
-        maxWidth: theme.breakpoints.values.sm,
-        margin: 'auto',
-        backgroundColor: theme.palette.common.white
-    },
-    Icon: {
-        marginRight: theme.spacing.unit
-    },
-    input_uploadFile: {
-        display: 'none',
-    },
-    uploadFileContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        padding: theme.spacing.unit * 4,
-        minHeight: 200
-    },
-    Typography_uploadFile: {
-        paddingTop: theme.spacing.unit * 3
+    tabContent: {
+        padding: theme.spacing.unit * 5
     },
     progressContainer: {
-        paddingTop: theme.spacing.unit * 3,
-        textAlign: 'center'
-    },
-    uploadingContainer: {
         marginTop: theme.spacing.unit * 2,
         display: 'flex',
         alignItems: 'center'
@@ -74,37 +52,34 @@ const styles = theme => ({
     LinearProgress: {
         width: '100%'
     },
-    ListItemSecondaryAction_file: {
-        display: 'flex',
+    List_range: {
+        width: '100%',
+        padding: 0
+    },
+    ListItem_range: {
+        backgroundColor: theme.palette.white,
+        borderRadius: theme.shape.borderRadius,
+        borderColor: theme.palette.border.light,
+        borderStyle: 'solid',
+        borderWidth: 1,
+        marginTop: theme.spacing.unit * 2.5
+    },
+    Grid_range: {
         alignItems: 'center'
     },
-    LinearProgress_file: {
-        minWidth: 100
+    TextField_range: {
+        
     },
-    ListItem_file: {
-        minHeight: theme.spacing.unit * 7,
-        backgroundColor: theme.palette.grey[50],
-        borderColor: theme.palette.border.dark,
-        borderRadius: theme.shape.borderRadius,
-        marginBottom: (theme.spacing.unit * 2) + (theme.spacing.unit / 2),
-        backgroundImage: theme.palette.border.dashedBorderImageDark,
-        transition: theme.transitions.create(),
-        transitionProperty: 'background-color',
-        '&:hover': {
-            backgroundColor: theme.palette.primary[50],
-            backgroundImage: theme.palette.border.dashedBorderImagePrimary
-        }
+    actionsContainer: {
+        textAlign: 'center',
+        marginTop: theme.spacing.unit * 3
     },
-    uploadInfo: {
-        position: 'absolute',
-        bottom: 0,
-        top: 0,
-        right: 0,
-        paddingLeft: theme.spacing.unit * 3,
-        paddingRight: theme.spacing.unit * 3,
-        margin: 'auto',
-        display: 'flex',
-        alignItems: 'center',
+    Button_addRange: {
+        backgroundColor: theme.palette.white
+    },
+    contentActionsContainer: {
+        textAlign: 'center',
+        marginTop: theme.spacing.unit * 2
     }
 });
 

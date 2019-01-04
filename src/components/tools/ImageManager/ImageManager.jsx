@@ -148,7 +148,7 @@ class ImageManager extends React.Component {
                         </div>
                     </TabContainer>
                     <TabContainer className={classes.TabContainer}>
-                        <div className={classes.uploadFileContainer}>
+                        <div className={classes.tabContent}>
                             <input
                                 accept="image/*"
                                 className={classes.input_uploadFile}

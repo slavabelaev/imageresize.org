@@ -11,7 +11,7 @@ import styles from './PdfSplitPage.styles';
 const PdfSplitPage = ({ className, classes }) => (
     <div className={`${className || ''} ${classes.root}`}>
         <header className={classes.header}>
-            <Typography variant="h1" gutterBottom>PDF Merge</Typography>
+            <Typography variant="h1" gutterBottom>PDF Split</Typography>
             <Typography variant="body1"></Typography>
         </header>
         <div className={classes.contentContainer}>

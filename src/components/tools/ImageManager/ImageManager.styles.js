@@ -84,13 +84,13 @@ const styles = theme => ({
     },
     chooseMemeContainer: {
     },
-    uploadFileContainer: {
+    tabContent: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: theme.spacing.unit * 4,
+        padding: theme.spacing.unit * 5,
         backgroundColor: theme.palette.grey[50]
     },
     Typography_uploadFile: {

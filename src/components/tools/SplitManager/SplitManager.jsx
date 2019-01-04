@@ -4,8 +4,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton'
 import ClearIcon from '@material-ui/icons/Clear';
@@ -34,10 +37,19 @@ TabContainer.propTypes = {
 
 class SplitManager extends React.Component {
     state = {
-        labels: this.props.labels || {},
         activeTabIndex: 0,
-        searchQuery: ''
+        ranges: [
+            { from: null, to: null },
+            { from: null, to: null },
+        ],
+        needMergeInSingleFile: false
     };
+
+    handleToggleCheckbox = (event) => {
+        const checkboxStateProperty = event.target.name;
+        const checkStatus = this.state[checkboxStateProperty];
+        this.setState({ [checkboxStateProperty]: !checkStatus });
+    }
     
     handleTabChange = (event, activeTabIndex) => {
         this.setState({ activeTabIndex });
@@ -47,28 +59,25 @@ class SplitManager extends React.Component {
         this.setState({ activeTabIndex });
     };
 
-    handleSelect = () => {}
-
-    handleSelectFromDevice = () => {}
-
-    handleSelectFromUrl = () => {}
-
-    handleUpload = () => {}
+    handleAddRange = () => {
+        const ranges = this.state.ranges;
+        ranges.push({ from: null, to: null });
+        this.setState({ ranges });
+    }
     
-    handleUploadCancel = () => {}
-
-    handleSearchQueryChange = (event) => {
-        this.setState({ searchQuery: event.target.value });
+    handleRemoveRange = (rangeIndex) => {
+        const ranges = this.state.ranges;
+        ranges.splice(rangeIndex, 1);
+        this.setState({ ranges });
     }
 
-    handleSearchQueryClear = () => {
-        this.setState({ searchQuery: '' });
-    }
+    handleProgressCancel = () => {}
+
 
     render() {
         const { props, state } = this;
         const { className, classes } = props;
-        const { labels, activeTabIndex, searchQuery } = state;
+        const { activeTabIndex, searchQuery } = state;
 
         return (
             <div className={`${className || ''} ${classes.root}`}>
@@ -79,39 +88,96 @@ class SplitManager extends React.Component {
                     indicatorColor="primary">
                     <Tab 
                         className={classes.Tab}
-                        label={labels.chooseTab || 'Split PDF by Range'} />
+                        label="Split PDF by Range" />
                     <Tab 
                         className={classes.Tab} 
-                        label={labels.uploadTab || 'Extract all pages'} />
+                        label="Extract all pages" />
                 </Tabs>
                 <SwipeableViews
+                    ref="swipeableViews"
                     animateHeight
                     className={classes.SwipeableViews} 
                     index={activeTabIndex}
                     onChangeIndex={this.handleTabSwipe}>
                     <TabContainer className={classes.TabContainer}>
-                        <div className={classes.uploadFileContainer}>
-                            11111111
+                        <div className={classes.tabContent}>
+                            <Button 
+                                className={classes.Button_addRange}
+                                variant="outlined" 
+                                onClick={this.handleAddRange}
+                            >+ Add Range</Button>
+                            <List className={classes.List_range}>
+                                {state.ranges.map((range, index) => (
+                                <ListItem className={classes.ListItem_range}>
+                                    <Grid container spacing={24} className={classes.Grid_range}>
+                                        <Grid item>
+                                            <Typography variant="subtitle1">Split pages</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <TextField 
+                                                className={classes.TextField_range}
+                                                variant="outlined"
+                                                label="From"
+                                                type="number"
+                                                value={range.from}
+                                            />
+                                        </Grid>
+                                        <Grid item>
+                                            <TextField 
+                                                className={classes.TextField_range}
+                                                variant="outlined"
+                                                label="To"
+                                                type="number"
+                                                value={range.to}
+                                            />
+                                        </Grid>
+                                        <Grid item>
+                                            <IconButton
+                                                aria-label="Remove uploading"
+                                                onClick={() => this.handleRemoveRange(index)}>
+                                                <ClearIcon fontSize="small" />
+                                            </IconButton>
+                                        </Grid>
+                                    </Grid>
+                                </ListItem>
+                                ))}
+                                <div className={classes.contentActionsContainer}>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox 
+                                                name="needMergeInSingleFile"
+                                                checked={state.needMergeInSingleFile} 
+                                                onChange={this.handleToggleCheckbox}
+                                            />
+                                        }
+                                        label="Merge all ranges into a single PDF file"
+                                    />
+                                </div>
+                            </List>
                        </div> 
                     </TabContainer>
                     <TabContainer className={classes.TabContainer}>
-                        <div className={classes.uploadFileContainer}>
-                            2222
+                        <div className={classes.tabContent}>
+                            There will be something here.
                         </div>
                     </TabContainer>
                 </SwipeableViews>
 
-                <div className={classes.uploadingContainer}>
+                <div className={classes.progressContainer}>
                     <LinearProgress 
                         className={classes.LinearProgress}
                         color="secondary" 
                         variant="determinate" 
                         value={80} />
                     <IconButton
-                        aria-label="Remove uploading"
-                        onClick={this.handleUploadCancel}>
+                        aria-label="Cancel"
+                        onClick={this.handleProgressCancel}>
                         <ClearIcon fontSize="small" />
                     </IconButton>
+                </div>
+
+                <div className={classes.actionsContainer}>
+                    <Button variant="contained" color="primary" size="large">Split PDF</Button>
                 </div>
             </div>
         );

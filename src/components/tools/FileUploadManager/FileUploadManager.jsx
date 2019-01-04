@@ -88,7 +88,7 @@ class FileUploadManager extends React.Component {
                     index={activeTabIndex}
                     onChangeIndex={this.handleTabSwipe}>
                     <TabContainer className={classes.TabContainer}>
-                        <div className={classes.uploadFileContainer}>
+                        <div className={classes.tabContent}>
                             <input
                                 accept={state.accept}
                                 className={classes.input_uploadFile}
@@ -113,7 +113,7 @@ class FileUploadManager extends React.Component {
                        </div> 
                     </TabContainer>
                     <TabContainer className={classes.TabContainer}>
-                        <div className={classes.uploadFileContainer}>
+                        <div className={classes.tabContent}>
                             <TextField
                                 className={classes.TextField}
                                 id="file-url"
