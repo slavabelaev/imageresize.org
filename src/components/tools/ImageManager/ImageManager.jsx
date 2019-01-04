@@ -126,7 +126,7 @@ class ImageManager extends React.Component {
                                             <CardHeader 
                                                 className={classes.CardHeader}
                                                 title={
-                                                    <Typography className={classes.CardHeader_title}>{image.title}</Typography>
+                                                    <Typography component="h3" className={classes.CardHeader_title}>{image.title}</Typography>
                                                 } />
                                             <CardMedia image={image.url} className={classes.CardMedia} />
                                             <CardActions>

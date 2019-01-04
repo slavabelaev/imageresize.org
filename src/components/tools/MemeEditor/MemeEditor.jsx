@@ -28,7 +28,7 @@ const TextDialog = ({ classes, open, onClose }) => (
         aria-describedby="Edit Text in Meme Editor"
     >
         <DialogTitle>
-            <Typography variant="h3">Edit Text</Typography>
+            <Typography component="div" variant="h3">Edit Text</Typography>
             <IconButton 
                 className={classes.IconButton_closeDialog}
                 onClick={onClose}
@@ -70,7 +70,7 @@ const IconDialog = ({ classes, open, onClose }) => (
         aria-describedby="Choose Icons in Meme Editor"
     >
         <DialogTitle>
-            <Typography variant="h3">Choose Icons</Typography>
+            <Typography component="div" variant="h3">Choose Icons</Typography>
             <IconButton 
                 className={classes.IconButton_closeDialog}
                 onClick={onClose}
