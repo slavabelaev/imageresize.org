@@ -45,7 +45,7 @@ const spacing = {
 const dashedBorderImageDark = `url("data:image/svg+xml;utf8,<svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill: none; stroke: ${grey[600]}; stroke-width: 1; stroke-dasharray: 7 14'/></svg>")`;
 const dashedBorderImagePrimary = dashedBorderImageDark.replace(/stroke:.*?;/, `stroke: ${lightBlue.main};`);
 
-const fontFamily = '"Gotham", "Roboto", "Helvetica", "Arial", sans-serif';
+const fontFamily = '"GothamPro", "Roboto", "Helvetica", "Arial", sans-serif';
 
 const theme = createMuiTheme({
   states: {
