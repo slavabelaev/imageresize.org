@@ -3,7 +3,7 @@ import lightBlue from '@material-ui/core/colors/lightBlue';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 import red from '@material-ui/core/colors/red';
 // App Font
-import './assets/fonts/Gotham/Gotham.css';
+import './assets/fonts/GothamPro/GothamPro.css'; 
 
 const white = 'rgba(255,255,255,1)';
 
