@@ -122,31 +122,40 @@ const theme = createMuiTheme({
     button: {
       fontFamily: fontFamily,
       color: grey[700],
-      fontSize: 14,
+      fontSize: spacing.unit * 2,
       textTransform: 'initial'
     },
     h1: {
       fontFamily: fontFamily,
+      fontWeight: 400,
+      fontSize: spacing.unit * 4.5,
       color: grey[700]
     },
     h2: {
       fontFamily: fontFamily,
+      fontSize: spacing.unit * 3.5,
+      fontWeight: 400,
       color: grey[700]
     },
     h3: {
       fontFamily: fontFamily,
+      fontSize: spacing.unit * 3,
+      fontWeight: 400,
       color: grey[700]
     },
     h4: {
       fontFamily: fontFamily,
+      fontSize: spacing.unit * 2.5,
       color: grey[700]
     },
     h5: {
       fontFamily: fontFamily,
+      fontSize: spacing.unit * 2,
       color: grey[700]
     },
     h6: {
       fontFamily: fontFamily,
+      fontSize: spacing.unit * 1.5,
       color: grey[700]
     },
     subtitle1: {

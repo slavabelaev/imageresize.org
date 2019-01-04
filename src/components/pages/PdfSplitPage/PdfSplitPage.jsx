@@ -2,24 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import FileUploadManager from '../../tools/FileUploadManager/FileUploadManager';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import SplitManager from '../../tools/SplitManager/SplitManager';
 // Styles
-import styles from './PdfMergePage.styles';
+import styles from './PdfSplitPage.styles';
 
-const PdfMergePage = ({ className, classes }) => (
+const PdfSplitPage = ({ className, classes }) => (
     <div className={`${className || ''} ${classes.root}`}>
         <header className={classes.header}>
             <Typography variant="h1" gutterBottom>PDF Merge</Typography>
             <Typography variant="body1"></Typography>
         </header>
         <div className={classes.contentContainer}>
-            <FileUploadManager className={classes.FileUploadManager} />
+            <SplitManager className={classes.SplitManager} />
         </div>
     </div>
 );
  
-PdfMergePage.propTypes = {
+PdfSplitPage.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PdfMergePage);
+export default withStyles(styles)(PdfSplitPage);

@@ -48,11 +48,7 @@ class EmbedList extends React.Component {
         
         return (
             <section className={`${className || ''} ${classes.root}`}>
-                <Typography 
-                    component="h2" 
-                    variant="h5"
-                    gutterBottom
-                >Image Links</Typography>
+                <Typography component="h2" variant="h3" gutterBottom>Image Links</Typography>
     
                 {embedList.map((embed, index) => 
                     <TextField

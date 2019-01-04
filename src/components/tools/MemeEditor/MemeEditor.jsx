@@ -25,10 +25,10 @@ const TextDialog = ({ classes, open, onClose }) => (
         onClose={onClose}
         maxWidth="md"
         aria-labelledby="Edit Text"
-        aria-describedby="Edit Text in Meme Image"
+        aria-describedby="Edit Text in Meme Editor"
     >
         <DialogTitle>
-            Edit Text
+            <Typography variant="h3">Edit Text</Typography>
             <IconButton 
                 className={classes.IconButton_closeDialog}
                 onClick={onClose}
@@ -66,11 +66,11 @@ const IconDialog = ({ classes, open, onClose }) => (
         open={open}
         onClose={onClose}
         maxWidth="md"
-        aria-labelledby="Edit Text"
-        aria-describedby="Edit Text in Meme Image"
+        aria-labelledby="Choose Icons"
+        aria-describedby="Choose Icons in Meme Editor"
     >
         <DialogTitle>
-            Choose Icons
+            <Typography variant="h3">Choose Icons</Typography>
             <IconButton 
                 className={classes.IconButton_closeDialog}
                 onClick={onClose}
@@ -146,8 +146,8 @@ class MemeEditor extends React.Component {
                 />
                 <Typography 
                     className={classes.Typography_title} 
-                    component="h2" 
-                    variant="h5">Add Text or icons to "XYZ" memes</Typography>
+                    component="h2"
+                    variant="h3">Add Text or icons to "XYZ" memes</Typography>
                 <div className={classes.canvasContainer}>
                     <CircularProgress className={classes.CircularProgress} />                
                     <canvas

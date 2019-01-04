@@ -15,7 +15,7 @@ import styles from './FeatureCroppingPage.styles';
 const FeatureCroppingPage = ({ className, classes }) => (
     <div className={`${className || ''} ${classes.root}`}>
         <header className={classes.header}>
-            <Typography variant="h4" component="h1" gutterBottom>Crop Photos Using Our Image Editor</Typography>
+            <Typography variant="h1" gutterBottom>Crop Photos Using Our Image Editor</Typography>
             <Typography variant="body1">Create better compositions, remove unwanted parts, or get the aspect ratio right</Typography>
             <Button 
                 component={NavLink}
@@ -29,7 +29,7 @@ const FeatureCroppingPage = ({ className, classes }) => (
         <Divider />
         <Grid className={classes.Grid_container} container spacing={40}>
             <Grid className={classes.Grid_item} item xs={6}>
-                <Typography variant="h5" component="h2" gutterBottom>Create better compositions</Typography>
+                <Typography variant="h2" gutterBottom>Create better compositions</Typography>
                 <Typography variant="body1">ImageResize.org’s online photo cropper lets you crop your images to fit the perfect composition and get rid of unwanted areas from your photo.</Typography>
                 <Typography variant="body1">Sometimes it is important to capture the moment than to worry about composition. The photographic moments happens so fast and you probably don’t have time to decide what to include in the frame. Need not worry, our photo cropper lets you crop your images using a specific aspect ratio, exact dimensions, or simply drag and crop.</Typography>
             </Grid>
@@ -40,12 +40,12 @@ const FeatureCroppingPage = ({ className, classes }) => (
                 <img src="https://cdn.imageresize.org/static/media/crop-page-2.a771039c.jpg" width="100%" alt="" />
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
-                <Typography variant="h5" component="h2" gutterBottom>Crop freestyle or use an aspect ratio</Typography>
+                <Typography variant="h2" gutterBottom>Crop freestyle or use an aspect ratio</Typography>
                 <Typography variant="body1">Sometimes your photos need to be cropped to a certain aspect ratio to be able to properly displayed. Most social media sites such as Pinterest and Facebook or even smart TVs would stretch and distort your images if they are not properly cropped to fit the aspect ratio best practices set by those sources.</Typography>
                 <Typography variant="body1">Our image cropper has built-in aspect ratio button to help you easily apply an aspect ratio to your crop. You can also crop it freestyle if you choose to do so.</Typography>
             </Grid>
             <Grid className={classes.Grid_item} item xs={12}>
-                <Typography variant="h5" component="h2" gutterBottom>How to crop a photo</Typography>
+                <Typography variant="h2" gutterBottom>How to crop a photo</Typography>
                 <Typography variant="body1">Follow these simple 4 step process to start cropping your photo</Typography>
 
                 <Stepper activeStep="null" orientation="vertical">

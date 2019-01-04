@@ -15,7 +15,7 @@ import styles from './MemeMaker.styles';
 const MemeImageManager = ({ classes }) => (
     <div>
         <header className={classes.header}>
-            <Typography variant="h4" component="h1" gutterBottom>Meme Maker</Typography>
+            <Typography variant="h1" gutterBottom>Meme Maker</Typography>
             <Typography variant="body1">Select or Upload image below to make Meme</Typography>
         </header>
         <ImageManager

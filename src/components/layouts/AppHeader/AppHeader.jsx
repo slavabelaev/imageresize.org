@@ -82,6 +82,13 @@ const AppHeader = ({ className, classes }) => {
                 value={`${match.path}/merge`}
                 label="PDF Merge"
             />
+            <Tab
+                className={classes.Tab} 
+                component={NavLink} 
+                to={`${match.path}/split`}
+                value={`${match.path}/split`}
+                label="PDF Split"
+            />
         </Tabs>
     );
 

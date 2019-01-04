@@ -27,8 +27,8 @@ const ShareOrDownload = ({ className, classes, url }) => (
     <section className={className}>
         <Typography
             className={classes.ShareOrDownload_title}
-            component="h2" 
-            variant="h5"
+            component="h2"
+            variant="h3"
         >Share or Download</Typography>
         <div className={classes.buttonGroup}>
             <Button
@@ -116,9 +116,9 @@ class ShareImage extends React.Component {
             <div className={`${className || ''} ${classes.root}`}>
                 <div className={classes.container}>
                     <Typography
-                        className={classes.Typography_title} 
-                        component="h2" 
-                        variant="h5">"XYZ" meme</Typography>
+                        className={classes.Typography_title}
+                        component="h2"
+                        variant="h3">"XYZ" meme</Typography>
                     <div className={classes.imageContainer}>
                         <CircularProgress className={classes.CircularProgress} />                
                         <img 

@@ -9,6 +9,7 @@ import ImageFeaturesPage from '../../pages/ImageFeaturesPage/ImageFeaturesPage';
 import PdfResizePage from '../../pages/PdfResizePage/PdfResizePage';
 import PdfCompressPage from '../../pages/PdfCompressPage/PdfCompressPage';
 import PdfMergePage from '../../pages/PdfMergePage/PdfMergePage';
+import PdfSplitPage from '../../pages/PdfSplitPage/PdfSplitPage';
 import ConverterPage from '../../pages/ConverterPage/ConverterPage';
 import FeatureCroppingPage from '../../pages/FeatureCroppingPage/FeatureCroppingPage';
 import FeatureEditingPage from '../../pages/FeatureEditingPage/FeatureEditingPage';
@@ -27,6 +28,7 @@ const AppRouter = () => (
         <Route path="/pdf/resize" component={PdfResizePage} />
         <Route path="/pdf/compress" component={PdfCompressPage} />
         <Route path="/pdf/merge" component={PdfMergePage} />
+        <Route path="/pdf/split" component={PdfSplitPage} />
 
         <Route path="/convert/jpg-to-pdf" component={ConverterPage} />
         <Route path="/convert/jpg-to-png" component={ConverterPage} />

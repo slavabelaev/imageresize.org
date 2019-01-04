@@ -34,6 +34,10 @@ TabContainer.propTypes = {
 
 class FileUploadManager extends React.Component {
     state = {
+        maxFiles: this.props.maxFiles || 1,
+        maxFileSize: this.props.maxFileSize || 5120,
+        accept: this.props.accept || 'image/*',
+
         labels: this.props.labels || {},
         activeTabIndex: 0
     };
@@ -46,8 +50,6 @@ class FileUploadManager extends React.Component {
         this.setState({ activeTabIndex });
     };
 
-    handleSelect = () => {}
-
     handleSelectFromDevice = () => {}
 
     handleSelectFromUrl = () => {}
@@ -56,17 +58,10 @@ class FileUploadManager extends React.Component {
     
     handleUploadCancel = () => {}
 
-    handleSearchQueryChange = (event) => {
-        this.setState({ searchQuery: event.target.value });
-    }
-
-    handleSearchQueryClear = () => {
-        this.setState({ searchQuery: '' });
-    }
-
     render() {
-        const { className, classes } = this.props;
-        const { labels, activeTabIndex, searchQuery } = this.state;
+        const { props, state } = this;
+        const { className, classes } = props;
+        const { labels, activeTabIndex, searchQuery } = state;
 
         return (
             <div className={`${className || ''} ${classes.root}`}>
@@ -81,7 +76,11 @@ class FileUploadManager extends React.Component {
                     <Tab 
                         className={classes.Tab} 
                         label={labels.uploadTab || 'URL'} />
-                    <Typography component="div" className={classes.uploadInfo}>Up to 20 files, Max 5MB each</Typography>
+                    <Typography component="div" className={classes.uploadInfo}>
+                        {state.maxFiles > 1 ? 'Up to 20 files, ' : null} 
+                        {`Max ${state.maxFileSize / 1024}MB`}
+                        {state.maxFiles > 1 ? ' each' : null}
+                    </Typography>
                 </Tabs>
                 <SwipeableViews
                     animateHeight
@@ -91,7 +90,7 @@ class FileUploadManager extends React.Component {
                     <TabContainer className={classes.TabContainer}>
                         <div className={classes.uploadFileContainer}>
                             <input
-                                accept="image/*"
+                                accept={state.accept}
                                 className={classes.input_uploadFile}
                                 id="upload-file"
                                 multiple
