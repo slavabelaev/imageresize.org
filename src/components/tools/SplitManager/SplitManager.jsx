@@ -5,22 +5,15 @@ import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton'
 import ClearIcon from '@material-ui/icons/Clear';
-import AttachFileIcon from '@material-ui/icons/AttachFile';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import DeleteIcon from '@material-ui/icons/Delete';
-import AppIcon from '../../common/AppIcon/AppIcon';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
 import styles from './SplitManager.styles';
@@ -71,13 +64,10 @@ class SplitManager extends React.Component {
         this.setState({ ranges });
     }
 
-    handleProgressCancel = () => {}
-
-
     render() {
         const { props, state } = this;
         const { className, classes } = props;
-        const { activeTabIndex, searchQuery } = state;
+        const { activeTabIndex } = state;
 
         return (
             <div className={`${className || ''} ${classes.root}`}>
@@ -158,23 +148,10 @@ class SplitManager extends React.Component {
                     </TabContainer>
                     <TabContainer className={classes.TabContainer}>
                         <div className={classes.tabContent}>
-                            There will be something here.
+                            <Typography variant="body1">Every page of this PDF file will be converted in one separated PDF file.</Typography>
                         </div>
                     </TabContainer>
                 </SwipeableViews>
-
-                <div className={classes.progressContainer}>
-                    <LinearProgress 
-                        className={classes.LinearProgress}
-                        color="secondary" 
-                        variant="determinate" 
-                        value={80} />
-                    <IconButton
-                        aria-label="Cancel"
-                        onClick={this.handleProgressCancel}>
-                        <ClearIcon fontSize="small" />
-                    </IconButton>
-                </div>
 
                 <div className={classes.actionsContainer}>
                     <Button variant="contained" color="primary" size="large">Split PDF</Button>

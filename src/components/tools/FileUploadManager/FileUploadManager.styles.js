@@ -38,6 +38,11 @@ const styles = theme => ({
         borderTopLeftRadius: 0,
         backgroundColor: theme.palette.grey[50],
         backgroundImage: theme.palette.border.dashedBorderImageDark,
+        marginBottom: theme.spacing.unit * 3
+    },
+    dropzone_isActive: {
+        backgroundColor: theme.palette.secondary[50],
+        backgroundImage: theme.palette.border.dashedBorderImageSecondary,
     },
     TextField: {
         maxWidth: theme.breakpoints.values.sm,
@@ -81,6 +86,9 @@ const styles = theme => ({
     LinearProgress_file: {
         minWidth: 100
     },
+    List_file: {
+        padding: 0
+    },
     ListItem_file: {
         minHeight: theme.spacing.unit * 7,
         backgroundColor: theme.palette.grey[50],
@@ -105,6 +113,28 @@ const styles = theme => ({
         margin: 'auto',
         display: 'flex',
         alignItems: 'center',
+    },
+    Snackbar_error: {
+        position: 'relative',
+        width: '100%',
+        marginBottom: theme.spacing.unit * 3
+    },
+    SnackbarContent_error: {
+        width: '100%',
+        maxWidth: '100%',
+        backgroundColor: theme.palette.error[50],
+        color: theme.palette.error.dark,
+    },
+    messageContent_error: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    Icon_error: {
+        marginRight: theme.spacing.unit
+    },
+    IconButton_removeMessage: {
+        position: 'absolute',
+        right: theme.spacing.unit
     }
 });
 

@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
 import SplitManager from '../../tools/SplitManager/SplitManager';
 // Styles
 import styles from './PdfSplitPage.styles';

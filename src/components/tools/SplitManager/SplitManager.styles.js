@@ -44,14 +44,6 @@ const styles = theme => ({
     tabContent: {
         padding: theme.spacing.unit * 5
     },
-    progressContainer: {
-        marginTop: theme.spacing.unit * 2,
-        display: 'flex',
-        alignItems: 'center'
-    },
-    LinearProgress: {
-        width: '100%'
-    },
     List_range: {
         width: '100%',
         padding: 0
