@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import { Switch, Route } from 'react-router-dom';
 
 import MemeMakerPage from '../../pages/MemeMakerPage/MemeMakerPage';

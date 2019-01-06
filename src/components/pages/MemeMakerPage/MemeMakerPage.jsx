@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +11,7 @@ import MemeMaker from '../../tools/MemeMaker/MemeMaker';
 import styles from './MemeMakerPage.styles';
 
 const MemeMakerPage = ({ className, classes }) => (
-    <div className={`${className || ''} ${classes.root}`}>
+    <div className={classNames(className, classes.root)}>
         <div className={classes.contentContainer}>
             <MemeMaker className={classes.MemeMaker} />
         </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { Route, NavLink } from 'react-router-dom';
 import Tabs from '@material-ui/core/Tabs';
@@ -178,7 +180,7 @@ const AppHeader = ({ className, classes }) => {
     );
 
     return (
-        <header className={`${className || ''} ${classes.root}`}>
+        <header className={classNames(className, classes.root)}>
             <Toolbar className={classes.Toolbar}>
                 <AppLogo />
                 <MenuList 

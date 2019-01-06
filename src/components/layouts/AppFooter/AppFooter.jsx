@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
@@ -15,7 +17,7 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './AppFooter.styles';
 
 const AppFooter = ({ className, classes }) => (
-    <footer className={`${className || ''} ${classes.root}`}>
+    <footer className={classNames(className, classes.root)}>
         <Divider />
         <div className={classes.container}>
             <Grid container>

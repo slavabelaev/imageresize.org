@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -7,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import styles from './ImageFeaturesPage.styles';
 
 const ImageFeaturesPage = ({ className, classes }) => (
-    <div className={`${className || ''} ${classes.root}`}>
+    <div className={classNames(className, classes.root)}>
         <header className={classes.header}>
             <Typography variant="h1" gutterBottom>Features</Typography>
         </header>

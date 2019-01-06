@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -47,7 +49,7 @@ class EmbedList extends React.Component {
         ];
         
         return (
-            <section className={`${className || ''} ${classes.root}`}>
+            <section className={classNames(className, classes.root)}>
                 <Typography component="h2" variant="h3" gutterBottom>Image Links</Typography>
     
                 {embedList.map((embed, index) => 

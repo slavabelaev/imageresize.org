@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AppLogoImage from './AppLogo.svg';
@@ -8,7 +10,7 @@ import styles from './AppLogo.styles';
 
 const AppLogo = (props) => (
     <Link 
-        className={`${props.className || ''} ${props.classes.root}`} 
+        className={classNames(props.className, props.classes.root)} 
         to="/"
     >
         <img 

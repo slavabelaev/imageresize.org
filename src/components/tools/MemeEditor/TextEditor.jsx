@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { HuePicker } from 'react-color';
 import Grid from '@material-ui/core/Grid';
@@ -103,7 +105,7 @@ class TextEditor extends React.Component {
         const { styleTypes, text, styles } = this.state;
         
         return (
-            <div className={`${className || ''} ${classes.root}`}>
+            <div className={classNames(className, classes.root)}>
                 <Grid container spacing={24}>
                     <Grid item xs={12}>
                         <TextField

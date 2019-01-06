@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { withStyles } from '@material-ui/core/styles';
@@ -7,7 +9,7 @@ import styles from './TermsOfServicePage.styles';
 import TermsOfService from './terms-of-service.md';
 
 const TermsOfServicePage = ({ className, classes }) => (
-    <div className={`${className || ''} ${classes.root}`}>
+    <div className={classNames(className, classes.root)}>
         <ReactMarkdown className='section' source={TermsOfService} />
     </div>
 );

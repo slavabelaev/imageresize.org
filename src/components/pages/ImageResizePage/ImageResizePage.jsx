@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -12,7 +14,7 @@ import FileUploadManager from '../../tools/FileUploadManager/FileUploadManager';
 import styles from './ImageResizePage.styles';
 
 const ImageResizePage = ({ className, classes }) => (
-    <div className={`${className || ''} ${classes.root}`}>
+    <div className={classNames(className, classes.root)}>
         <header className={classes.header}>
             <Typography variant="h1" gutterBottom>Image Resize</Typography>
             <Typography variant="body1">Crop, resize, flip, or rotate an image by uploading it below.</Typography>

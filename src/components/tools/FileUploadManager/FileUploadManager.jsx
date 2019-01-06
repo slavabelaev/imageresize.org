@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import Tabs from '@material-ui/core/Tabs';
@@ -99,7 +101,7 @@ class FileUploadManager extends React.Component {
         const { labels, activeTabIndex } = state;
 
         return (
-            <div className={`${className || ''} ${classes.root}`}>
+            <div className={classNames(className, classes.root)}>
 
                 {state.messages.map((message, index) =>
                 <Snackbar

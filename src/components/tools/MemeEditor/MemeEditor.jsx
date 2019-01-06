@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -133,7 +135,7 @@ class MemeEditor extends React.Component {
         const { className, classes } = this.props;
 
         return (
-            <div className={`${className || ''} ${classes.root}`}>
+            <div className={classNames(className, classes.root)}>
                 <TextDialog
                     open={this.state.isTextDialogOpen}
                     onClose={this.handleTextDialogToggle}

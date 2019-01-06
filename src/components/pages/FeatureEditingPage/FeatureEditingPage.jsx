@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +15,7 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './FeatureEditingPage.styles';
 
 const FeatureEditingPage = ({ className, classes }) => (
-    <div className={`${className || ''} ${classes.root}`}>
+    <div className={classNames(className, classes.root)}>
         <header className={classes.header}>
             <Typography variant="h1" gutterBottom>A Simple Image Editor Without Complexity</Typography>
             <Typography variant="body1">Add filters, crop, resize, or flip & rotate your images with ease</Typography>

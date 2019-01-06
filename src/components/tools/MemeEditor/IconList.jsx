@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -26,7 +28,7 @@ class IconList extends React.Component {
         const { selectedIcon, icons } = this.state;
         
         return (
-            <div className={`${className || ''} ${classes.root}`}>
+            <div className={classNames(className, classes.root)}>
                 <Grid container spacing={24}>
 
                     {icons.map((icon, index) => (

@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -70,7 +72,7 @@ class SplitManager extends React.Component {
         const { activeTabIndex } = state;
 
         return (
-            <div className={`${className || ''} ${classes.root}`}>
+            <div className={classNames(className, classes.root)}>
                 <Tabs
                     className={classes.Tabs}
                     value={activeTabIndex}

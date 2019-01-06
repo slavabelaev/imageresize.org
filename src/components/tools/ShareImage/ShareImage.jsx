@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import {
     RedditShareButton,
@@ -113,7 +115,7 @@ class ShareImage extends React.Component {
         const { className, classes } = props;
 
         return (
-            <div className={`${className || ''} ${classes.root}`}>
+            <div className={classNames(className, classes.root)}>
                 <div className={classes.container}>
                     <Typography
                         className={classes.Typography_title}
@@ -131,7 +133,7 @@ class ShareImage extends React.Component {
                         />
                     </div>
                 </div>
-                <div className={`${classes.container} ${classes.buttonsContainer}`}>
+                <div className={classNames(classes.container, classes.buttonsContainer)}>
                     <ShareOrDownload 
                         className={classes.ShareOrDownload}
                         url={state.imageUrl}

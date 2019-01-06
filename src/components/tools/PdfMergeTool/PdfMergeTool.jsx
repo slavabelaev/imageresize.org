@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -16,7 +17,7 @@ class PdfMergeTool extends React.Component {
         const { className, classes } = props;
 
         return (
-            <div className={`${className || ''} ${classes.root}`}>
+            <div className={classNames(className, classes.root)}>
                 <Grid container>
                     <Grid item>1</Grid>
                     <Grid item>2</Grid>

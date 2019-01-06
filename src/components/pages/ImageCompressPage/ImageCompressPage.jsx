@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +11,7 @@ import FileUploadManager from '../../tools/FileUploadManager/FileUploadManager';
 import styles from './ImageCompressPage.styles';
 
 const ImageCompressPage = ({ className, classes }) => (
-    <div className={`${className || ''} ${classes.root}`}>
+    <div className={classNames(className, classes.root)}>
         <header className={classes.header}>
             <Typography variant="h1" gutterBottom>Compress Images</Typography>
             <Typography variant="body1">Advanced PNG and JPEG compressor for reducing file size without quality loss</Typography>

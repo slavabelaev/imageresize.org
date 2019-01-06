@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 // Styles
@@ -24,7 +26,7 @@ class AppIcon extends React.Component {
         } : null;
 
         return (
-            <i className={`${props.className || ''} ${classes.root}`} style={styles}></i>
+            <i className={classNames(props.className, classes.root)} style={styles}></i>
         );
     }
 }

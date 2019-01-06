@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Stepper from '@material-ui/core/Stepper';
@@ -77,7 +79,7 @@ class MemeMaker extends React.Component {
         const getStepContent = (index) => steps[index].content;
 
         return (
-            <div className={`${className || ''} ${classes.root}`} ref="root">
+            <div className={classNames(className, classes.root)} ref="root">
                 <Stepper activeStep={activeStep}>
                     {steps.map((step, index) => (
                         <Step key={index}>
