@@ -37,7 +37,7 @@ const FeatureCompressingPage = ({ className, classes }) => (
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}></Grid>
             <Grid className={classes.Grid_item} item xs={6}>
-                <img src="https://cdn.imageresize.org/static/media/compress-page-2.8b253210.jpg" width="100%" alt="" />
+                <img src={require('../../../content/images/compressing-1.jpg')} width="100%" alt="" />
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
                 <Typography variant="h2" gutterBottom>State of the art JPEG compression</Typography>
@@ -50,7 +50,7 @@ const FeatureCompressingPage = ({ className, classes }) => (
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}></Grid>
             <Grid className={classes.Grid_item} item xs={6}>
-            <img src="https://cdn.imageresize.org/static/media/compress-page-4.7099ce4c.jpg" width="100%" alt="" />
+            <img src={require('../../../content/images/compressing-2.jpg')} width="100%" alt="" />
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
                 <Typography variant="h2" gutterBottom>Bulk image compression</Typography>

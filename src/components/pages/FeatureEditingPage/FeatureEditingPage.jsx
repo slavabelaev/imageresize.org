@@ -36,10 +36,10 @@ const FeatureEditingPage = ({ className, classes }) => (
                 <Typography variant="body1">Whether you are looking to give your photo a Retro or a Light leak look, we have got your covered with more than 15 photo filters.</Typography>
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
-                <img src="https://cdn.imageresize.org/static/media/photo-editor-page-1.1b38d2b7.jpg" width="100%" alt="" />
+                <img src={require('../../../content/images/editing-1.jpg')} width="100%" alt="" />
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
-                <img src="https://cdn.imageresize.org/static/media/photo-editor-page-2.b31f344d.jpg" width="100%" alt="" />
+                <img src={require('../../../content/images/editing-2.jpg')} width="100%" alt="" />
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
                 <Typography variant="h2" gutterBottom>Adjust your photo parameters</Typography>
@@ -51,10 +51,10 @@ const FeatureEditingPage = ({ className, classes }) => (
                 <Typography variant="body1">Whether you are looking to give your photo a Retro or a Light leak look, we have got your covered with more than 15 photo filters.</Typography>
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
-                <img src="https://cdn.imageresize.org/static/media/photo-editor-page-3.03d84329.jpg" width="100%" alt="" />
+                <img src={require('../../../content/images/editing-3.jpg')} width="100%" alt="" />
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
-                <img src="https://cdn.imageresize.org/static/media/photo-editor-page-4.0e0f2236.jpg" width="100%" alt="" />
+                <img src={require('../../../content/images/editing-4.jpg')} width="100%" alt="" />
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
                 <Typography variant="h2" gutterBottom>It is super simple to use</Typography>

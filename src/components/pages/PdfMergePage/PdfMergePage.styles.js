@@ -14,15 +14,8 @@ const styles = theme => ({
         paddingRight: theme.spacing.unit * 3,
         paddingLeft: theme.spacing.unit * 3
     },
-    FileUploadManager: {
+    PdfMergeTool: {
         marginBottom: theme.spacing.unit * 9
-    },
-    Grid_container: {
-        margin: 0,
-        padding: theme.spacing.unit * 6
-    },
-    Grid_item: {
-        marginBottom: theme.spacing.unit * 8
     }
 });
 

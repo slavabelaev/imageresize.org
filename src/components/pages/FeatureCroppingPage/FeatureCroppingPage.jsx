@@ -36,10 +36,10 @@ const FeatureCroppingPage = ({ className, classes }) => (
                 <Typography variant="body1">Sometimes it is important to capture the moment than to worry about composition. The photographic moments happens so fast and you probably don’t have time to decide what to include in the frame. Need not worry, our photo cropper lets you crop your images using a specific aspect ratio, exact dimensions, or simply drag and crop.</Typography>
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
-                <img src="https://cdn.imageresize.org/static/media/crop-page-1.fe46b434.jpg" width="100%" alt="" />
+                <img src={require('../../../content/images/cropping-1.jpg')} width="100%" alt="" />
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
-                <img src="https://cdn.imageresize.org/static/media/crop-page-2.a771039c.jpg" width="100%" alt="" />
+                <img src={require('../../../content/images/cropping-2.jpg')} width="100%" alt="" />
             </Grid>
             <Grid className={classes.Grid_item} item xs={6}>
                 <Typography variant="h2" gutterBottom>Crop freestyle or use an aspect ratio</Typography>
