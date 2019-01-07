@@ -14,11 +14,11 @@ class AppIcon extends React.Component {
     };
 
     render() {
-        const props = this.props;
-        const { classes } = this.props;
-        const { size } = this.state;
-        const styles = this.props.icon ? {
-            backgroundImage: 'url(' + require(`../../../assets/icons/${this.props.icon}.svg`) + ')',
+        const { props, state } = this;
+        const { classes } = props;
+        const { size } = state;
+        const styles = props.icon ? {
+            backgroundImage: 'url(' + require(`../../../assets/icons/${props.icon}.svg`) + ')',
             width: size,
             height: size,
             minWidth: size,

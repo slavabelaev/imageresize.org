@@ -28,7 +28,8 @@ const styles = theme => ({
     canvas: {
         height: 370,
         width: '100%',
-        border: theme.palette.grey[200] + ' 1px solid'
+        border: theme.palette.grey[200] + ' 1px solid',
+        backgroundColor: theme.palette.grey[50]
     },
     CardContent: {
         textAlign: 'center'
@@ -46,13 +47,24 @@ const styles = theme => ({
     IconButton: {
         margin: theme.spacing.unit / 2,
         backgroundColor: theme.palette.grey[50],
-        boxShadow: 'rgba(0,0,0,.16) 0 2px 4px'
+        boxShadow: 'rgba(0,0,0,.16) 0 2px 4px',
+        '&:hover': {
+            backgroundColor: theme.palette.grey[100]
+        }
     },
     IconButton_remove: {
         color: theme.palette.error.main
     },
     Typography_documentName: {
-        color: theme.palette.grey[700]
+        color: theme.palette.grey[700],
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+        overflow: 'hidden'
+    },
+    Button_action: {
+        '&+button': {
+            marginLeft: theme.spacing.unit
+        }
     }
 });
 

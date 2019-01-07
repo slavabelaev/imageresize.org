@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Grid from '@material-ui/core/Grid';
@@ -11,19 +10,36 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ClearIcon from '@material-ui/icons/Clear';
 import RotateRightIcon from '@material-ui/icons/RotateRight';
+
+import MessageStack from '../../common/MessageStack/MessageStack';
+import FileUploadManager from '../FileUploadManager/FileUploadManager';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
 import styles from './PdfMergeTool.styles';
 
 class PdfMergeTool extends React.Component {
     state = {
-        files: [
-            { name: 'Sample Name 1', rotationAngle: 0 },
-            { name: 'Sample Name 2', rotationAngle: 0 },
-            { name: 'Sample Name 2', rotationAngle: 0 },
-            { name: 'Sample Name 2', rotationAngle: 0 },
-        ]
+        activeStep: 0,
+        files: []
     };
+
+    handleFileUpload = (uploadedFiles) => {
+        this.setState({ files: uploadedFiles });
+    }
+
+    handleRemoveFile = (index) => {
+        const files = this.state.files;
+        files.splice(index, 1);
+        this.setState({ files });
+    }
+
+    handleNext = () => { 
+        this.setState({ activeStep: this.state.activeStep + 1 });
+    }
+
+    handleBack = () => { 
+        this.setState({ activeStep: this.state.activeStep - 1 });
+    }
 
     render() {
         const { props, state } = this;
@@ -31,9 +47,31 @@ class PdfMergeTool extends React.Component {
 
         return (
             <div className={classNames(className, classes.root)}>
+
+                {state.activeStep === 0 ? (
+                <div>
+                    {state.files.length === 1 ? (
+                    <MessageStack
+                        className={classes.MessageStack} 
+                        messages={[
+                            { variant: 'info', text: 'Please, select more PDF files'}
+                        ]}
+                    />
+                    ) : null}
+
+                    <FileUploadManager
+                        files={state.files}
+                        accept="application/pdf"
+                        labels={{
+                            selectFiles: 'Select PDF files',
+                            dropFiles: 'or, drop PDF files here'
+                        }}
+                        onChange={this.handleFileUpload}
+                    />
+                </div>
+                ) : state.activeStep === 1 ? (
                 <div className={classes.documentsContainer}>
                     <Grid container className={classes.Grid}>
-
                         {state.files.map((file, index) => 
                         <Grid item xs={6} className={classes.Grid_item} key={index}>
                             <Card className={classes.Card}>
@@ -46,25 +84,38 @@ class PdfMergeTool extends React.Component {
                                     </Typography>
                                 </CardContent>
                                 <CardActions className={classes.CardActions}>
-                                    <IconButton className={classNames(classes.IconButton, classes.IconButton_remove)}>
-                                        <ClearIcon />
+                                    <IconButton 
+                                        className={classNames(classes.IconButton, classes.IconButton_remove)}
+                                        onClick={() => this.handleRemoveFile(index)}
+                                    >
+                                        <ClearIcon fontSize="small" />
                                     </IconButton>
                                     <IconButton className={classNames(classes.IconButton)}>
-                                        <RotateRightIcon />
+                                        <RotateRightIcon fontSize="small" />
                                     </IconButton>
                                 </CardActions>
                             </Card>
                         </Grid>
                         )}
-
                     </Grid>
                 </div>
+                ) : null}
 
                 <div className={classes.actionsContainer}>
+                    {state.activeStep > 0 ? (
+                    <Button
+                        className={classes.Button_action}
+                        variant="contained" 
+                        size="large"
+                        onClick={this.handleBack}>Back</Button>
+                    ) : null}
                     <Button 
+                        className={classes.Button_action}
+                        disabled={state.files.length < 2}
                         variant="contained" 
                         color="primary" 
-                        size="large">Merge PDF</Button>
+                        size="large"
+                        onClick={this.handleNext}>Next</Button>
                 </div>
             </div>
         );

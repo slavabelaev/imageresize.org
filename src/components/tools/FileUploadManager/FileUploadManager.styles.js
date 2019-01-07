@@ -2,6 +2,9 @@ const styles = theme => ({
     root: {
 
     },
+    MessageStack: {
+        marginBottom: theme.spacing.unit * 3
+    },
     Tabs: {
         marginBottom: -1,
         '& [role=tablist]>span': {
@@ -76,9 +79,6 @@ const styles = theme => ({
         display: 'flex',
         alignItems: 'center'
     },
-    LinearProgress: {
-        width: '100%'
-    },
     ListItemSecondaryAction_file: {
         display: 'flex',
         alignItems: 'center'
@@ -113,28 +113,6 @@ const styles = theme => ({
         margin: 'auto',
         display: 'flex',
         alignItems: 'center',
-    },
-    Snackbar_error: {
-        position: 'relative',
-        width: '100%',
-        marginBottom: theme.spacing.unit * 3
-    },
-    SnackbarContent_error: {
-        width: '100%',
-        maxWidth: '100%',
-        backgroundColor: theme.palette.error[50],
-        color: theme.palette.error.dark,
-    },
-    messageContent_error: {
-        display: 'flex',
-        alignItems: 'center',
-    },
-    Icon_error: {
-        marginRight: theme.spacing.unit
-    },
-    IconButton_removeMessage: {
-        position: 'absolute',
-        right: theme.spacing.unit
     }
 });
 

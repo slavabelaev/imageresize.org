@@ -7,8 +7,6 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
 import Typography from '@material-ui/core/Typography';
-import Snackbar from '@material-ui/core/Snackbar';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -22,8 +20,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import DeleteIcon from '@material-ui/icons/Delete';
-import ErrorIcon from '@material-ui/icons/Error';
 import AppIcon from '../../common/AppIcon/AppIcon';
+
+import MessageStack from '../../common/MessageStack/MessageStack';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
 import styles from './FileUploadManager.styles';
@@ -47,13 +46,10 @@ class FileUploadManager extends React.Component {
         maxFiles: this.props.maxFiles || 1,
         maxFileSize: this.props.maxFileSize || 5120,
         accept: this.props.accept || 'image/*',
+        files: this.props.files || [],
 
-        labels: this.props.labels || {},
         activeTabIndex: 0,
-        acceptedFiles: [],
-        rejectedFiles: [],
-
-        messages: []
+        errorMessages: []
     };
     
     handleTabChange = (event, activeTabIndex) => {
@@ -70,63 +66,36 @@ class FileUploadManager extends React.Component {
     
     handleUploadCancel = () => {}
 
-    handleDrop = (selectedAcceptedFiles, selectedRejectedFiles) => {
-        const acceptedFiles = [...selectedAcceptedFiles, ...this.state.acceptedFiles];
-        const rejectedFiles = [...selectedRejectedFiles, ...this.state.rejectedFiles];
-        this.setState({ acceptedFiles });
-        this.setState({ rejectedFiles });
+    handleDrop = (acceptedFiles, rejectedFiles) => {
+        const files = [...acceptedFiles, ...this.state.files];
+        this.setState({ files });
 
         // Add Error Messages
         if (rejectedFiles.length > 0) {
-            const messages = this.state.messages;
-            rejectedFiles.map((rejectedFile, index) => {
-                messages.push({ 
+            const errorMessages = this.state.errorMessages;
+            rejectedFiles.map((rejectedFile) => {
+                errorMessages.push({
                     variant: 'error',
-                    isOpen: true, 
-                    text: rejectedFile.name + ' — This file is not allowed.' 
+                    text: rejectedFile.name + ' — This file is not allowed.'
                 });
             });
         }
-    }
 
-    handleCloseMessage = (index) => {
-        const messages = this.state.messages;
-        messages[index].isOpen = false;
-        this.setState({ messages });
+        this.props.onChange(files);
     }
 
     render() {
         const { props, state } = this;
         const { className, classes } = props;
-        const { labels, activeTabIndex } = state;
+        const labels = props.labels || {};
+        const { activeTabIndex } = state;
 
         return (
             <div className={classNames(className, classes.root)}>
-
-                {state.messages.map((message, index) =>
-                <Snackbar
-                    className={classes.Snackbar_error}
-                    open={message.isOpen}
-                    key={index}
-                >
-                    <SnackbarContent
-                        className={classes.SnackbarContent_error}
-                        message={
-                            <div className={classes.messageContent_error}>
-                                <ErrorIcon className={classes.Icon_error} />
-                                <span>{message.text}</span>
-                                <IconButton 
-                                    className={classes.IconButton_removeMessage}
-                                    onClick={() => this.handleCloseMessage(index)}
-                                >
-                                    <ClearIcon fontSize="small" />
-                                </IconButton>
-                            </div>
-                        }>
-                    </SnackbarContent>
-                </Snackbar>
-                )}
-
+                <MessageStack
+                    className={classes.MessageStack} 
+                    messages={state.errorMessages} 
+                />
 
                 <Tabs
                     className={classes.Tabs}
@@ -146,8 +115,7 @@ class FileUploadManager extends React.Component {
                     </Typography>
                 </Tabs>
                 <Dropzone 
-                    accept={state.accept} 
-                    disableClick
+                    accept={state.accept}
                     onDrop={this.handleDrop}
                 >
                 {({getRootProps, getInputProps, isDragActive}) => 
@@ -172,10 +140,14 @@ class FileUploadManager extends React.Component {
                                         className={classes.Button}
                                     >
                                         <AttachFileIcon className={classes.Icon} /> 
-                                        Choose Files
+                                        {labels.selectFiles || 'Select Files'}
                                     </Button>
                                 </label>
-                                <Typography className={classes.Typography_uploadFile} variant="body1">or, drop Files here</Typography>
+                                <Typography 
+                                    className={classes.Typography_uploadFile} 
+                                    variant="body1">
+                                {labels.dropFiles || 'or, drop Files here'}
+                                </Typography>
                         </div> 
                         </TabContainer>
                         <TabContainer className={classes.TabContainer}>
@@ -205,101 +177,36 @@ class FileUploadManager extends React.Component {
                     </SwipeableViews>
                 }
                 </Dropzone>
-                
-                {state.acceptedFiles.length ? (
-                <div className={classes.uploadingContainer}>
-                    <LinearProgress 
-                        className={classes.LinearProgress}
-                        color="secondary" 
-                        variant="determinate" 
-                        value={80} />
-                    <IconButton
-                        aria-label="Remove uploading"
-                        onClick={this.handleUploadCancel}>
-                        <ClearIcon fontSize="small" />
-                    </IconButton>
-                </div>
-                ) : null}
-
-                {/* Example List */}
-                <List className={classes.List_file}>
-                    <ListItem className={classes.ListItem_file}>
-                        <ListItemIcon>
-                            <AppIcon icon="pdf" />
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="example_file_state_loaded.pdf"
-                        />
-                        <ListItemSecondaryAction className={classes.ListItemSecondaryAction_file}>
-                            <IconButton aria-label="Delete">
-                                <DeleteIcon />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                    <ListItem className={classes.ListItem_file}>
-                        <ListItemIcon>
-                            <AppIcon icon="pdf" />
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="example_file_state_loading.pdf"
-                        />
-                        <ListItemSecondaryAction className={classes.ListItemSecondaryAction_file}>
-                            <LinearProgress 
-                                className={classes.LinearProgress_file}
-                                color="secondary" 
-                                variant="determinate" 
-                                value={80} />
-                            <IconButton
-                                aria-label="Remove uploading"
-                                onClick={this.handleUploadCancel}>
-                                <ClearIcon fontSize="small" />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                    <ListItem className={classes.ListItem_file}>
-                        <ListItemIcon>
-                            <AppIcon icon="pdf" />
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="example_file_state_selected.pdf"
-                        />
-                        <ListItemSecondaryAction className={classes.ListItemSecondaryAction_file}>
-                            <LinearProgress 
-                                className={classes.LinearProgress_file}
-                                color="secondary" 
-                                variant="determinate" 
-                                value={0} />
-                            <IconButton
-                                aria-label="Remove uploading"
-                                onClick={this.handleUploadCancel}>
-                                <ClearIcon fontSize="small" />
-                            </IconButton>
-                        </ListItemSecondaryAction>
-                    </ListItem>
-                </List>
-                {/* /Example List */}
 
                 <List className={classes.List_file}>
-                    {state.acceptedFiles.map((acceptedFile, index) => 
+                    {state.files.map((file, index) => 
                     <ListItem className={classes.ListItem_file} key={index}>
                         <ListItemIcon>
-                            <AppIcon icon={getIconNameByFileType(acceptedFile.type)} />
+                            <AppIcon icon={getIconNameByFileType(file.type)} />
                         </ListItemIcon>
                         <ListItemText
-                            primary={acceptedFile.name}
+                            primary={file.name}
                         />
                         <ListItemSecondaryAction className={classes.ListItemSecondaryAction_file}>
-                            <LinearProgress 
-                                className={classes.LinearProgress_file}
-                                color="secondary" 
-                                variant="determinate" 
-                                value={0}
-                            />
-                            <IconButton
-                                aria-label="Remove uploading"
-                                onClick={this.handleUploadCancel}>
-                                <ClearIcon fontSize="small" />
-                            </IconButton>
+                            {file.uploaded === true ? (
+                                <IconButton aria-label="Delete">
+                                    <DeleteIcon />
+                                </IconButton>
+                            ) : (
+                                <React.Fragment>
+                                    <LinearProgress 
+                                        className={classes.LinearProgress_file}
+                                        color="secondary" 
+                                        variant="determinate" 
+                                        value={0}
+                                    />
+                                    <IconButton
+                                        aria-label="Remove uploading"
+                                        onClick={this.handleUploadCancel}>
+                                        <ClearIcon fontSize="small" />
+                                    </IconButton>
+                                </React.Fragment>
+                            )}
                         </ListItemSecondaryAction>
                     </ListItem>
                     )}
