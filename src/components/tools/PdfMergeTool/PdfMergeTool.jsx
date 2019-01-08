@@ -23,13 +23,20 @@ class PdfMergeTool extends React.Component {
         files: []
     };
 
-    handleFileUpload = (uploadedFiles) => {
-        this.setState({ files: uploadedFiles });
+    handleFileUpload = (selectedFiles) => {
+        this.setState({ files: selectedFiles });
     }
 
-    handleRemoveFile = (index) => {
+    handleRemoveFile = (fileIndex) => {
         const files = this.state.files;
-        files.splice(index, 1);
+        files.splice(fileIndex, 1);
+        this.setState({ files });
+    }
+
+    handleUpdateRotationAngle = (fileIndex) => {
+        const files = this.state.files;
+        const fileRotationAngle = files[fileIndex].rotationAngle || 0;
+        files[fileIndex].rotationAngle = fileRotationAngle < 270 ? fileRotationAngle + 90 : 0;
         this.setState({ files });
     }
 
@@ -75,8 +82,15 @@ class PdfMergeTool extends React.Component {
                         {state.files.map((file, index) => 
                         <Grid item xs={6} className={classes.Grid_item} key={index}>
                             <Card className={classes.Card}>
-                                <div className={classes.canvasContainer}>
-                                    <canvas className={classes.canvas} />
+                                <div className={classes.coverContainer}>
+                                    <div className={classes.coverWrapper}>
+                                        <img 
+                                            className={classes.cover} 
+                                            src={require('./PdfMergeTool.cover.svg')} 
+                                            alt="" 
+                                            style={{transform: `rotate(${file.rotationAngle}deg)`}}
+                                        />
+                                    </div>
                                 </div>
                                 <CardContent className={classes.CardContent}>
                                     <Typography component="h2" className={classes.Typography_documentName}>
@@ -90,7 +104,10 @@ class PdfMergeTool extends React.Component {
                                     >
                                         <ClearIcon fontSize="small" />
                                     </IconButton>
-                                    <IconButton className={classNames(classes.IconButton)}>
+                                    <IconButton 
+                                        className={classNames(classes.IconButton)}
+                                        onClick={() => this.handleUpdateRotationAngle(index)}
+                                    >
                                         <RotateRightIcon fontSize="small" />
                                     </IconButton>
                                 </CardActions>
@@ -115,7 +132,9 @@ class PdfMergeTool extends React.Component {
                         variant="contained" 
                         color="primary" 
                         size="large"
-                        onClick={this.handleNext}>Next</Button>
+                        onClick={this.handleNext}>
+                        {state.activeStep === 1 ? 'Merge PDF' : 'Next'}    
+                    </Button>
                 </div>
             </div>
         );

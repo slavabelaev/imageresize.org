@@ -21,15 +21,26 @@ const styles = theme => ({
         boxShadow: '#CFDDE6 0 4px 20px',
         marginTop: theme.spacing.unit * 7.5,
     },
-    canvasContainer: {
+    coverContainer: {
         padding: theme.spacing.unit * 3,
         paddingBottom: 0
     },
-    canvas: {
+    coverWrapper: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         height: 370,
         width: '100%',
         border: theme.palette.grey[200] + ' 1px solid',
-        backgroundColor: theme.palette.grey[50]
+        backgroundColor: theme.palette.grey[50],
+        //backgroundImage: `url(${require('./Adobe_PDF.svg')})`,
+        backgroundSize: '80% auto',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+    },
+    cover: {
+        maxWidth: '100%',
+        maxHeight: '100%'
     },
     CardContent: {
         textAlign: 'center'

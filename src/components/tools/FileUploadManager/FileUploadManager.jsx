@@ -60,7 +60,9 @@ class FileUploadManager extends React.Component {
         this.setState({ activeTabIndex });
     };
 
-    handleSelectFromUrl = () => {}
+    handleSelectFromUrl = (event) => {
+        console.log(event);
+    }
 
     handleUpload = () => {}
     
@@ -121,6 +123,7 @@ class FileUploadManager extends React.Component {
                 {({getRootProps, getInputProps, isDragActive}) => 
                     <SwipeableViews
                         {...getRootProps()}
+                        onClick={() => false}
                         animateHeight
                         className={classes.SwipeableViews + ' ' + (isDragActive ? classes.dropzone_isActive : null)} 
                         index={activeTabIndex}
@@ -133,6 +136,7 @@ class FileUploadManager extends React.Component {
                                 />
                                 <label htmlFor="upload-file">
                                     <Button 
+                                        {...getRootProps()}
                                         variant="contained"
                                         size="large" 
                                         color="secondary" 
