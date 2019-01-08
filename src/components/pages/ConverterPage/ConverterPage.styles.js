@@ -7,12 +7,12 @@ const styles = theme => ({
         textAlign: 'center',
         marginBottom: 48
     },
+    Button: {
+        marginTop: theme.spacing.unit * 3
+    },
     contentContainer: {
         padding: 60,
         paddingBottom: 0
-    },
-    MemeMaker: {
-        marginBottom: 72
     },
     Grid_container: {
         margin: 0,
