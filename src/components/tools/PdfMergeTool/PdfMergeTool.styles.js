@@ -4,7 +4,7 @@ const styles = theme => ({
     },
     documentsContainer: {
         maxHeight: 572,
-        backgroundColor: theme.palette.grey[50],
+        backgroundColor: theme.palette.grey[100],
         marginBottom: theme.spacing.unit * 3,
         paddingBottom: theme.spacing.unit * 7.5,
         overflow: 'auto'

@@ -69,6 +69,7 @@ class PdfMergeTool extends React.Component {
                     <FileUploadManager
                         files={state.files}
                         accept="application/pdf"
+                        maxFiles={20}
                         labels={{
                             selectFiles: 'Select PDF files',
                             dropFiles: 'or, drop PDF files here'

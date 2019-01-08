@@ -48,6 +48,7 @@ class FileUploadManager extends React.Component {
         accept: this.props.accept || 'image/*',
         files: this.props.files || [],
 
+        url: '',
         activeTabIndex: 0,
         errorMessages: []
     };
@@ -60,11 +61,14 @@ class FileUploadManager extends React.Component {
         this.setState({ activeTabIndex });
     };
 
-    handleSelectFromUrl = (event) => {
-        console.log(event);
+    handleFileDownload = (event) => {
+        event.preventDefault();
+        const url = this.state.url;
     }
 
-    handleUpload = () => {}
+    handleUrlChange = (event) => {
+        this.setState({ url: event.target.value });
+    }
     
     handleUploadCancel = () => {}
 
@@ -122,8 +126,6 @@ class FileUploadManager extends React.Component {
                 >
                 {({getRootProps, getInputProps, isDragActive}) => 
                     <SwipeableViews
-                        {...getRootProps()}
-                        onClick={() => false}
                         animateHeight
                         className={classes.SwipeableViews + ' ' + (isDragActive ? classes.dropzone_isActive : null)} 
                         index={activeTabIndex}
@@ -155,7 +157,9 @@ class FileUploadManager extends React.Component {
                         </div> 
                         </TabContainer>
                         <TabContainer className={classes.TabContainer}>
-                            <div className={classes.tabContent}>
+                            <form 
+                                className={classes.tabContent} 
+                                onSubmit={this.handleFileDownload}>
                                 <TextField
                                     className={classes.TextField}
                                     id="file-url"
@@ -163,20 +167,23 @@ class FileUploadManager extends React.Component {
                                     fullWidth
                                     placeholder="http://"
                                     type="url"
+                                    value={state.url}
+                                    onChange={this.handleUrlChange}
                                     InputProps={{
                                         endAdornment: (
                                             <InputAdornment position="end">
                                                 <Button
+                                                    disabled={!state.url}
+                                                    type="submit"
                                                     variant="contained"
                                                     size="large"
                                                     color="secondary"
-                                                    onClick={this.handleSelectFromUrl}
                                                 >Go</Button>
                                             </InputAdornment>
                                         )
                                     }} 
                                 />
-                            </div>
+                            </form>
                         </TabContainer>
                     </SwipeableViews>
                 }
