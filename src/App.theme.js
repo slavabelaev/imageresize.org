@@ -1,3 +1,6 @@
+// Based on Default Material UI Theme
+// https://material-ui.com/customization/default-theme/
+
 import { createMuiTheme } from '@material-ui/core/styles';
 import lightBlue from '@material-ui/core/colors/lightBlue';
 import lightGreen from '@material-ui/core/colors/lightGreen';

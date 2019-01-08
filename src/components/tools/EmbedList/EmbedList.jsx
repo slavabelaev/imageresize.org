@@ -1,85 +1,43 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
+
+import CopyField from '../../common/CopyField/CopyField';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
 import styles from './EmbedList.styles';
 
-
-const copyToClipboard = copyString => {
-    const element = document.createElement('textarea');
-    element.value = copyString;
-    document.body.appendChild(element);
-    element.select();
-    document.execCommand('copy');
-    document.body.removeChild(element);
-};
-
 class EmbedList extends React.Component {
     state = {
-        imageUrl: this.props.url,
-        isCopiedMessageShow: false
+        imageUrl: this.props.url
     }
-
-    handleCopy = (copyString) => {
-        copyToClipboard(copyString);
-        this.setState({ isCopiedMessageShow: true });
-    }
-
-    handleCopiedMessageHide = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        this.setState({ isCopiedMessageShow: false });
-    };
 
     render() {
         const { state, props } = this;
         const { className, classes } = props;
         const embedList = [
-            { title: 'Direct Link', content: state.imageUrl },
-            { title: 'Image Link', content: state.imageUrl },
-            { title: 'HTML Image', content: `<img src="${state.imageUrl}" alt="">` },
-            { title: 'BBCode', content: `[img]${state.imageUrl}[/img]` },
+            { label: 'Direct Link', value: state.imageUrl },
+            { label: 'Image Link', value: state.imageUrl },
+            { label: 'HTML Image', value: `<img src="${state.imageUrl}" alt="">` },
+            { label: 'BBCode', value: `[img]${state.imageUrl}[/img]` },
         ];
         
         return (
             <section className={classNames(className, classes.root)}>
-                <Typography component="h2" variant="h3" gutterBottom>Image Links</Typography>
+                <Typography 
+                    className={classes.Typography_title}
+                    component="h2" 
+                    variant="h3"
+                >Image Links</Typography>
     
                 {embedList.map((embed, index) => 
-                    <TextField
-                        label={embed.title}
-                        defaultValue={embed.content}
-                        className={classes.TextField}
-                        variant="outlined"
-                        margin="normal"
-                        fullWidth
-                        InputProps={{
-                            readOnly: true,
-                            endAdornment: (
-                                <Button 
-                                    variant="outlined" 
-                                    size="large"
-                                    onClick={() => this.handleCopy(embed.content)}
-                                >Copy</Button>
-                            )
-                        }}
-                        key={index}
+                    <CopyField 
+                        className={classes.CopyField}
+                        label={embed.label} 
+                        value={embed.value}
                     />
                 )}
-    
-                <Snackbar
-                    open={state.isCopiedMessageShow}
-                    onClose={this.handleCopiedMessageHide}
-                    autoHideDuration={1200}
-                    message="Copied!"
-                />
             </section>
         )
     }

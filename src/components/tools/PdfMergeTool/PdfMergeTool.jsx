@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ClearIcon from '@material-ui/icons/Clear';
 import RotateRightIcon from '@material-ui/icons/RotateRight';
 
+import Processing from '../../common/Processing/Processing';
 import MessageStack from '../../common/MessageStack/MessageStack';
 import FileUploadManager from '../FileUploadManager/FileUploadManager';
 // Styles
@@ -54,7 +55,7 @@ class PdfMergeTool extends React.Component {
 
         return (
             <div className={classNames(className, classes.root)}>
-
+                <Processing />
                 {state.activeStep === 0 ? (
                 <div>
                     {state.files.length === 1 ? (
