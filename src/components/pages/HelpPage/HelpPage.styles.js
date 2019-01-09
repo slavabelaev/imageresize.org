@@ -7,9 +7,6 @@ const styles = theme => ({
     },
     section: {
         marginBottom: theme.spacing.unit * 3
-    },
-    url: {
-        color: theme.palette.primary.main
     }
 });
 

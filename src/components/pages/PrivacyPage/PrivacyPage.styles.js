@@ -4,12 +4,6 @@ const styles = theme => ({
         margin: 'auto',
         paddingTop: theme.spacing.unit * 10,
         paddingBottom: theme.spacing.unit * 10
-    },
-    section: {
-        marginBottom: theme.spacing.unit * 3
-    },
-    url: {
-        color: theme.palette.primary.main
     }
 });
 

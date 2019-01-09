@@ -17,6 +17,8 @@ import FeatureCroppingPage from '../../pages/FeatureCroppingPage/FeatureCropping
 import FeatureEditingPage from '../../pages/FeatureEditingPage/FeatureEditingPage';
 import FeatureCompressingPage from '../../pages/FeatureCompressingPage/FeatureCompressingPage';
 import TermsOfServicePage from '../../pages/TermsOfServicePage/TermsOfServicePage';
+import PrivacyPage from '../../pages/PrivacyPage/PrivacyPage';
+import HelpPage from '../../pages/HelpPage/HelpPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 
 const AppRouter = () => (
@@ -44,6 +46,8 @@ const AppRouter = () => (
         <Route path="/feature/compressing" component={FeatureCompressingPage} />
 
         <Route path="/terms-of-service" component={TermsOfServicePage} />
+        <Route path="/privacy" component={PrivacyPage} />
+        <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
     </Switch>
 )

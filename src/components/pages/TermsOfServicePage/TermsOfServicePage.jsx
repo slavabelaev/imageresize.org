@@ -51,7 +51,7 @@ const TermsOfServicePage = ({ className, classes }) => (
             <Typography variant="body1">We may promote products or services offered by other individuals or businesses and we may be paid affiliate commissions on any purchase you make. You will not be required to purchase anything we recommend. You should always perform your own due diligence before purchasing a product or service mentioned on this website ImageResize.org.All recommendations are made in good faith based upon the opinion of the writer at the time a product or service is mentioned on the website.</Typography>
         </section>
         <section className={classes.section}>
-            <Typography variant="body1"><b>Service Contact:</b> <a target="_blank" href="mailto:imageresize.org@gmail.com">{`<imageresize.org@gmail.com>`}</a></Typography>
+            <Typography variant="body1"><b>Service Contact:</b> <a target="_blank" href="mailto:imageresize.org@gmail.com" className={classes.url}>{`<imageresize.org@gmail.com>`}</a></Typography>
         </section>
     </article>
 );
