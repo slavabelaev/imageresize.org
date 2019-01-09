@@ -33,6 +33,8 @@ class AppIcon extends React.Component {
 
 AppIcon.propTypes = {
     classes: PropTypes.object.isRequired,
+    icon: PropTypes.string.isRequired,
+    size: PropTypes.oneOf(['small', 'medium', 'large'])
 };
 
 export default withStyles(styles)(AppIcon);

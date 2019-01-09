@@ -36,6 +36,7 @@ class EmbedList extends React.Component {
                         className={classes.CopyField}
                         label={embed.label} 
                         value={embed.value}
+                        key={index}
                     />
                 )}
             </section>

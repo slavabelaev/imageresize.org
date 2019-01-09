@@ -28,26 +28,6 @@ const styles = theme => ({
     image_state_ready: {
         opacity: 1
     },
-    buttonGroup: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-    },
-    buttonGroup_button: {
-        flex: 1,
-        borderRadius: 0,
-        '&+[role=button]': {
-            borderLeftWidth: 0
-        },
-        '&:first-child': {
-            borderTopLeftRadius: theme.shape.borderRadius,
-            borderBottomLeftRadius: theme.shape.borderRadius
-        },
-        '&:last-child': {
-            borderTopRightRadius: theme.shape.borderRadius,
-            borderBottomRightRadius: theme.shape.borderRadius
-        }
-    },
     ShareOrDownload: {
         marginBottom: theme.spacing.unit * 3
     },

@@ -7,6 +7,9 @@ const styles = theme => ({
     container: {
         padding: theme.spacing.unit * 7.5
     },
+    AppIcon: {
+        opacity: .54
+    },
     AppLogo: {
         maxWidth: 175,
         marginBottom: theme.spacing.unit * 5

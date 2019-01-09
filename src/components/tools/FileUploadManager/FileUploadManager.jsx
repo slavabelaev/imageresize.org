@@ -18,6 +18,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AppIcon from '../../common/AppIcon/AppIcon';
@@ -49,6 +50,7 @@ class FileUploadManager extends React.Component {
         files: this.props.files || [],
 
         url: '',
+        isFileLoading: false,
         activeTabIndex: 0,
         errorMessages: []
     };
@@ -64,6 +66,10 @@ class FileUploadManager extends React.Component {
     handleFileDownload = (event) => {
         event.preventDefault();
         const url = this.state.url;
+
+        // Fake File Loading
+        this.setState({ isFileLoading: true });
+        setTimeout(() => this.setState({ isFileLoading: false }), 2000);
     }
 
     handleUrlChange = (event) => {
@@ -173,12 +179,16 @@ class FileUploadManager extends React.Component {
                                         endAdornment: (
                                             <InputAdornment position="end">
                                                 <Button
-                                                    disabled={!state.url}
+                                                    disabled={!state.url || state.isFileLoading}
                                                     type="submit"
                                                     variant="contained"
                                                     size="large"
                                                     color="secondary"
-                                                >Go</Button>
+                                                >
+                                                    {state.isFileLoading ? (
+                                                        <CircularProgress size={24} />
+                                                    ) : 'Go'}
+                                                </Button>
                                             </InputAdornment>
                                         )
                                     }} 

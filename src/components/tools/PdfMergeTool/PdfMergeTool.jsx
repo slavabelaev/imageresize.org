@@ -55,7 +55,6 @@ class PdfMergeTool extends React.Component {
 
         return (
             <div className={classNames(className, classes.root)}>
-                <Processing />
                 {state.activeStep === 0 ? (
                 <div>
                     {state.files.length === 1 ? (
@@ -118,8 +117,11 @@ class PdfMergeTool extends React.Component {
                         )}
                     </Grid>
                 </div>
+                ) : state.activeStep === 2 ? (
+                    <Processing  />
                 ) : null}
 
+                {state.activeStep < 2 ? (
                 <div className={classes.actionsContainer}>
                     {state.activeStep > 0 ? (
                     <Button
@@ -138,6 +140,7 @@ class PdfMergeTool extends React.Component {
                         {state.activeStep === 1 ? 'Merge PDF' : 'Next'}    
                     </Button>
                 </div>
+                ) : null}
             </div>
         );
     }

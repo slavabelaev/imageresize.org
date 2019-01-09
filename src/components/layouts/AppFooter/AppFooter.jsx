@@ -30,7 +30,10 @@ const AppFooter = ({ className, classes }) => (
                                 target="_blank" 
                                 href="https://twitter.com/"
                             >
-                                <AppIcon icon="twitter" size="small"></AppIcon>
+                                <AppIcon 
+                                    className={classes.AppIcon} 
+                                    icon="twitter_dark" 
+                                    size="small"></AppIcon>
                             </IconButton>
                         </Grid>
                         <Grid item xs={4}>
@@ -39,7 +42,10 @@ const AppFooter = ({ className, classes }) => (
                                 target="_blank" 
                                 href="https://www.facebook.com/"
                             >
-                                <AppIcon icon="facebook" size="small"></AppIcon>
+                                <AppIcon 
+                                    className={classes.AppIcon} 
+                                    icon="facebook_dark" 
+                                    size="small"></AppIcon>
                             </IconButton>
                         </Grid>
                         <Grid item xs={4}>
@@ -48,7 +54,10 @@ const AppFooter = ({ className, classes }) => (
                                 target="_blank" 
                                 href="https://plus.google.com/"
                             >
-                                <AppIcon icon="google-plus" size="small"></AppIcon>
+                                <AppIcon 
+                                    className={classes.AppIcon} 
+                                    icon="google-plus_dark" 
+                                    size="small"></AppIcon>
                             </IconButton>
                         </Grid>
                     </Grid>

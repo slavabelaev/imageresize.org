@@ -1,107 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import PropTypes from 'prop-types';
-import {
-    RedditShareButton,
-    FacebookShareButton,
-    TwitterShareButton,
-    GooglePlusShareButton,
-    PinterestShareButton,
-    EmailShareButton,
-    RedditIcon,
-    FacebookIcon,
-    TwitterIcon,
-    GooglePlusIcon,
-    PinterestIcon,
-    EmailIcon
-} from 'react-share';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import EmbedList from '../EmbedList/EmbedList';
+import ShareLink from '../../common/ShareLink/ShareLink';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
 import styles from './ShareImage.styles';
-
-const ShareOrDownload = ({ className, classes, url }) => (
-    <section className={className}>
-        <Typography
-            className={classes.ShareOrDownload_title}
-            component="h2"
-            variant="h3"
-        >Share or Download</Typography>
-        <div className={classes.buttonGroup}>
-            <Button
-                className={classes.buttonGroup_button}
-                component={RedditShareButton}
-                variant="outlined" 
-                size="large"
-                url={url}>
-                <RedditIcon 
-                    logoFillColor="#FF9800"
-                    iconBgStyle={{fill: 'transparent'}} 
-                />
-            </Button>
-            <Button
-                className={classes.buttonGroup_button}
-                component={FacebookShareButton}  
-                variant="outlined" 
-                size="large"
-                url={url}>
-                <FacebookIcon 
-                    logoFillColor="#1976D2"
-                    iconBgStyle={{fill: 'transparent'}} 
-                />
-            </Button>
-            <Button
-                className={classes.buttonGroup_button}
-                component={TwitterShareButton}  
-                variant="outlined" 
-                size="large"
-                url={url}>
-                <TwitterIcon 
-                    logoFillColor="#03A9F4"
-                    iconBgStyle={{fill: 'transparent'}} 
-                />
-            </Button>
-            <Button
-                className={classes.buttonGroup_button}
-                component={GooglePlusShareButton}  
-                variant="outlined" 
-                size="large"
-                url={url}>
-                <GooglePlusIcon 
-                    logoFillColor="#F44336"
-                    iconBgStyle={{fill: 'transparent'}} 
-                />
-            </Button>
-            <Button
-                className={classes.buttonGroup_button}
-                component={PinterestShareButton}  
-                variant="outlined" 
-                size="large"
-                url={url}>
-                <PinterestIcon 
-                    logoFillColor="#D32F2F"
-                    iconBgStyle={{fill: 'transparent'}} 
-                />
-            </Button>
-            <Button
-                className={classes.buttonGroup_button}
-                component={EmailShareButton}  
-                variant="outlined" 
-                size="large"
-                url={url}>
-                <EmailIcon
-                    logoFillColor="#6EC3FA"
-                    iconBgStyle={{fill: 'transparent'}} 
-                />
-            </Button>
-        </div>
-    </section>
-)
 
 class ShareImage extends React.Component {
     state = {
@@ -134,11 +42,17 @@ class ShareImage extends React.Component {
                     </div>
                 </div>
                 <div className={classNames(classes.container, classes.buttonsContainer)}>
-                    <ShareOrDownload 
-                        className={classes.ShareOrDownload}
-                        url={state.imageUrl}
-                        classes={classes} 
-                    />
+                    <section className={classes.ShareOrDownload}>
+                        <Typography
+                            className={classes.ShareOrDownload_title}
+                            component="h2"
+                            variant="h3"
+                        >Share or Download</Typography>
+                        <ShareLink 
+                            buttonsVariant="grouped" 
+                            url={state.imageUrl} 
+                        />
+                    </section>
                     <div className={classes.actions}>
                         <Button 
                             className={classes.Button}
