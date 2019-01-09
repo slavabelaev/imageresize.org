@@ -47,7 +47,7 @@ class Processing extends React.Component {
                     <SaveAltIcon className={classes.Icon} />
                     Download PDF File
                 </Button>
-                <Typography component="p" variant="h1" className={classes.Typography_message}>Has ImageConverter help you? You can help us too!</Typography>
+                <Typography component="p" variant="h1" className={classes.Typography_message}>Has ImageResize helped you? You can help us too!</Typography>
                 <ShareLink 
                     className={classes.ShareLink}
                     url="https://imageresize.org/" 

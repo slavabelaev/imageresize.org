@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import FileUploadManager from '../../tools/FileUploadManager/FileUploadManager';
+import PdfResizeTool from '../../tools/PdfResizeTool/PdfResizeTool';
 // Styles
 import styles from './PdfResizePage.styles';
 
@@ -20,7 +20,7 @@ const PdfResizePage = ({ className, classes }) => (
             <Typography variant="body1">Resize your PDF files to a new paper size by uploading them below.</Typography>
         </header>
         <div className={classes.contentContainer}>
-            <FileUploadManager className={classes.FileUploadManager} />
+            <PdfResizeTool className={classes.PdfResizeTool} />
         </div>
         <Divider />
         <Grid className={classes.Grid_container} container spacing={40}>

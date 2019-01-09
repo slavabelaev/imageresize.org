@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import FileUploadManager from '../../tools/FileUploadManager/FileUploadManager';
+import PdfCompressTool from '../../tools/PdfCompressTool/PdfCompressTool';
 // Styles
 import styles from './PdfCompressPage.styles';
 
@@ -20,7 +20,7 @@ const PdfCompressPage = ({ className, classes }) => (
             <Typography variant="body1">Advanced PDF compressor for reducing file size without quality loss</Typography>
         </header>
         <div className={classes.contentContainer}>
-            <FileUploadManager className={classes.FileUploadManager} />
+            <PdfCompressTool className={classes.PdfCompressTool} />
         </div>
         <Divider />
         <Grid className={classes.Grid_container} container spacing={40}>

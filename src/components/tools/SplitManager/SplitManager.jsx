@@ -154,10 +154,6 @@ class SplitManager extends React.Component {
                         </div>
                     </TabContainer>
                 </SwipeableViews>
-
-                <div className={classes.actionsContainer}>
-                    <Button variant="contained" color="primary" size="large">Split PDF</Button>
-                </div>
             </div>
         );
     }

@@ -62,10 +62,6 @@ const styles = theme => ({
     TextField_range: {
         
     },
-    actionsContainer: {
-        textAlign: 'center',
-        marginTop: theme.spacing.unit * 3
-    },
     Button_addRange: {
         backgroundColor: theme.palette.white
     },
