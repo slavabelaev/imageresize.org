@@ -133,7 +133,7 @@ class FileUploadManager extends React.Component {
                 {({getRootProps, getInputProps, isDragActive}) => 
                     <SwipeableViews
                         animateHeight
-                        className={classes.SwipeableViews + ' ' + (isDragActive ? classes.dropzone_isActive : null)} 
+                        className={classNames(classes.SwipeableViews, isDragActive ? classes.dropzone_isActive : null)} 
                         index={activeTabIndex}
                         onChangeIndex={this.handleTabSwipe}>
                         <TabContainer className={classes.TabContainer}>

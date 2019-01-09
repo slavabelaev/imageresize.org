@@ -1,25 +1,30 @@
 const styles = theme => ({
-    root: {
-
+    root: {},
+    AppLogo: {
+        padding: theme.spacing.unit * 2.5,
     },
     Toolbar: {
+        display: 'block',
         paddingRight: 0,
+        paddingLeft: 0,
         borderColor: theme.palette.border.light,
         borderStyle: 'solid',
         borderTopWidth: 0,
         borderBottomWidth: 1,
         borderLeftWidth: 0,
-        borderRightWidth: 0
+        borderRightWidth: 0,
+        [theme.breakpoints.up('md')]: {
+            display: 'flex'
+        }
     },
     MenuList: {
-        display: 'flex',
-        marginLeft: 'auto'
+        [theme.breakpoints.up('md')]: {
+            display: 'flex',
+            marginLeft: 'auto'
+        }
     },
     MenuItem: {
         fontSize: theme.typography.fontSize,
-        borderStyle: 'solid',
-        borderLeftWidth: 1,
-        borderColor: theme.palette.border.light,
         textTransform: 'uppercase',
         '&>i': {
             opacity: .5
@@ -31,8 +36,11 @@ const styles = theme => ({
             color: theme.palette.text.primary,
             backgroundColor: 'initial'
         },
-        [theme.breakpoints.up('lg')]: {
-            padding: theme.spacing.unit * 3 + 4
+        [theme.breakpoints.up('md')]: {
+            padding: theme.spacing.unit * 3 + 4,            
+            borderStyle: 'solid',
+            borderLeftWidth: 1,
+            borderColor: theme.palette.border.light,
         }
     },
     MenuItem_selected: {
@@ -71,7 +79,7 @@ const styles = theme => ({
         '&:not([aria-selected=true]):hover': {
             color: theme.palette.text.primary
         },
-        [theme.breakpoints.up('lg')]: {
+        [theme.breakpoints.up('md')]: {
             minHeight: 70
         }
     }

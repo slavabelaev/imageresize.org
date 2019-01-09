@@ -1,12 +1,5 @@
 const styles = theme => ({
-    root: {
-        maxWidth: 1170,
-        marginLeft: 'auto',
-        marginRight: 'auto'
-    },
-    container: {
-        padding: theme.spacing.unit * 7.5
-    },
+    root: {},
     AppLogo: {
         maxWidth: 175,
         marginBottom: theme.spacing.unit * 5

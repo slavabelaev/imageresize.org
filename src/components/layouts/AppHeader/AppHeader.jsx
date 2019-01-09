@@ -182,7 +182,7 @@ const AppHeader = ({ className, classes }) => {
     return (
         <header className={classNames(className, classes.root)}>
             <Toolbar className={classes.Toolbar}>
-                <AppLogo />
+                <AppLogo className={classes.AppLogo} />
                 <MenuList 
                     className={classes.MenuList}
                     component="nav" 

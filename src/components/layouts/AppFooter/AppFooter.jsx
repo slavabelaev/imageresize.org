@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
@@ -10,6 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton';
+import AppContainer from '../AppContainer/AppContainer';
 import AppLogo from '../AppLogo/AppLogo';
 import AppIcon from '../../common/AppIcon/AppIcon';
 // Styles
@@ -19,9 +19,9 @@ import styles from './AppFooter.styles';
 const AppFooter = ({ className, classes }) => (
     <footer className={classNames(className, classes.root)}>
         <Divider />
-        <div className={classes.container}>
+        <AppContainer>
             <Grid container>
-                <Grid item xs={4}>
+                <Grid item xs={12} md={4}>
                     <AppLogo className={classes.AppLogo}></AppLogo>
                     <Grid className={classes.Grid_socials} container>
                         <Grid item xs={4}>
@@ -63,7 +63,7 @@ const AppFooter = ({ className, classes }) => (
                     </Grid>
                     <Typography component="div">© 2013 - 2018 Imageresize.org</Typography>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={6} md={2}>
                     <List disablePadding component="nav">
                         <ListItem dense={true}>
                             <ListItemText className={classes.ListItemText_title} primary="Image Tools" />
@@ -79,7 +79,7 @@ const AppFooter = ({ className, classes }) => (
                         </ListItem>
                     </List>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={6} md={2}>
                     <List disablePadding component="nav">
                         <ListItem dense={true}>
                             <ListItemText className={classes.ListItemText_title} primary="Features" />
@@ -95,7 +95,7 @@ const AppFooter = ({ className, classes }) => (
                         </ListItem>
                     </List>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={6} md={2}>
                     <List disablePadding component="nav">
                         <ListItem dense={true}>
                             <ListItemText className={classes.ListItemText_title} primary="About" />
@@ -111,7 +111,7 @@ const AppFooter = ({ className, classes }) => (
                         </ListItem>
                     </List>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={6} md={2}>
                     <List disablePadding component="nav">
                         <ListItem dense={true}>
                             <ListItemText className={classes.ListItemText_title} primary="Legal" />
@@ -125,7 +125,7 @@ const AppFooter = ({ className, classes }) => (
                     </List>
                 </Grid>
             </Grid>
-        </div>
+        </AppContainer>
     </footer>
 );
 

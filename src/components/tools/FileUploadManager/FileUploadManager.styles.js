@@ -1,7 +1,5 @@
 const styles = theme => ({
-    root: {
-
-    },
+    root: {},
     MessageStack: {
         marginBottom: theme.spacing.unit * 3
     },
@@ -41,7 +39,7 @@ const styles = theme => ({
         borderTopLeftRadius: 0,
         backgroundColor: theme.palette.grey[50],
         backgroundImage: theme.palette.border.dashedBorderImageDark,
-        marginBottom: theme.spacing.unit * 3
+        marginBottom: theme.spacing.unit * 2.5
     },
     dropzone_isActive: {
         backgroundColor: theme.palette.secondary[50],
