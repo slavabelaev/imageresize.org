@@ -22,10 +22,10 @@ const styles = theme => ({
         borderColor: theme.palette.border.light,
         textTransform: 'uppercase',
         '&>i': {
-            opacity: .36
+            opacity: .5
         },
         '&:hover>i': {
-            opacity: .64
+            opacity: 1
         },
         '&:hover': {
             color: theme.palette.text.primary,
@@ -42,7 +42,7 @@ const styles = theme => ({
         fontWeight: 500,
         marginBottom: -1,
         '&>i': {
-            opacity: .64
+            opacity: 1
         },
         '&:hover': {
             backgroundColor: theme.palette.grey[50]
