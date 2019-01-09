@@ -12,18 +12,27 @@ import theme from './App.theme';
 // Styles
 import styles from './App.styles';
 
-const App = ({ classes }) => (
-  <MuiThemeProvider theme={theme}>
-    <CssBaseline />
-    <div className={classes.root}>
-      <AppHeader />
-      <main className={classes.main}>
-        <AppRouter />
-      </main>
-      <AppFooter />
-    </div>
-  </MuiThemeProvider>
-);
+class App extends React.Component {
+  state = {}
+
+  render() {
+    const { props, state } = this;
+    const { classes } = props;
+
+    return (
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className={classes.root}>
+          <AppHeader />
+          <main className={classes.main}>
+            <AppRouter />
+          </main>
+          <AppFooter />
+        </div>
+      </MuiThemeProvider>
+    );
+  }
+}
 
 App.propTypes = {
   classes: PropTypes.object.isRequired,

@@ -24,11 +24,11 @@ class PdfMergeTool extends React.Component {
         files: []
     };
 
-    handleFileUpload = (selectedFiles) => {
+    handleFileSelect = (selectedFiles) => {
         this.setState({ files: selectedFiles });
     }
 
-    handleRemoveFile = (fileIndex) => {
+    handleFileRemove = (fileIndex) => {
         const files = this.state.files;
         files.splice(fileIndex, 1);
         this.setState({ files });
@@ -74,7 +74,7 @@ class PdfMergeTool extends React.Component {
                             selectFiles: 'Select PDF files',
                             dropFiles: 'or, drop PDF files here'
                         }}
-                        onChange={this.handleFileUpload}
+                        onChange={this.handleFileSelect}
                     />
                 </div>
                 ) : state.activeStep === 1 ? (
@@ -101,7 +101,7 @@ class PdfMergeTool extends React.Component {
                                 <CardActions className={classes.CardActions}>
                                     <IconButton 
                                         className={classNames(classes.IconButton, classes.IconButton_remove)}
-                                        onClick={() => this.handleRemoveFile(index)}
+                                        onClick={() => this.handleFileRemove(index)}
                                     >
                                         <ClearIcon fontSize="small" />
                                     </IconButton>

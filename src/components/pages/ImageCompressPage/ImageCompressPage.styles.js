@@ -14,7 +14,7 @@ const styles = theme => ({
         paddingRight: theme.spacing.unit * 3,
         paddingLeft: theme.spacing.unit * 3
     },
-    FileUploadManager: {
+    ImageCompressTool: {
         marginBottom: theme.spacing.unit * 9
     },
     Grid_container: {

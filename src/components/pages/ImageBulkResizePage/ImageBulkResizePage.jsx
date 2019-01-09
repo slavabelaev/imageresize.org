@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import FileUploadManager from '../../tools/FileUploadManager/FileUploadManager';
+import ImageBulkResizeTool from '../../tools/ImageBulkResizeTool/ImageBulkResizeTool';
 // Styles
 import styles from './ImageBulkResizePage.styles';
 
@@ -17,11 +17,7 @@ const ImageBulkResizePage = ({ className, classes }) => (
             <Typography variant="body1">Resize, compress, or convert multiple images at once</Typography>
         </header>
         <div className={classes.contentContainer}>
-            <FileUploadManager 
-                className={classes.FileUploadManager} 
-                maxFiles={20}
-                maxFileSize={5120}
-            />
+            <ImageBulkResizeTool className={classes.ImageBulkResizeTool} />
         </div>
         <Divider />
         <Grid className={classes.Grid_container} container spacing={40}>

@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import FileUploadManager from '../../tools/FileUploadManager/FileUploadManager';
+import ImageCompressTool from '../../tools/ImageCompressTool/ImageCompressTool';
 // Styles
 import styles from './ImageCompressPage.styles';
 
@@ -17,11 +17,7 @@ const ImageCompressPage = ({ className, classes }) => (
             <Typography variant="body1">Advanced PNG and JPEG compressor for reducing file size without quality loss</Typography>
         </header>
         <div className={classes.contentContainer}>
-            <FileUploadManager 
-                className={classes.FileUploadManager} 
-                maxFiles={20}
-                maxFileSize={5120}
-            />
+            <ImageCompressTool className={classes.ImageCompressTool} />
         </div>
         <Divider />
         <Grid className={classes.Grid_container} container spacing={40}>
