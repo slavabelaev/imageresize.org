@@ -7,6 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import SaveAltIcon from '@material-ui/icons/SaveAlt';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
+import AppContainer from '../../layouts/AppContainer/AppContainer';
 import ShareLink from '../ShareLink/ShareLink';
 import CopyField from '../CopyField/CopyField';
 // Styles
@@ -30,22 +31,24 @@ class Processing extends React.Component {
 
         return (
             <div className={classNames(className, classes.root)}>
-                <div className={classes.progressContainer}>
+                <AppContainer className={classes.AppContainer}>
+                    <div className={classes.progressContainer}>
                     {state.isLoading ? (
                         <CircularProgress className={classes.CircularProgress} />
                     ) : (
                         <CheckCircleIcon fontSize="large" className={classes.Icon_check} />
                     )}
-                </div>
-                <Button 
-                    className={classes.Button_download}
-                    variant="contained" 
-                    color="primary"
-                    size="large"
-                >
-                    <SaveAltIcon className={classes.Icon} />
-                    Download PDF File
-                </Button>
+                    </div>
+                    <Button 
+                        className={classes.Button_download}
+                        variant="contained" 
+                        color="primary"
+                        size="large"
+                    >
+                        <SaveAltIcon className={classes.Icon} />
+                        Download PDF File
+                    </Button>
+                </AppContainer>
                 <Typography component="p" variant="h1" className={classes.Typography_message}>Has ImageResize helped you? You can help us too!</Typography>
                 <ShareLink 
                     className={classes.ShareLink}

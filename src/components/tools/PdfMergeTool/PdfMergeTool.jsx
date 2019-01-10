@@ -81,7 +81,7 @@ class PdfMergeTool extends React.Component {
                 <div className={classes.documentsContainer}>
                     <Grid container className={classes.Grid}>
                         {state.files.map((file, index) => 
-                        <Grid item xs={6} className={classes.Grid_item} key={index}>
+                        <Grid item xs={12} md={6} className={classes.Grid_item} key={index}>
                             <Card className={classes.Card}>
                                 <div className={classes.coverContainer}>
                                     <div className={classes.coverWrapper}>

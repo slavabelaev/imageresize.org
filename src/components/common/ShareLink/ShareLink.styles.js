@@ -8,9 +8,12 @@ const styles = theme => ({
     },
     IconButton_rounded: {
         backgroundColor: theme.palette.grey[100],
-        marginRight: theme.spacing.unit * 2.5,
+        marginRight: theme.spacing.unit,
         '&:last-child': {
             marginRight: 0
+        },
+        [theme.breakpoints.up('md')]: {
+            marginRight: theme.spacing.unit * 2.5
         }
     },
     Button_large: {
