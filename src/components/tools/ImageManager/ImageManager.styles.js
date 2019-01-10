@@ -86,8 +86,11 @@ const styles = theme => ({
     },
     tabContent: {
         textAlign: 'center',
-        padding: theme.spacing.unit * 5,
-        backgroundColor: theme.palette.grey[50]
+        padding: theme.spacing.unit * 2.5,
+        backgroundColor: theme.palette.grey[50],
+        [theme.breakpoints.up('md')]: {
+            padding: theme.spacing.unit * 5,
+        }
     },
     Typography_uploadFile: {
         paddingTop: theme.spacing.unit * 3,

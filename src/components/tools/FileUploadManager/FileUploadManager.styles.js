@@ -62,8 +62,11 @@ const styles = theme => ({
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: theme.spacing.unit * 5,
-        minHeight: 200
+        padding: theme.spacing.unit * 2.5,
+        minHeight: 200,
+        [theme.breakpoints.up('md')]: {
+            padding: theme.spacing.unit * 5,
+        }
     },
     Typography_uploadFile: {
         paddingTop: theme.spacing.unit * 3
@@ -106,11 +109,14 @@ const styles = theme => ({
         bottom: 0,
         top: 0,
         right: 0,
-        paddingLeft: theme.spacing.unit * 3,
-        paddingRight: theme.spacing.unit * 3,
+        paddingLeft: theme.spacing.unit * 2.5,
+        paddingRight: theme.spacing.unit * 2.5,
         margin: 'auto',
         display: 'flex',
         alignItems: 'center',
+        maxWidth: '50%',
+        whiteSpace: 'normal',
+        textAlign: 'right'
     }
 });
 
