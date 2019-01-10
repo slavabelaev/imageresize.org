@@ -23,7 +23,7 @@ const ImageResizePage = ({ className, classes }) => (
             </header>
             <ImageResizeTool className={classes.ImageResizeTool} />
         </AppContainer>
-        <Divider />
+        <Divider className={classes.Divider} />
         <AppContainer>
             <Grid className={classes.Grid_container} container spacing={40}>
                 <Grid className={classes.Grid_item} item xs={12}>

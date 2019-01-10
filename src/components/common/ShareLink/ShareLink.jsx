@@ -7,13 +7,7 @@ import {
     TwitterShareButton,
     GooglePlusShareButton,
     PinterestShareButton,
-    EmailShareButton,
-    RedditIcon,
-    FacebookIcon,
-    TwitterIcon,
-    GooglePlusIcon,
-    PinterestIcon,
-    EmailIcon
+    EmailShareButton
 } from 'react-share';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';

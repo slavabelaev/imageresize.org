@@ -1,18 +1,17 @@
 const styles = theme => ({
     root: {},
     header: {
-        textAlign: 'center',
-        marginBottom: theme.spacing.unit * 6
+        textAlign: 'center'
+    },
+    MemeEditor: {
+        marginTop: theme.spacing.unit * 7.5
     },
     button: {
         marginRight: theme.spacing.unit,
     },
-    content: {
-        paddingTop: theme.spacing.unit * 3,
-        paddingBottom: theme.spacing.unit * 3,
-    },
-    actions: {
-        textAlign: 'right'
+    actionContainer: {
+        textAlign: 'right',
+        marginTop: theme.spacing.unit * 2.5
     }
 });
 

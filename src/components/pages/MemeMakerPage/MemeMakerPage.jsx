@@ -14,9 +14,9 @@ import styles from './MemeMakerPage.styles';
 const MemeMakerPage = ({ className, classes }) => (
     <div className={classNames(className, classes.root)}>
         <AppContainer>
-            <MemeMaker className={classes.MemeMaker} />
+            <MemeMaker />
         </AppContainer>
-        <Divider />
+        <Divider className={classes.Divider} />
         <AppContainer>
             <Grid container spacing={40}>
                 <Grid className={classes.Grid_item} item xs={12}>

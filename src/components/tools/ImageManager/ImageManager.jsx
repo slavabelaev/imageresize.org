@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import PropTypes from 'prop-types';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from '@material-ui/core/Tabs';

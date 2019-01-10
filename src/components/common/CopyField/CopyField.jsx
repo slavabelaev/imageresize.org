@@ -43,10 +43,10 @@ class CopyField extends React.Component {
         return (
             <div className={classNames(className, classes.root)}>
                 <Grid container>
-                    <Grid item xs={3} className={classes.Grid_label}>
+                    <Grid item xs={12} md={3} className={classes.Grid_label}>
                         <Typography className={classes.Typography_label}>{props.label || ''}</Typography>
                     </Grid>
-                    <Grid item xs={9}>                    
+                    <Grid item xs={12} md={9}>                    
                         <TextField
                             value={props.value || ''}
                             className={classes.TextField}
@@ -56,6 +56,7 @@ class CopyField extends React.Component {
                                 readOnly: true,
                                 endAdornment: (
                                     <Button 
+                                        className={classes.Button_copy}
                                         variant="outlined" 
                                         size="large"
                                         onClick={() => this.handleCopy(props.value || '')}

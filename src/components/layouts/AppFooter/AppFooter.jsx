@@ -18,7 +18,7 @@ import styles from './AppFooter.styles';
 
 const AppFooter = ({ className, classes }) => (
     <footer className={classNames(className, classes.root)}>
-        <Divider />
+        <Divider className={classes.Divider} />
         <AppContainer>
             <Grid container>
                 <Grid item xs={12} md={4}>

@@ -7,6 +7,8 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
+
+import AppContainer from '../../layouts/AppContainer/AppContainer';
 import ImageManager from '../ImageManager/ImageManager';
 import MemeEditor from '../MemeEditor/MemeEditor';
 import ShareImage from '../../tools/ShareImage/ShareImage';
@@ -16,10 +18,12 @@ import styles from './MemeMaker.styles';
 
 const MemeImageManager = ({ classes }) => (
     <div>
-        <header className={classes.header}>
-            <Typography variant="h1" gutterBottom>Meme Maker</Typography>
-            <Typography variant="body1">Select or Upload image below to make Meme</Typography>
-        </header>
+        <AppContainer>
+            <header className={classes.header}>
+                <Typography variant="h1" gutterBottom>Meme Maker</Typography>
+                <Typography variant="body1">Select or Upload image below to make Meme</Typography>
+            </header>
+        </AppContainer>
         <ImageManager
             labels={{
                 chooseTab: 'Choose Meme',
@@ -64,15 +68,31 @@ class MemeMaker extends React.Component {
         const steps = [
             { 
                 label: 'Select Image',
-                content: (<MemeImageManager classes={classes} />)
+                content: (
+                    <MemeImageManager 
+                        className={classes.MemeImageManager}
+                        classes={classes} 
+                    />
+                )
             },
             { 
                 label: 'Make Meme',
-                content: (<MemeEditor imageUrl={imageUrl} />)
+                content: (
+                    <MemeEditor 
+                        className={classes.MemeEditor}
+                        imageUrl={imageUrl} 
+                    />
+                )
             },
             { 
                 label: 'Download or Share',
-                content: (<ShareImage imageUrl={imageUrl} onCreateNew={this.handleReset} />)
+                content: (
+                    <ShareImage 
+                        className={classes.ShareImage}
+                        imageUrl={imageUrl} 
+                        onCreateNew={this.handleReset} 
+                    />
+                )
             }
         ];
         const lastStep = (steps.length - 1);
@@ -91,7 +111,7 @@ class MemeMaker extends React.Component {
                     {getStepContent(activeStep)}
                 </div>
                 {activeStep < lastStep ? (
-                    <div className={classes.actions}>
+                    <div className={classes.actionContainer}>
                         {activeStep > 0 ? (
                         <Button
                             size="large"

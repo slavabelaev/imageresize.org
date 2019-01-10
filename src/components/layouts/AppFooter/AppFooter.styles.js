@@ -20,6 +20,10 @@ const styles = theme => ({
         textAlign: 'center',
         maxWidth: 175,
         marginBottom: theme.spacing.unit * 3
+    },
+    Divider: {
+        maxWidth: theme.breakpoints.values.lg,
+        margin: 'auto'
     }
 });
 

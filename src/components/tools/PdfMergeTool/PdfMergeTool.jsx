@@ -137,7 +137,7 @@ class PdfMergeTool extends React.Component {
                         color="primary" 
                         size="large"
                         onClick={this.handleNext}>
-                        {state.activeStep === 1 ? 'Merge PDF' : 'Next'}    
+                        {state.activeStep === 1 ? 'Merge PDF' : 'Proceed to PDF Merge'}    
                     </Button>
                 </div>
                 ) : null}

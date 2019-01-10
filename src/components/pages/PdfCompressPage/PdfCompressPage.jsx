@@ -23,7 +23,7 @@ const PdfCompressPage = ({ className, classes }) => (
             </header>
             <PdfCompressTool />
         </AppContainer>
-        <Divider />
+        <Divider className={classes.Divider} />
         <AppContainer>
             <Grid container spacing={40}>
                 <Grid className={classes.Grid_item} item xs={12}>

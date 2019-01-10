@@ -22,7 +22,7 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 7.5,
     },
     coverContainer: {
-        padding: theme.spacing.unit * 3,
+        padding: theme.spacing.unit * 2.5,
         paddingBottom: 0
     },
     coverWrapper: {

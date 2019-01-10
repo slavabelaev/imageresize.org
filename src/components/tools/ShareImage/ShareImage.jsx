@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+import AppContainer from '../../layouts/AppContainer/AppContainer'
 import EmbedList from '../EmbedList/EmbedList';
 import ShareLink from '../../common/ShareLink/ShareLink';
 // Styles
@@ -24,7 +26,7 @@ class ShareImage extends React.Component {
 
         return (
             <div className={classNames(className, classes.root)}>
-                <div className={classes.container}>
+                <AppContainer maxWidth="md" className={classes.AppContainer}>
                     <Typography
                         className={classes.Typography_title}
                         component="h2"
@@ -40,8 +42,8 @@ class ShareImage extends React.Component {
                             alt=""
                         />
                     </div>
-                </div>
-                <div className={classNames(classes.container, classes.buttonsContainer)}>
+                </AppContainer>
+                <AppContainer maxWidth="md" className={classes.AppContainer}>
                     <section className={classes.ShareOrDownload}>
                         <Typography
                             className={classes.ShareOrDownload_title}
@@ -72,14 +74,14 @@ class ShareImage extends React.Component {
                             variant="contained">Create New</Button>
                         ) : null}
                     </div>
-                </div>
-                <Divider />
-                <div className={classes.container}>
+                </AppContainer>
+                <Divider className={classes.Divider} />
+                <AppContainer maxWidth="md" className={classes.AppContainer}>
                     <EmbedList
                         className={classes.EmbedList}
                         url={state.imageUrl}
                     />
-                </div>
+                </AppContainer>
             </div>
         );
     }

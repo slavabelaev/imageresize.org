@@ -32,7 +32,7 @@ const FeatureEditingPage = ({ className, classes }) => (
                 >Get Started</Button>
             </header>
         </AppContainer>
-        <Divider />
+        <Divider className={classes.Divider} />
         <AppContainer>
             <Grid className={classes.Grid_container} container spacing={40}>
                 <Grid className={classes.Grid_item} item md={6}>

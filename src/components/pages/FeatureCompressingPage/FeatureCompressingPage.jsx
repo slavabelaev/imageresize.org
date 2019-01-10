@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
+import Hidden from '@material-ui/core/Hidden';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -31,7 +32,7 @@ const FeatureCompressingPage = ({ className, classes }) => (
                 >Get Started</Button>
             </header>
         </AppContainer>
-        <Divider />
+        <Divider className={classes.Divider} />
         <AppContainer>
             <Grid container spacing={40}>
                 <Grid className={classes.Grid_item} item md={6}>
@@ -39,7 +40,9 @@ const FeatureCompressingPage = ({ className, classes }) => (
                     <Typography variant="body1">If your pages load slow, it is probably caused by uncompressed images. The problem is grave enough for Google to use page load time as a ranking factor now.</Typography>
                     <Typography variant="body1">Optimizing your images properly lower your load time, reduce bounce rate, and save both your and customer’s data costs. So there is really no reason to upload an image to your website without optimizing it!</Typography>
                 </Grid>
-                <Grid className={classes.Grid_item} item md={6}></Grid>
+                <Hidden only={['xs', 'sm']}>
+                    <Grid className={classes.Grid_item} item md={6}></Grid>
+                </Hidden>
                 <Grid className={classes.Grid_item} item md={6}>
                     <img src={require('../../../content/images/compressing-1.jpg')} width="100%" alt="" />
                 </Grid>
@@ -52,9 +55,11 @@ const FeatureCompressingPage = ({ className, classes }) => (
                     <Typography variant="body1">PNG is another image format that is widely used. Compared to JPEG, PNG uses a lossless (reversible) compression algorithm. This means it stores extra data to be able to reverse the image to its original quality. Such extra data, however, bloat the file size.</Typography>
                     <Typography variant="body1">Our PNG Compressor applies a lossy compression algorithm and removes extra metadata. The result is a drastically reduced PNG files size without losing image quality.</Typography>
                 </Grid>
-                <Grid className={classes.Grid_item} item md={6}></Grid>
+                <Hidden only={['xs', 'sm']}>
+                    <Grid className={classes.Grid_item} item md={6}></Grid>
+                </Hidden>
                 <Grid className={classes.Grid_item} item md={6}>
-                <img src={require('../../../content/images/compressing-2.jpg')} width="100%" alt="" />
+                    <img src={require('../../../content/images/compressing-2.jpg')} width="100%" alt="" />
                 </Grid>
                 <Grid className={classes.Grid_item} item md={6}>
                     <Typography variant="h2" gutterBottom>Bulk image compression</Typography>
@@ -63,7 +68,6 @@ const FeatureCompressingPage = ({ className, classes }) => (
                 <Grid className={classes.Grid_item} item xs={12}>
                     <Typography variant="h2" gutterBottom>How to compress a photo</Typography>
                     <Typography variant="body1">Follow these two steps to compress single or bulk images</Typography>
-
                     <Stepper activeStep="null" orientation="vertical">
                         <Step><StepLabel><Typography variant="body1">Upload your photos to the image compressor</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">Click Download Images button to get a zip file with all your compressed images</Typography></StepLabel></Step>

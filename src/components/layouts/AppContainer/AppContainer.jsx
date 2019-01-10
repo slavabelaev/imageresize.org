@@ -5,15 +5,35 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './AppContainer.styles';
 
-const AppContainer = ({ className, classes, children, maxWidth }) => (
-    <div 
-        className={classNames(className, classes.root)} 
-        style={{
-            maxWidth: (maxWidth === 'sm') ? 600 : (maxWidth === 'md') ? 870 : 1170
-        }}>
-        {children}
-    </div>
-);
+class AppContainer extends React.Component {
+    disablePaddingStyles = () => {
+        let disablePaddingStyles = {};
+        const disablePadding = this.props.disablePadding;
+        if (!disablePadding) return;
+        if (disablePadding.indexOf('top') > -1) disablePaddingStyles.paddingTop = 0;
+        if (disablePadding.indexOf('bottom') > -1) disablePaddingStyles.paddingBottom = 0;
+        if (disablePadding.indexOf('left') > -1) disablePaddingStyles.paddingLeft = 0;
+        if (disablePadding.indexOf('right') > -1) disablePaddingStyles.paddingRight = 0;
+
+        return disablePaddingStyles;
+    }
+
+    render() {
+        const { state, props } = this;
+        const { className, classes, children, maxWidth, disablePadding } = props;
+
+        return (
+            <div 
+                className={classNames(className, classes.root)} 
+                style={{
+                    maxWidth: (maxWidth === 'sm') ? 640 : (maxWidth === 'md') ? 870 : 1170,
+                    ...this.disablePaddingStyles()
+                }}>
+                {children}
+            </div>
+        )
+    }
+};
 
 AppContainer.propTypes = {
     classes: PropTypes.object.isRequired,

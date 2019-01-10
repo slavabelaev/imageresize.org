@@ -8,6 +8,10 @@ const styles = theme => ({
     },
     Button_getStarted: {
         marginTop: theme.spacing.unit * 3
+    },
+    Divider: {
+        maxWidth: theme.breakpoints.values.lg,
+        margin: 'auto'
     }
 });
 

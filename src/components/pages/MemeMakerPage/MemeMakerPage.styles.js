@@ -1,7 +1,11 @@
 const styles = theme => ({
     root: {},
     Grid_item: {
-        marginBottom: 60
+        marginBottom: theme.spacing.unit * 8
+    },
+    Divider: {
+        maxWidth: theme.breakpoints.values.lg,
+        margin: 'auto'
     }
 });
 

@@ -23,7 +23,7 @@ const PdfResizePage = ({ className, classes }) => (
             </header>
             <PdfResizeTool />
         </AppContainer>
-        <Divider />
+        <Divider className={classes.Divider} />
         <AppContainer>
             <Grid container>
                 <Grid className={classes.Grid_item} item xs={12}>
