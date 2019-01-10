@@ -25,7 +25,7 @@ class AppHeader extends React.Component {
         isDrawerOpen: false
     }
 
-    toggleDrawer = () => {
+    handleToggleDrawer = () => {
         this.setState({ isDrawerOpen: !this.state.isDrawerOpen });
     }
     
@@ -39,6 +39,8 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
+                variant="scrollable"
+                scrollButtons="auto"
                 centered
             >
                 <Tab
@@ -78,6 +80,8 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
+                variant="scrollable"
+                scrollButtons="auto"
                 centered
             >
                 <Tab
@@ -117,6 +121,8 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
+                variant="scrollable"
+                scrollButtons="auto"
                 centered
             >
                 <Tab
@@ -170,6 +176,8 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
+                variant="scrollable"
+                scrollButtons="auto"
                 centered
             >
                 <Tab
@@ -255,18 +263,22 @@ class AppHeader extends React.Component {
                     <Hidden mdUp>
                         <IconButton
                             className={classes.IconButton_toggleDrawer} 
-                            onClick={this.toggleDrawer}>
+                            onClick={this.handleToggleDrawer}>
                             <MenuIcon />
                         </IconButton>
                     </Hidden>
                 </Toolbar>
-    
-                <Drawer anchor="right" 
-                    open={this.state.isDrawerOpen} 
-                    onClose={() => this.toggleDrawer()}
-                >
-                    <Menu classes={classes} />
-                </Drawer>
+
+                <Hidden mdUp>
+                    <Drawer anchor="right" 
+                        open={this.state.isDrawerOpen} 
+                        onClose={this.handleToggleDrawer}
+                    >
+                        <div onClick={this.handleToggleDrawer}>
+                            <Menu classes={classes} />
+                        </div>
+                    </Drawer>
+                </Hidden>
     
                 <Route path="/image" render={ImageToolsTabs} />
                 <Route path="/pdf" render={PdfToolsTabs} />

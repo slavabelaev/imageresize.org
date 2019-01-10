@@ -20,7 +20,7 @@ const MemeImageManager = ({ classes }) => (
     <div>
         <header className={classes.header}>
             <Typography variant="h1" gutterBottom>Meme Maker</Typography>
-            <Typography variant="body1">Select or Upload image below to make Meme</Typography>
+            <Typography variant="body1">Select or Upload Image below to make Meme</Typography>
         </header>
         <ImageManager
             labels={{

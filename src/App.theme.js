@@ -122,7 +122,7 @@ const theme = createMuiTheme({
     body1: {
       fontFamily: fontFamily,
       color: grey[600],
-      fontSize: '1.125rem'
+      fontSize: (window.outerWidth > 600) ? 18 : 16
     },
     button: {
       fontFamily: fontFamily,
@@ -133,33 +133,39 @@ const theme = createMuiTheme({
     h1: {
       fontFamily: fontFamily,
       fontWeight: 400,
-      fontSize: spacing.unit * 4.5,
+      lineHeight: 1.25,
+      fontSize: (window.outerWidth < 600) ? (spacing.unit * 3) : (spacing.unit * 4.5),
       color: grey[700]
     },
     h2: {
       fontFamily: fontFamily,
-      fontSize: spacing.unit * 3.5,
+      lineHeight: 1.25,
+      fontSize: (window.outerWidth < 600) ? (spacing.unit * 2.75) : (spacing.unit * 3.5),
       fontWeight: 400,
       color: grey[700]
     },
     h3: {
       fontFamily: fontFamily,
-      fontSize: spacing.unit * 3,
+      lineHeight: 1.25,
+      fontSize: (window.outerWidth < 600) ? (spacing.unit * 2.5) : (spacing.unit * 3),
       fontWeight: 400,
       color: grey[700]
     },
     h4: {
       fontFamily: fontFamily,
-      fontSize: spacing.unit * 2.5,
+      lineHeight: 1.25,
+      fontSize: (window.outerWidth < 600) ? (spacing.unit * 2.25) : (spacing.unit * 2.5),
       color: grey[700]
     },
     h5: {
       fontFamily: fontFamily,
+      lineHeight: 1.25,
       fontSize: spacing.unit * 2,
       color: grey[700]
     },
     h6: {
       fontFamily: fontFamily,
+      lineHeight: 1.25,
       fontSize: spacing.unit * 1.5,
       color: grey[700]
     },
