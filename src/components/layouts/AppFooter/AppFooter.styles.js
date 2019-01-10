@@ -2,7 +2,10 @@ const styles = theme => ({
     root: {},
     AppLogo: {
         maxWidth: 175,
-        marginBottom: theme.spacing.unit * 5
+        marginBottom: theme.spacing.unit * 2.5,
+        [theme.breakpoints.up('md')]: {
+            marginBottom: theme.spacing.unit * 5,
+        }
     },
     ListItemText: {
         padding: 0,

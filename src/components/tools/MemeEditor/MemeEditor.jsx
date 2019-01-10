@@ -25,6 +25,7 @@ const TextDialog = ({ classes, open, onClose }) => (
     <Dialog
         open={open}
         onClose={onClose}
+        className={classes.Dialog}
         maxWidth="md"
         aria-labelledby="Edit Text"
         aria-describedby="Edit Text in Meme Editor"
@@ -39,7 +40,7 @@ const TextDialog = ({ classes, open, onClose }) => (
             </IconButton>
         </DialogTitle>
         <Divider />
-        <DialogContent style={{padding: 24}}>
+        <DialogContent className={classes.DialogContent}>
             <TextEditor />
         </DialogContent>
         <Divider />
@@ -68,6 +69,8 @@ const IconDialog = ({ classes, open, onClose }) => (
         open={open}
         onClose={onClose}
         maxWidth="md"
+        scroll="paper"
+        className={classes.Dialog}
         aria-labelledby="Choose Icons"
         aria-describedby="Choose Icons in Meme Editor"
     >
@@ -81,7 +84,7 @@ const IconDialog = ({ classes, open, onClose }) => (
             </IconButton>
         </DialogTitle>
         <Divider />
-        <DialogContent style={{padding: 24}}>
+        <DialogContent className={classes.DialogContent}>
             <IconList />
         </DialogContent>
         <Divider />

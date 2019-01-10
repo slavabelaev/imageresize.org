@@ -134,7 +134,7 @@ const theme = createMuiTheme({
       fontFamily: fontFamily,
       fontWeight: 400,
       fontSize: spacing.unit * 4.5,
-      color: grey[700],
+      color: grey[700]
     },
     h2: {
       fontFamily: fontFamily,

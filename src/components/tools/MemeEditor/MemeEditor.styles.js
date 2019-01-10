@@ -38,7 +38,7 @@ const styles = theme => ({
         marginRight: theme.spacing.unit
     },
     Button: {
-        marginRight: theme.spacing.unit * 2,
+        marginRight: theme.spacing.unit * 2.5,
         backgroundColor: theme.palette.white
     },
     IconButton_closeDialog: {
@@ -46,6 +46,14 @@ const styles = theme => ({
         right: theme.spacing.unit * 2,
         top: theme.spacing.unit * 2,
         color: theme.palette.error.main
+    },
+    Dialog: {
+        '&>div>div': {
+            margin: theme.spacing.unit * 2.5
+        }
+    },
+    DialogContent: {
+        padding: theme.spacing.unit * 2.5
     }
 });
 

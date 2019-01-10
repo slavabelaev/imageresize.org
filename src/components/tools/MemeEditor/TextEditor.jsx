@@ -106,7 +106,7 @@ class TextEditor extends React.Component {
         
         return (
             <div className={classNames(className, classes.root)}>
-                <Grid container spacing={24}>
+                <Grid container spacing={16}>
                     <Grid item xs={12}>
                         <TextField
                             rows={1}
@@ -118,7 +118,7 @@ class TextEditor extends React.Component {
                             onChange={this.handleStylePropertyChange}
                         />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} md={3}>
                         <FormControl variant="outlined" fullWidth>
                             <InputLabel htmlFor="style-type">Style</InputLabel>
                             <Select
@@ -144,7 +144,7 @@ class TextEditor extends React.Component {
                             </Select>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} md={2}>
                         <TextField
                             value={styles.WebkitTextStrokeWidth}
                             onChange={this.handleStylePropertyChange}
@@ -158,7 +158,7 @@ class TextEditor extends React.Component {
                             variant="outlined"
                         />
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid item xs={12} md={1}>
                         <Checkbox
                             checked={this.isTextStrokeColorPickerShow}
                             onChange={this.handlePropertyChange}
@@ -169,7 +169,7 @@ class TextEditor extends React.Component {
                             aria-label="Custom Color"
                         />
                     </Grid>
-                    <Grid item xs={6} 
+                    <Grid item xs={12} md={6} 
                         className={classes.colorPickerContainer}
                         hidden={!this.state.isTextStrokeColorPickerShow}
                     >
@@ -178,7 +178,7 @@ class TextEditor extends React.Component {
                             onChange={this.handleTextStrokeColorChange}
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Radio
                             checked={styles.textAlign === 'left'}
                             onChange={this.handleStylePropertyChange}
@@ -250,7 +250,7 @@ class TextEditor extends React.Component {
                             aria-label="Has Text Shadow?"
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Radio
                             checked={styles.color === '#000000'}
                             onChange={this.handleStylePropertyChange}
@@ -307,7 +307,7 @@ class TextEditor extends React.Component {
                         />
                     </Grid>
                     <Grid 
-                        item xs={6} 
+                        item xs={12} md={6} 
                         className={classes.colorPickerContainer}
                         hidden={!this.state.isColorPickerShow}
                     >

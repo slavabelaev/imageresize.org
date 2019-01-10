@@ -40,7 +40,7 @@ const styles = theme => ({
         borderTopLeftRadius: 0
     },
     Toolbar: {
-        padding: theme.spacing.unit * 3,
+        padding: theme.spacing.unit * 2.5,
         borderBottom: '1px solid',
         borderBottomColor: theme.palette.border.dark,
         backgroundColor: theme.palette.grey[50]
@@ -82,8 +82,6 @@ const styles = theme => ({
     input_uploadFile: {
         display: 'none',
     },
-    chooseMemeContainer: {
-    },
     tabContent: {
         textAlign: 'center',
         padding: theme.spacing.unit * 2.5,
@@ -93,18 +91,18 @@ const styles = theme => ({
         }
     },
     Typography_uploadFile: {
-        paddingTop: theme.spacing.unit * 3,
-        paddingBottom: theme.spacing.unit * 3,
+        paddingTop: theme.spacing.unit * 2.5,
+        paddingBottom: theme.spacing.unit * 2.5,
     },
     gridContainer: {
-        padding: theme.spacing.unit * 3
+        padding: theme.spacing.unit * 2
     },
     progressContainer: {
-        paddingTop: theme.spacing.unit * 3,
+        paddingTop: theme.spacing.unit * 2.5,
         textAlign: 'center'
     },
     uploadingContainer: {
-        marginTop: theme.spacing.unit * 2,
+        marginTop: theme.spacing.unit * 2.5,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

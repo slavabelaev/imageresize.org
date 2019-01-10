@@ -51,6 +51,7 @@ class ImageBulkResizeTool extends React.Component {
                     <Processing className={classes.Processing}  />
                 ) : null}
 
+                {state.activeStep < 2 ? (
                 <div className={classes.actionsContainer}>
                     {state.activeStep > 0 ? (
                     <Button
@@ -69,6 +70,7 @@ class ImageBulkResizeTool extends React.Component {
                         Proceed to Bulk Resize   
                     </Button>
                 </div>
+                ) : null}
             </div>
         );
     }

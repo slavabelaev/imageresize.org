@@ -4,7 +4,9 @@ const styles = theme => ({
         padding: theme.spacing.unit * 2.5,
     },
     Toolbar: {
-        display: 'block',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         paddingRight: 0,
         paddingLeft: 0,
         borderColor: theme.palette.border.light,
@@ -13,9 +15,6 @@ const styles = theme => ({
         borderBottomWidth: 1,
         borderLeftWidth: 0,
         borderRightWidth: 0,
-        [theme.breakpoints.up('md')]: {
-            display: 'flex'
-        }
     },
     MenuList: {
         [theme.breakpoints.up('md')]: {
@@ -82,6 +81,9 @@ const styles = theme => ({
         [theme.breakpoints.up('md')]: {
             minHeight: 70
         }
+    },
+    IconButton_toggleDrawer: {
+        marginRight: theme.spacing.unit
     }
 });
 

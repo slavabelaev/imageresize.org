@@ -29,10 +29,10 @@ class IconList extends React.Component {
         
         return (
             <div className={classNames(className, classes.root)}>
-                <Grid container spacing={24}>
+                <Grid container spacing={16}>
 
                     {icons.map((icon, index) => (
-                        <Grid item xs={2} key={index}>
+                        <Grid item xs={6} sm={3} md={2} key={index}>
                             <FormControlLabel 
                                 aria-selected={selectedIcon === icon}
                                 checked={selectedIcon === icon}
@@ -45,7 +45,7 @@ class IconList extends React.Component {
                                 }
                                 label={
                                     <img 
-                                        src={icon.url} 
+                                        src={icon.url}
                                         className={classes.image}
                                         alt=""
                                     />

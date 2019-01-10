@@ -120,7 +120,7 @@ class ImageManager extends React.Component {
                             />
                         </Toolbar>
                         <div className={classes.gridContainer}>
-                            <Grid container spacing={24}>
+                            <Grid container spacing={16}>
                                 {this.state.images.map((image, index) => 
                                     <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
                                         <Card className={classes.Card} elevation={0}>

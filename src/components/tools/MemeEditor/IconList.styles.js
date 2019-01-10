@@ -1,5 +1,7 @@
 const styles = theme => ({
-    root: {},
+    root: {
+        textAlign: 'center'
+    },
     FormControlLabel: {
         margin: 0,
         '&[aria-selected=true] img': {
