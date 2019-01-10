@@ -123,7 +123,7 @@ class ImageManager extends React.Component {
                         <div className={classes.gridContainer}>
                             <Grid container spacing={24}>
                                 {this.state.images.map((image, index) => 
-                                    <Grid item xs={2} key={index}>
+                                    <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
                                         <Card className={classes.Card} elevation={0}>
                                             <CardHeader 
                                                 className={classes.CardHeader}
@@ -191,7 +191,7 @@ class ImageManager extends React.Component {
                                         </InputAdornment>
                                     )
                                 }} />
-                            <Typography className={classes.uploadingContainer} component="div">
+                            <div className={classes.uploadingContainer}>
                                 <LinearProgress 
                                     className={classes.LinearProgress}
                                     color="secondary" 
@@ -202,7 +202,7 @@ class ImageManager extends React.Component {
                                     onClick={this.handleUploadCancel}>
                                     <ClearIcon fontSize="small" />
                                 </IconButton>
-                            </Typography>
+                            </div>
                         </div>
                     </TabContainer>
                 </SwipeableViews>

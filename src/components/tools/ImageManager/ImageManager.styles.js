@@ -85,10 +85,6 @@ const styles = theme => ({
     chooseMemeContainer: {
     },
     tabContent: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
         textAlign: 'center',
         padding: theme.spacing.unit * 5,
         backgroundColor: theme.palette.grey[50]
@@ -107,11 +103,12 @@ const styles = theme => ({
     uploadingContainer: {
         marginTop: theme.spacing.unit * 2,
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
     },
     LinearProgress: {
-        width: '100vw',
-        minWidth: 240,
+        width: '100%',
         maxWidth: 750
     }
 });
