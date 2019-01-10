@@ -17,8 +17,14 @@ const styles = theme => ({
         flex: 1,
         borderRadius: 0,
         minHeight: 90,
+        [theme.breakpoints.down('md')]: {
+            minWidth: 90,
+            minHeight: 60
+        },
         '&+[role=button]': {
-            borderLeftWidth: 0
+            [theme.breakpoints.up('md')]: {
+                borderLeftWidth: 0
+            }
         },
         '&:first-child': {
             borderTopLeftRadius: theme.shape.borderRadius,

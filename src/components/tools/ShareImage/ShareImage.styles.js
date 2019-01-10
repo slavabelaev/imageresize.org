@@ -3,6 +3,10 @@ const styles = theme => ({
     Typography_title: {
         marginBottom: theme.spacing.unit * 2.5
     },
+    AppContainer_top: {
+        paddingTop: 0,
+        paddingBottom: 0
+    },
     AppContainer: {
         [theme.breakpoints.down('md')]: {
             paddingLeft: 0,
@@ -39,12 +43,20 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit * 2.5
     },
     Button: {
-        marginLeft: theme.spacing.unit * 2.5,
+        '&+button': {
+            marginLeft: theme.spacing.unit * 2.5
+        },
         minHeight: 55,
-        minWidth: 200
+        minWidth: 155,
+        [theme.breakpoints.up('md')]: {
+            minWidth: 200
+        }
     },
     actions: {
         textAlign: 'right',
+        [theme.breakpoints.down('md')]: {
+            textAlign: 'center'
+        }
     },
     Divider: {
         maxWidth: theme.breakpoints.values.lg,

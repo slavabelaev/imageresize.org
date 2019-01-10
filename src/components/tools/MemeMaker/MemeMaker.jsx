@@ -18,12 +18,10 @@ import styles from './MemeMaker.styles';
 
 const MemeImageManager = ({ classes }) => (
     <div>
-        <AppContainer>
-            <header className={classes.header}>
-                <Typography variant="h1" gutterBottom>Meme Maker</Typography>
-                <Typography variant="body1">Select or Upload image below to make Meme</Typography>
-            </header>
-        </AppContainer>
+        <header className={classes.header}>
+            <Typography variant="h1" gutterBottom>Meme Maker</Typography>
+            <Typography variant="body1">Select or Upload image below to make Meme</Typography>
+        </header>
         <ImageManager
             labels={{
                 chooseTab: 'Choose Meme',
@@ -100,13 +98,6 @@ class MemeMaker extends React.Component {
 
         return (
             <div className={classNames(className, classes.root)} ref="root">
-                <Stepper activeStep={activeStep}>
-                    {steps.map((step, index) => (
-                        <Step key={index}>
-                            <StepLabel>{step.label}</StepLabel>
-                        </Step>
-                    ))}
-                </Stepper>
                 <div className={classes.content}>
                     {getStepContent(activeStep)}
                 </div>

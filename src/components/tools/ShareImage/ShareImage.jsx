@@ -26,7 +26,7 @@ class ShareImage extends React.Component {
 
         return (
             <div className={classNames(className, classes.root)}>
-                <AppContainer maxWidth="md" className={classes.AppContainer}>
+                <AppContainer maxWidth="md" className={classNames(classes.AppContainer, classes.AppContainer_top)}>
                     <Typography
                         className={classes.Typography_title}
                         component="h2"
