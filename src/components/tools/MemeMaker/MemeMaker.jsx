@@ -1,14 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 
-import AppContainer from '../../layouts/AppContainer/AppContainer';
 import ImageManager from '../ImageManager/ImageManager';
 import MemeEditor from '../MemeEditor/MemeEditor';
 import ShareImage from '../../tools/ShareImage/ShareImage';

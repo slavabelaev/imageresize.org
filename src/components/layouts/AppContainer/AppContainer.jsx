@@ -19,8 +19,8 @@ class AppContainer extends React.Component {
     }
 
     render() {
-        const { state, props } = this;
-        const { className, classes, children, maxWidth, disablePadding } = props;
+        const { props } = this;
+        const { className, classes, children, maxWidth } = props;
 
         return (
             <div 

@@ -116,8 +116,7 @@ class ShareLink extends React.Component {
     state = {}
 
     render() {
-        const { props, state } = this;
-        const { className, classes } = props;
+        const { props } = this;
         
         return (
             <div>

@@ -58,7 +58,7 @@ const ImageResizePage = ({ className, classes }) => (
                     <Typography variant="h2" gutterBottom>FAQ:</Typography>
                     <section>
                         <Typography variant="h3" gutterBottom>Question: How to resize an image in pixels?</Typography>
-                        <Stepper activeStep="null" orientation="vertical">
+                        <Stepper activeStep={-1} orientation="vertical">
                             <Step><StepLabel><Typography variant="body1">Upload your image</Typography></StepLabel></Step>
                             <Step><StepLabel><Typography variant="body1">Select "Custom Size" from the drop-down box in "Resize your Image" section</Typography></StepLabel></Step>
                             <Step><StepLabel><Typography variant="body1">Enter a new custom size for the image in pixels</Typography></StepLabel></Step>
@@ -66,14 +66,14 @@ const ImageResizePage = ({ className, classes }) => (
                     </section>
                     <section>
                         <Typography variant="h3" gutterBottom>Question: How to reduce image size in kb?</Typography>
-                        <Stepper activeStep="null" orientation="vertical">
+                        <Stepper activeStep={-1} orientation="vertical">
                             <Step><StepLabel><Typography variant="body1">Upload your image</Typography></StepLabel></Step>
                             <Step><StepLabel><Typography variant="body1">Select "Custom File Size" from the "Quality and Format" section Enter a new target file size for your images in Kb or Mb</Typography></StepLabel></Step>
                         </Stepper>
                     </section>
                     <section>
                         <Typography variant="h3" gutterBottom>Question: How to crop a photo?</Typography>
-                        <Stepper activeStep="null" orientation="vertical">
+                        <Stepper activeStep={-1} orientation="vertical">
                             <Step><StepLabel><Typography variant="body1">Upload your photo</Typography></StepLabel></Step>
                             <Step><StepLabel><Typography variant="body1">Click on the "Crop" icon under "Adjust Image" section</Typography></StepLabel></Step>
                             <Step><StepLabel><Typography variant="body1">Optionally, select an aspect ratio or lock the original aspect ratio from the crop tool panel</Typography></StepLabel></Step>

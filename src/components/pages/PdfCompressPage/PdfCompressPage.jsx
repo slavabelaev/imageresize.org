@@ -29,7 +29,7 @@ const PdfCompressPage = ({ className, classes }) => (
                 <Grid className={classes.Grid_item} item xs={12}>
                     <Typography variant="h2" gutterBottom>How to Reduce PDF File Size?</Typography>
                     <Typography component="div" variant="body1">In this section, we will explain all the steps that are required to compress a PDF file without losing quality:</Typography>
-                    <Stepper activeStep="null" orientation="vertical">
+                    <Stepper activeStep={-1} orientation="vertical">
                         <Step><StepLabel><Typography variant="body1">Click the "Choose PDF"button in the upload box (you can also drag and drop multiple PDF files for batch compressing).</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">Click on the blue "Compress PDF"button once you have selected all the PDFs you want to compress.</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">Observe the status of each PDF file as it changes from Uploading > Compressing > Done. The results table will list the PDF file size reduction and percentage size saved next to each PDF file.</Typography></StepLabel></Step>

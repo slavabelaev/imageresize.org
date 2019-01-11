@@ -30,7 +30,7 @@ class AppHeader extends React.Component {
     }
     
     render() {
-        const { state, props } = this;
+        const { props } = this;
         const { className, classes } = props;
 
         const ImageToolsTabs = ({ match, location }) => (
@@ -39,8 +39,8 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                variant="scrollable"
                 scrollButtons="auto"
+                variant="scrollable"
                 centered
             >
                 <Tab
@@ -270,7 +270,7 @@ class AppHeader extends React.Component {
                 </Toolbar>
 
                 <Hidden mdUp>
-                    <Drawer anchor="right" 
+                    <Drawer
                         anchor="top"
                         open={this.state.isDrawerOpen} 
                         onClose={this.handleToggleDrawer}

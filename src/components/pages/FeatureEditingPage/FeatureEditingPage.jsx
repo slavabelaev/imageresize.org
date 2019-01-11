@@ -70,7 +70,7 @@ const FeatureEditingPage = ({ className, classes }) => (
                     <Typography variant="h2" gutterBottom>How to edit a photo</Typography>
                     <Typography variant="body1">Follow these simple 4 step process to edit your photos</Typography>
 
-                    <Stepper activeStep="null" orientation="vertical">
+                    <Stepper activeStep={-1} orientation="vertical">
                         <Step><StepLabel><Typography variant="body1">Upload your photo to the image editor</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">Select the editing functions from the "Image Adjust"section of our editor</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">Optimize or resize the image is desired</Typography></StepLabel></Step>

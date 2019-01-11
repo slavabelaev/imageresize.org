@@ -28,7 +28,7 @@ const PdfResizePage = ({ className, classes }) => (
             <Grid container>
                 <Grid className={classes.Grid_item} item xs={12}>
                     <Typography variant="h2" gutterBottom>How to Resize PDF?</Typography>
-                    <Stepper activeStep="null" orientation="vertical">
+                    <Stepper activeStep={-1} orientation="vertical">
                         <Step><StepLabel><Typography variant="body1">Click the "Choose PDF" button in the upload box (you can also drag and drop multiple PDF files for batch resizing).</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">Click on the "Proceed to PDF Resize" button.</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">In "Select Paper Size" section, select a paper size or enter custom width and height.(you can enter a custom size in millimeters, points, inches, or pixels)</Typography></StepLabel></Step>

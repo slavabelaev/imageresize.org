@@ -54,7 +54,7 @@ const FeatureCroppingPage = ({ className, classes }) => (
                     <Typography variant="h2" gutterBottom>How to crop a photo</Typography>
                     <Typography variant="body1">Follow these simple 4 step process to start cropping your photo</Typography>
 
-                    <Stepper activeStep="null" orientation="vertical">
+                    <Stepper activeStep={-1} orientation="vertical">
                         <Step><StepLabel><Typography variant="body1">Upload your photo to the single image editor</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">Select the crop option under "Image Adjust" step</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">Select a crop area or a pre-configured aspect ratio and click "Apply”</Typography></StepLabel></Step>

@@ -65,7 +65,6 @@ class FileUploadManager extends React.Component {
 
     handleFileDownload = (event) => {
         event.preventDefault();
-        const url = this.state.url;
 
         // Fake File Loading
         this.setState({ isFileLoading: true });
@@ -85,7 +84,7 @@ class FileUploadManager extends React.Component {
         // Add Error Messages
         if (rejectedFiles.length > 0) {
             const errorMessages = this.state.errorMessages;
-            rejectedFiles.map((rejectedFile) => {
+            rejectedFiles.forEach((rejectedFile) => {
                 errorMessages.push({
                     variant: 'error',
                     text: rejectedFile.name + ' — This file is not allowed.'

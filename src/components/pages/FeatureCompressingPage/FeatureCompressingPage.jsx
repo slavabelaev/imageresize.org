@@ -68,7 +68,7 @@ const FeatureCompressingPage = ({ className, classes }) => (
                 <Grid className={classes.Grid_item} item xs={12}>
                     <Typography variant="h2" gutterBottom>How to compress a photo</Typography>
                     <Typography variant="body1">Follow these two steps to compress single or bulk images</Typography>
-                    <Stepper activeStep="null" orientation="vertical">
+                    <Stepper activeStep={-1} orientation="vertical">
                         <Step><StepLabel><Typography variant="body1">Upload your photos to the image compressor</Typography></StepLabel></Step>
                         <Step><StepLabel><Typography variant="body1">Click Download Images button to get a zip file with all your compressed images</Typography></StepLabel></Step>
                     </Stepper>
