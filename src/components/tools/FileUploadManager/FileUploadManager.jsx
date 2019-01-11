@@ -206,6 +206,7 @@ class FileUploadManager extends React.Component {
                             <AppIcon icon={getIconNameByFileType(file.type)} />
                         </ListItemIcon>
                         <ListItemText
+                            className={classes.ListItemText_file}
                             primary={file.name}
                         />
                         <ListItemSecondaryAction className={classes.ListItemSecondaryAction_file}>

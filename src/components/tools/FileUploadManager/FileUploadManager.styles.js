@@ -80,13 +80,6 @@ const styles = theme => ({
         display: 'flex',
         alignItems: 'center'
     },
-    ListItemSecondaryAction_file: {
-        display: 'flex',
-        alignItems: 'center'
-    },
-    LinearProgress_file: {
-        minWidth: 100
-    },
     List_file: {
         padding: 0
     },
@@ -102,7 +95,31 @@ const styles = theme => ({
         '&:hover': {
             backgroundColor: theme.palette.primary[50],
             backgroundImage: theme.palette.border.dashedBorderImagePrimary
+        },
+        [theme.breakpoints.down('xs')]: {
+            paddingBottom: theme.spacing.unit * 5
         }
+    },
+    ListItemText_file: {
+        [theme.breakpoints.down('xs')]: {
+            whiteSpace: 'nowrap',
+            overflow: 'auto',
+            padding: 0
+        }
+    },
+    ListItemSecondaryAction_file: {
+        display: 'flex',
+        alignItems: 'center',
+        [theme.breakpoints.down('xs')]: {
+            left: theme.spacing.unit * 3,
+            bottom: 0,
+            top: 'initial',
+            transform: 'initial'
+        }
+    },
+    LinearProgress_file: {
+        minWidth: 100,
+        width: '100%'
     },
     uploadInfo: {
         position: 'absolute',
