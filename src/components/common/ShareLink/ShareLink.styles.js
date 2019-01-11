@@ -20,23 +20,37 @@ const styles = theme => ({
         flex: 1,
         borderRadius: 0,
         minHeight: 90,
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             minWidth: 90,
-            minHeight: 60
+            minHeight: 60,
+            '&:first-child': {
+                borderTopLeftRadius: theme.shape.borderRadius
+            },
+            '&:nth-child(3)': {
+                borderTopRightRadius: theme.shape.borderRadius
+            },
+            '&:nth-child(4)': {
+                borderBottomLeftRadius: theme.shape.borderRadius
+            },
+            '&:last-child': {
+                borderBottomRightRadius: theme.shape.borderRadius
+            }
         },
         '&+[role=button]': {
-            [theme.breakpoints.up('md')]: {
+            [theme.breakpoints.up('sm')]: {
                 borderLeftWidth: 0
             }
         },
-        '&:first-child': {
-            borderTopLeftRadius: theme.shape.borderRadius,
-            borderBottomLeftRadius: theme.shape.borderRadius
+        [theme.breakpoints.up('sm')]: {
+            '&:first-child': {
+                borderTopLeftRadius: theme.shape.borderRadius,
+                borderBottomLeftRadius: theme.shape.borderRadius
+            },
+            '&:last-child': {
+                borderTopRightRadius: theme.shape.borderRadius,
+                borderBottomRightRadius: theme.shape.borderRadius
+            }
         },
-        '&:last-child': {
-            borderTopRightRadius: theme.shape.borderRadius,
-            borderBottomRightRadius: theme.shape.borderRadius
-        }
     },
     buttonList: {
         listStyle: 'none',
