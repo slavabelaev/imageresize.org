@@ -271,6 +271,7 @@ class AppHeader extends React.Component {
 
                 <Hidden mdUp>
                     <Drawer anchor="right" 
+                        anchor="top"
                         open={this.state.isDrawerOpen} 
                         onClose={this.handleToggleDrawer}
                     >
