@@ -86,7 +86,6 @@ class SplitManager extends React.Component {
                 </Tabs>
                 <SwipeableViews
                     ref="swipeableViews"
-                    animateHeight
                     className={classes.SwipeableViews} 
                     index={activeTabIndex}
                     onChangeIndex={this.handleTabSwipe}>
