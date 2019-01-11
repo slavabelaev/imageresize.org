@@ -102,28 +102,30 @@ class SplitManager extends React.Component {
                                 {state.ranges.map((range, index) => (
                                 <ListItem className={classes.ListItem_range}>
                                     <Grid container spacing={24} className={classes.Grid_range}>
-                                        <Grid item>
+                                        <Grid item xs={12} md={3}>
                                             <Typography variant="subtitle1">Split pages</Typography>
                                         </Grid>
-                                        <Grid item>
+                                        <Grid item xs={12} md={4}>
                                             <TextField 
                                                 className={classes.TextField_range}
                                                 variant="outlined"
                                                 label="From"
                                                 type="number"
+                                                fullWidth
                                                 value={range.from}
                                             />
                                         </Grid>
-                                        <Grid item>
+                                        <Grid item xs={12} md={4}>
                                             <TextField 
                                                 className={classes.TextField_range}
                                                 variant="outlined"
                                                 label="To"
                                                 type="number"
+                                                fullWidth
                                                 value={range.to}
                                             />
                                         </Grid>
-                                        <Grid item>
+                                        <Grid item xs={12} md={1} className={classes.Grid_removeAction}>
                                             <IconButton
                                                 aria-label="Remove uploading"
                                                 onClick={() => this.handleRemoveRange(index)}>

@@ -42,7 +42,10 @@ const styles = theme => ({
         borderWidth: 1
     },
     tabContent: {
-        padding: theme.spacing.unit * 5
+        padding: theme.spacing.unit * 2.5,
+        [theme.breakpoints.up('md')]: {
+            padding: theme.spacing.unit * 5
+        }
     },
     List_range: {
         width: '100%',
@@ -54,7 +57,8 @@ const styles = theme => ({
         borderColor: theme.palette.border.light,
         borderStyle: 'solid',
         borderWidth: 1,
-        marginTop: theme.spacing.unit * 2.5
+        marginTop: theme.spacing.unit * 2.5,
+        padding: theme.spacing.unit * 2.5
     },
     Grid_range: {
         alignItems: 'center'
@@ -62,12 +66,22 @@ const styles = theme => ({
     TextField_range: {
         
     },
+    Grid_removeAction: {
+        padding: '0!important',
+        [theme.breakpoints.down('md')]: {
+            position: 'absolute',
+            right: theme.spacing.unit,
+            top: theme.spacing.unit
+        }
+    },
     Button_addRange: {
         backgroundColor: theme.palette.white
     },
     contentActionsContainer: {
-        textAlign: 'center',
-        marginTop: theme.spacing.unit * 2
+        marginTop: theme.spacing.unit * 2,
+        [theme.breakpoints.up('md')]: {
+            textAlign: 'center',
+        }
     }
 });
 
