@@ -32,14 +32,18 @@ const styles = theme => ({
         backgroundColor: theme.palette.grey[50],
         borderStyle: 'solid',
         borderWidth: 1,
-        borderColor: theme.palette.border.light
+        borderColor: theme.palette.border.light,
+        padding: theme.spacing.unit * 2
     },
     icon: {
         marginRight: theme.spacing.unit
     },
     Button: {
-        marginRight: theme.spacing.unit * 2.5,
-        backgroundColor: theme.palette.white
+        backgroundColor: theme.palette.white,
+        whiteSpace: 'nowrap',
+        '&:not(:last-child)': {
+            marginRight: theme.spacing.unit * 2.5,
+        }
     },
     IconButton_closeDialog: {
         position: 'absolute',

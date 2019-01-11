@@ -68,9 +68,8 @@ const IconDialog = ({ classes, open, onClose }) => (
     <Dialog
         open={open}
         onClose={onClose}
-        maxWidth="md"
-        scroll="paper"
         className={classes.Dialog}
+        maxWidth="md"
         aria-labelledby="Choose Icons"
         aria-describedby="Choose Icons in Meme Editor"
     >
@@ -89,13 +88,13 @@ const IconDialog = ({ classes, open, onClose }) => (
         </DialogContent>
         <Divider />
         <DialogActions>
-        <Button 
-            onClick={onClose} 
-            variant="contained" 
-            color="primary"
-        >
-            Add to Meme
-        </Button>
+            <Button 
+                onClick={onClose} 
+                variant="contained" 
+                color="primary"
+            >
+                Add to Meme
+            </Button>
         </DialogActions>
     </Dialog>
 );

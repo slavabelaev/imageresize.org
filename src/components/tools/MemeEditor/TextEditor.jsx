@@ -158,7 +158,7 @@ class TextEditor extends React.Component {
                             variant="outlined"
                         />
                     </Grid>
-                    <Grid item xs={12} md={1}>
+                    <Grid item xs={3} md={1}>
                         <Checkbox
                             checked={this.isTextStrokeColorPickerShow}
                             onChange={this.handlePropertyChange}
@@ -169,7 +169,7 @@ class TextEditor extends React.Component {
                             aria-label="Custom Color"
                         />
                     </Grid>
-                    <Grid item xs={12} md={6} 
+                    <Grid item xs={9} md={6} 
                         className={classes.colorPickerContainer}
                         hidden={!this.state.isTextStrokeColorPickerShow}
                     >
