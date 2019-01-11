@@ -65,15 +65,7 @@ const styles = theme => ({
         borderTopWidth: 0,
         borderBottomWidth: 1,
         borderLeftWidth: 0,
-        borderRightWidth: 0,
-        [theme.breakpoints.down('sm')]: {    
-            '& [role="tablist"]': {
-                overflow: 'auto'
-            },
-            '& [role="tablist"]>div': {
-                justifyContent: 'initial'
-            }
-        }
+        borderRightWidth: 0
     },
     Tab: {
         textTransform: 'initial',

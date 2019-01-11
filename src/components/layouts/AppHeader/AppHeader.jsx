@@ -39,8 +39,8 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                scrollButtons="auto"
-                variant="scrollable"
+                variant={window.outerWidth > 600 ? 'standard' : 'scrollable'}
+                scrollButtons={window.outerWidth > 600 ? 'auto' : 'on'}
                 centered
             >
                 <Tab
@@ -80,8 +80,8 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                variant="scrollable"
-                scrollButtons="auto"
+                variant={window.outerWidth > 600 ? 'standard' : 'scrollable'}
+                scrollButtons={window.outerWidth > 600 ? 'auto' : 'on'}
                 centered
             >
                 <Tab
@@ -121,8 +121,8 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                variant="scrollable"
-                scrollButtons="auto"
+                variant={window.outerWidth > 600 ? 'standard' : 'scrollable'}
+                scrollButtons={window.outerWidth > 600 ? 'auto' : 'on'}
                 centered
             >
                 <Tab
@@ -176,8 +176,8 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                variant="scrollable"
-                scrollButtons="auto"
+                variant={window.outerWidth > 600 ? 'standard' : 'scrollable'}
+                scrollButtons={window.outerWidth > 600 ? 'auto' : 'on'}
                 centered
             >
                 <Tab
