@@ -159,9 +159,11 @@ class ImageManager extends React.Component {
                                         variant="body1">No memes found</Typography>
                                 ) : null}
                             </Grid>
-                            <div className={classes.progressContainer}>
-                                <CircularProgress />
-                            </div>
+                            {this.state.images.length > 0 ? (
+                                <div className={classes.progressContainer}>
+                                    <CircularProgress />
+                                </div>
+                            ) : null}
                         </div>
                     </TabContainer>
                     <TabContainer className={classes.TabContainer}>

@@ -96,7 +96,7 @@ const styles = theme => ({
     },
     gridContainer: {
         padding: theme.spacing.unit * 2,
-        minHeight: 180,
+        minHeight: 480,
         position: 'relative'
     },
     Typography_emptyMessage: {
