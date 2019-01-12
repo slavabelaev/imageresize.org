@@ -57,7 +57,7 @@ const theme = createMuiTheme({
       boxShadow: `${lightBlue.main} 0 0 0 1px`
     },
     selected: {
-      boxShadow: `${lightBlue.main} 0 0 0 3px`
+      boxShadow: `${lightBlue.main} 0 0 0 2px`
     }
   },
 
