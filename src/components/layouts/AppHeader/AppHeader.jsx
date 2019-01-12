@@ -32,6 +32,7 @@ class AppHeader extends React.Component {
     render() {
         const { props } = this;
         const { className, classes } = props;
+        const isScreenDeviceLarge = window.outerWidth > 600;
 
         const ImageToolsTabs = ({ match, location }) => (
             <Tabs
@@ -39,9 +40,9 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                variant={window.outerWidth > 600 ? 'standard' : 'scrollable'}
-                scrollButtons={window.outerWidth > 600 ? 'auto' : 'on'}
-                centered
+                variant={isScreenDeviceLarge ? 'standard' : 'scrollable'}
+                scrollButtons={isScreenDeviceLarge ? 'auto' : 'on'}
+                centered={isScreenDeviceLarge}
             >
                 <Tab
                     className={classes.Tab} 
@@ -80,9 +81,9 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                variant={window.outerWidth > 600 ? 'standard' : 'scrollable'}
-                scrollButtons={window.outerWidth > 600 ? 'auto' : 'on'}
-                centered
+                variant={isScreenDeviceLarge ? 'standard' : 'scrollable'}
+                scrollButtons={isScreenDeviceLarge ? 'auto' : 'on'}
+                centered={isScreenDeviceLarge}
             >
                 <Tab
                     className={classes.Tab} 
@@ -121,9 +122,9 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                variant={window.outerWidth > 600 ? 'standard' : 'scrollable'}
-                scrollButtons={window.outerWidth > 600 ? 'auto' : 'on'}
-                centered
+                variant={isScreenDeviceLarge ? 'standard' : 'scrollable'}
+                scrollButtons={isScreenDeviceLarge ? 'auto' : 'on'}
+                centered={isScreenDeviceLarge}
             >
                 <Tab
                     className={classes.Tab} 
@@ -176,9 +177,9 @@ class AppHeader extends React.Component {
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                variant={window.outerWidth > 600 ? 'standard' : 'scrollable'}
-                scrollButtons={window.outerWidth > 600 ? 'auto' : 'on'}
-                centered
+                variant={isScreenDeviceLarge ? 'standard' : 'scrollable'}
+                scrollButtons={isScreenDeviceLarge ? 'auto' : 'on'}
+                centered={isScreenDeviceLarge}
             >
                 <Tab
                     className={classes.Tab} 
