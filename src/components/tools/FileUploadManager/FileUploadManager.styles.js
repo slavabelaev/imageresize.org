@@ -101,6 +101,9 @@ const styles = theme => ({
         }
     },
     ListItemText_file: {
+        '&>span': {
+            fontSize: theme.typography.fontSize
+        },
         [theme.breakpoints.down('xs')]: {
             whiteSpace: 'nowrap',
             overflow: 'auto',

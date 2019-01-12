@@ -105,9 +105,11 @@ const styles = theme => ({
         paddingBottom: theme.spacing.unit * 2.5,
     },
     gridContainer: {
+        position: 'relative',
         padding: theme.spacing.unit * 2,
         minHeight: 480,
-        position: 'relative'
+        maxHeight: 520,
+        overflow: 'auto'
     },
     Typography_emptyMessage: {
         position: 'absolute',
