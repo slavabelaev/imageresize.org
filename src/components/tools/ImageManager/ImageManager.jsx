@@ -63,11 +63,17 @@ class ImageManager extends React.Component {
     handleUploadCancel = () => {}
 
     handleSearchQueryChange = (event) => {
-        this.setState({ searchQuery: event.target.value });
+        const searchQuery = event.target.value;
+        const filteredImages = DEMO_IMAGES_DATA.filter(image => image.title.indexOf(searchQuery) > -1);
+        const images = searchQuery.length > 0 ? filteredImages : DEMO_IMAGES_DATA;
+
+        this.setState({ images });
+        this.setState({ searchQuery });
     }
 
     handleSearchQueryClear = () => {
         this.setState({ searchQuery: '' });
+        this.setState({ images: DEMO_IMAGES_DATA });
     }
 
     render() {
