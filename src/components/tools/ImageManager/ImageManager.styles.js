@@ -55,11 +55,18 @@ const styles = theme => ({
             boxShadow: theme.states.hover.boxShadow
         }
     },
+    Card_selected: {
+        borderColor: theme.palette.primary.main,
+        boxShadow: theme.states.hover.boxShadow
+    },
     CardMedia: {
         height: 120
     },
     CardHeader: {
         padding: theme.spacing.unit * 1.5
+    },
+    CardActions: {
+        padding: theme.spacing.unit
     },
     CardHeader_title: {
         height: '3em',

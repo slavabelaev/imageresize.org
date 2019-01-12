@@ -40,6 +40,7 @@ class ImageManager extends React.Component {
     state = {
         labels: this.props.labels || {},
         images: DEMO_IMAGES_DATA || [],
+        selectedImageUrl: null,
         activeTabIndex: 0,
         searchQuery: ''
     };
@@ -52,11 +53,13 @@ class ImageManager extends React.Component {
         this.setState({ activeTabIndex });
     };
 
-    handleTabSwipe = activeTabIndex => {
+    handleTabSwipe = (activeTabIndex) => {
         this.setState({ activeTabIndex });
     };
 
-    handleSelect = () => {}
+    handleSelect = (imageUrl) => {
+        this.setState({ selectedImageUrl: imageUrl });
+    }
 
     handleSelectFromDevice = () => {}
 
@@ -81,8 +84,9 @@ class ImageManager extends React.Component {
     }
 
     render() {
-        const { className, classes } = this.props;
-        const { labels, activeTabIndex, searchQuery } = this.state;
+        const { state, props } = this;
+        const { className, classes } = props;
+        const { labels, activeTabIndex, searchQuery } = state;
 
         return (
             <div className={classNames(className, classes.root)}>
@@ -132,34 +136,36 @@ class ImageManager extends React.Component {
                         </Toolbar>
                         <div className={classes.gridContainer}>
                             <Grid container spacing={16}>
-                                {this.state.images.map((image, index) => 
+                                {state.images.map((image, index) => 
                                     <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
-                                        <Card className={classes.Card} elevation={0}>
+                                        <Card 
+                                            className={classNames(classes.Card, (state.selectedImageUrl === image.url) ? classes.Card_selected : null)}
+                                            onClick={() => this.handleSelect(image.url)}
+                                        >
                                             <CardHeader 
                                                 className={classes.CardHeader}
                                                 title={
                                                     <Typography component="h3" className={classes.CardHeader_title}>{image.title}</Typography>
                                                 } />
                                             <CardMedia image={image.url} className={classes.CardMedia} />
-                                            <CardActions>
+                                            <CardActions className={classes.CardActions}>
                                                 <Button 
                                                     className={classes.Button_addCaption} 
                                                     variant="outlined" 
                                                     fullWidth 
                                                     size="small"
-                                                    onClick={this.handleSelect}
                                                 >{labels.selectButton || 'Select'}</Button>
                                             </CardActions>
                                         </Card>
                                     </Grid>
                                 )}
-                                {this.state.images.length === 0 ? (
+                                {state.images.length === 0 ? (
                                     <Typography 
                                         className={classes.Typography_emptyMessage}
                                         variant="body1">No memes found</Typography>
                                 ) : null}
                             </Grid>
-                            {this.state.images.length > 0 ? (
+                            {state.images.length > 0 ? (
                                 <div className={classes.progressContainer}>
                                     <CircularProgress />
                                 </div>
