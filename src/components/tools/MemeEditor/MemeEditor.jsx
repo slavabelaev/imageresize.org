@@ -46,6 +46,12 @@ const TextDialog = ({ classes, open, onClose }) => (
         <Divider />
         <DialogActions>
             <Button 
+                onClick={onClose}
+                size="large"
+            >
+                Copy styles to all text boxes
+            </Button>
+            <Button 
                 onClick={onClose} 
                 variant="outlined"
                 size="large"

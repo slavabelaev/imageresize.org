@@ -58,7 +58,7 @@ const styles = theme => ({
         borderStyle: 'solid',
         borderWidth: 1,
         marginTop: theme.spacing.unit * 2.5,
-        padding: theme.spacing.unit * 2.5
+        padding: `${theme.spacing.unit * 1.25}px ${theme.spacing.unit * 2.5}px`
     },
     Grid_range: {
         alignItems: 'center'

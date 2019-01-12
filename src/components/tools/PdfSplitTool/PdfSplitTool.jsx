@@ -52,13 +52,16 @@ class PdfSplitTool extends React.Component {
                     <Processing className={classes.Processing}  />
                 ) : null}
 
-                {state.activeStep === 1 ? (
                 <div className={classes.actionsContainer}>
+                    {state.activeStep === 1 ? (
                     <Button
                         className={classes.Button_action}
                         variant="contained" 
                         size="large"
                         onClick={this.handleBack}>Back</Button>
+                    ) : null}
+
+                    {state.activeStep <= 1 ? (
                     <Button 
                         className={classes.Button_action}
                         disabled={state.files.length < 1}
@@ -68,8 +71,8 @@ class PdfSplitTool extends React.Component {
                         onClick={this.handleNext}>
                         Split PDF   
                     </Button>
+                    ) : null}
                 </div>
-                ) : null}
             </div>
         );
     }
