@@ -57,7 +57,10 @@ const styles = theme => ({
     },
     Card_selected: {
         borderColor: theme.palette.primary.main,
-        boxShadow: theme.states.hover.boxShadow
+        boxShadow: theme.states.selected.boxShadow,
+        '&:hover': {
+            boxShadow: theme.states.selected.boxShadow
+        }
     },
     CardMedia: {
         height: 120
