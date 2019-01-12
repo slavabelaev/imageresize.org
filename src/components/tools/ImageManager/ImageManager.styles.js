@@ -95,7 +95,20 @@ const styles = theme => ({
         paddingBottom: theme.spacing.unit * 2.5,
     },
     gridContainer: {
-        padding: theme.spacing.unit * 2
+        padding: theme.spacing.unit * 2,
+        minHeight: 180,
+        position: 'relative'
+    },
+    Typography_emptyMessage: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        margin: 'auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     progressContainer: {
         paddingTop: theme.spacing.unit * 2.5,

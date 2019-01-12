@@ -43,6 +43,10 @@ class ImageManager extends React.Component {
         activeTabIndex: 0,
         searchQuery: ''
     };
+
+    componentDidUpdate() {
+        this.swipeableActions.updateHeight();
+    }
     
     handleTabChange = (event, activeTabIndex) => {
         this.setState({ activeTabIndex });
@@ -95,8 +99,9 @@ class ImageManager extends React.Component {
                         label={labels.uploadTab || 'Upload Image'} />
                 </Tabs>
                 <SwipeableViews
-                    animateHeight
                     className={classes.SwipeableViews} 
+                    animateHeight
+                    action={(actions) => {this.swipeableActions = actions}}
                     index={activeTabIndex}
                     onChangeIndex={this.handleTabSwipe}>
                     <TabContainer className={classes.TabContainer}>
@@ -148,6 +153,11 @@ class ImageManager extends React.Component {
                                         </Card>
                                     </Grid>
                                 )}
+                                {this.state.images.length === 0 ? (
+                                    <Typography 
+                                        className={classes.Typography_emptyMessage}
+                                        variant="body1">No memes found</Typography>
+                                ) : null}
                             </Grid>
                             <div className={classes.progressContainer}>
                                 <CircularProgress />

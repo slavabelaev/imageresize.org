@@ -38,6 +38,10 @@ class SplitManager extends React.Component {
         needMergeInSingleFile: false
     };
 
+    componentDidUpdate() {
+        this.swipeableActions.updateHeight();
+    }
+
     handleToggleCheckbox = (event) => {
         const checkboxStateProperty = event.target.name;
         const checkStatus = this.state[checkboxStateProperty];
@@ -84,8 +88,9 @@ class SplitManager extends React.Component {
                         label="Extract all pages" />
                 </Tabs>
                 <SwipeableViews
-                    ref="swipeableViews"
                     className={classes.SwipeableViews} 
+                    animateHeight
+                    action={(actions) => {this.swipeableActions = actions}}
                     index={activeTabIndex}
                     onChangeIndex={this.handleTabSwipe}>
                     <TabContainer className={classes.TabContainer}>
