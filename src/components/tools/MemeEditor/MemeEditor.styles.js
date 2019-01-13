@@ -58,6 +58,9 @@ const styles = theme => ({
     },
     DialogContent: {
         padding: theme.spacing.unit * 2.5
+    },
+    Button_copyStyles: {
+        marginRight: 'auto'
     }
 });
 

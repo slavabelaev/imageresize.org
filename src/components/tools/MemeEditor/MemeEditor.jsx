@@ -46,8 +46,10 @@ const TextDialog = ({ classes, open, onClose }) => (
         <Divider />
         <DialogActions>
             <Button 
+                className={classes.Button_copyStyles}
                 onClick={onClose}
                 size="large"
+                color="primary"
             >
                 Copy styles to all text boxes
             </Button>
