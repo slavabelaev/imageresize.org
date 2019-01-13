@@ -5,7 +5,9 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit * 6
     },
     Grid_item: {
-        marginBottom: theme.spacing.unit * 8
+        [theme.breakpoints.up('md')]: {
+            marginBottom: theme.spacing.unit * 8,
+        }
     }
 });
 

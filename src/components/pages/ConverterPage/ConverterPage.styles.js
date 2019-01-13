@@ -7,7 +7,9 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 3
     },
     Grid_item: {
-        marginBottom: 60
+        [theme.breakpoints.up('md')]: {
+            marginBottom: theme.spacing.unit * 8,
+        }
     },
     Divider: {
         maxWidth: theme.breakpoints.values.lg,

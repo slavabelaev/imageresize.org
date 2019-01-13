@@ -4,7 +4,9 @@ const styles = theme => ({
         textAlign: 'center'
     },
     Grid_item: {
-        marginBottom: theme.spacing.unit * 8
+        [theme.breakpoints.up('md')]: {
+            marginBottom: theme.spacing.unit * 8,
+        }
     },
     Button_getStarted: {
         marginTop: theme.spacing.unit * 3

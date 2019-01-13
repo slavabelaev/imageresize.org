@@ -33,7 +33,6 @@ const styles = theme => ({
         width: '100%',
         border: theme.palette.grey[200] + ' 1px solid',
         backgroundColor: theme.palette.grey[50],
-        //backgroundImage: `url(${require('./Adobe_PDF.svg')})`,
         backgroundSize: '80% auto',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

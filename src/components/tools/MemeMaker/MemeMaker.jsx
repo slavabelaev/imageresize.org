@@ -94,11 +94,7 @@ class MemeMaker extends React.Component {
         return (
             <div className={classNames(className, classes.root)} ref="root">
                 <div className={classes.content}>
-                    <MemeEditor 
-                        className={classes.MemeEditor}
-                        imageUrl={imageUrl} 
-                    />
-                    {/*getStepContent(activeStep)*/}
+                    {getStepContent(activeStep)}
                 </div>
                 {activeStep < lastStep ? (
                     <div className={classes.actionContainer}>
