@@ -15,7 +15,9 @@ const ImageBulkResizePage = ({ className, classes }) => (
         <AppContainer maxWidth="md">
             <header className={classes.header}>
                 <Typography variant="h1" gutterBottom>Bulk Resize</Typography>
+                {window.location.search !== '?edit' ? (
                 <Typography variant="body1">Resize, compress, or convert multiple images at once</Typography>
+                ) : null }
             </header>
             <ImageBulkResizeTool />
         </AppContainer>

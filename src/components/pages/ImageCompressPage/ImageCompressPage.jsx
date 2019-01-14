@@ -17,7 +17,9 @@ const ImageCompressPage = ({ className, classes }) => (
         <AppContainer maxWidth="md">
             <header className={classes.header}>
                 <Typography variant="h1" gutterBottom>Compress Images</Typography>
+                {window.location.search !== '?edit' ? (
                 <Typography variant="body1">Advanced PNG and JPEG compressor for reducing file size without quality loss</Typography>
+                ) : null}       
             </header>
             <ImageCompressTool />
         </AppContainer>

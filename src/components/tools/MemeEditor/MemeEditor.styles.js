@@ -33,7 +33,7 @@ const styles = theme => ({
         borderStyle: 'solid',
         borderWidth: 1,
         borderColor: theme.palette.border.light,
-        padding: theme.spacing.unit * 2
+        padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`
     },
     icon: {
         marginRight: theme.spacing.unit
@@ -42,7 +42,7 @@ const styles = theme => ({
         backgroundColor: theme.palette.white,
         whiteSpace: 'nowrap',
         '&:not(:last-child)': {
-            marginRight: theme.spacing.unit * 2.5,
+            marginRight: theme.spacing.unit,
         }
     },
     IconButton_closeDialog: {

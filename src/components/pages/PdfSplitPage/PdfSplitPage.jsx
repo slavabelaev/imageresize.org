@@ -14,7 +14,9 @@ const PdfSplitPage = ({ className, classes }) => (
         <AppContainer maxWidth="md">
             <header className={classes.header}>
                 <Typography variant="h1" gutterBottom>PDF Split</Typography>
+                {window.location.search !== '?edit' ? (
                 <Typography variant="body1">Separate one page or a whole set for easy conversion into independent PDF files.</Typography>
+                ) : null}
             </header>
             <PdfSplitTool />
         </AppContainer>

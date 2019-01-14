@@ -14,7 +14,9 @@ const PdfMergePage = ({ className, classes }) => (
         <AppContainer maxWidth="md">
             <header className={classes.header}>
                 <Typography variant="h1" gutterBottom>PDF Merge</Typography>
+                {window.location.search !== '?edit' ? (
                 <Typography variant="body1">Combine PDFs in the order you want with the easiest PDF merger available.</Typography>
+                ) : null}
             </header>
             <PdfMergeTool />
         </AppContainer>

@@ -19,7 +19,9 @@ const ImageResizePage = ({ className, classes }) => (
         <AppContainer maxWidth="md">
             <header className={classes.header}>
                 <Typography variant="h1" gutterBottom>Image Resize</Typography>
+                {window.location.search !== '?edit' ? (
                 <Typography variant="body1">Crop, resize, flip, or rotate an image by uploading it below.</Typography>
+                ) : null}
             </header>
             <ImageResizeTool className={classes.ImageResizeTool} />
         </AppContainer>

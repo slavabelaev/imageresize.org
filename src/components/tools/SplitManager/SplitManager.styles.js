@@ -82,6 +82,21 @@ const styles = theme => ({
         [theme.breakpoints.up('md')]: {
             textAlign: 'center',
         }
+    },
+    Toolbar: {
+        marginTop: theme.spacing.unit * 2.5,
+        padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: theme.palette.grey[200],
+        backgroundColor: theme.palette.grey[50],
+        justifyContent: 'center'
+    },
+    Button_action: {
+        backgroundColor: theme.palette.white,
+        '&:not(:last-child)': { 
+            marginRight: theme.spacing.unit
+        }
     }
 });
 

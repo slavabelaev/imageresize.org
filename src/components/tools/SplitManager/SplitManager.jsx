@@ -5,6 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
 import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
@@ -102,7 +103,7 @@ class SplitManager extends React.Component {
                             >+ Add Range</Button>
                             <List className={classes.List_range}>
                                 {state.ranges.map((range, index) => (
-                                <ListItem className={classes.ListItem_range}>
+                                <ListItem className={classes.ListItem_range} key={index}>
                                     <Grid container spacing={24} className={classes.Grid_range}>
                                         <Grid item xs={12} md={3}>
                                             <Typography variant="subtitle1">Split pages</Typography>
@@ -158,6 +159,15 @@ class SplitManager extends React.Component {
                         </div>
                     </TabContainer>
                 </SwipeableViews>
+
+                <Toolbar className={classes.Toolbar}>
+                    <Button 
+                        className={classes.Button_action} 
+                        variant="outlined">Action 1</Button>
+                    <Button 
+                        className={classes.Button_action} 
+                        variant="outlined">Action 2</Button>
+                </Toolbar>
             </div>
         );
     }

@@ -19,7 +19,9 @@ const PdfResizePage = ({ className, classes }) => (
         <AppContainer maxWidth="md">
             <header className={classes.header}>
                 <Typography variant="h1" gutterBottom>PDF Resize</Typography>
+                {window.location.search !== '?edit' ? (
                 <Typography variant="body1">Resize your PDF files to a new paper size by uploading them below.</Typography>
+                ) : null} 
             </header>
             <PdfResizeTool />
         </AppContainer>

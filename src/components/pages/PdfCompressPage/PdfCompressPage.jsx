@@ -19,7 +19,9 @@ const PdfCompressPage = ({ className, classes }) => (
         <AppContainer maxWidth="md">
             <header className={classes.header}>
                 <Typography variant="h1" gutterBottom>PDF Compress</Typography>
+                {window.location.search !== '?edit' ? (
                 <Typography variant="body1">Advanced PDF compressor for reducing file size without quality loss</Typography>
+                ) : null}
             </header>
             <PdfCompressTool />
         </AppContainer>

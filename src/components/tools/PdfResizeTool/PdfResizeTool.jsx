@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
@@ -26,6 +27,12 @@ class PdfResizeTool extends React.Component {
     render() {
         const { props, state } = this;
         const { className, classes } = props;
+
+        if (state.activeStep > 0 && props.location.search !== '?edit') {
+            props.history.push({ search: '?edit' });
+        } else if (state.activeStep === 0 && props.location.search !== '') {
+            props.history.push({ search: '' });
+        }
 
         return (
             <div className={classNames(className, classes.root)}>
@@ -66,4 +73,4 @@ PdfResizeTool.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(PdfResizeTool);
+export default withRouter(withStyles(styles)(PdfResizeTool));
