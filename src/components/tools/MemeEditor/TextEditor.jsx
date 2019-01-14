@@ -10,7 +10,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
 import Radio from '@material-ui/core/Radio';
 import FormatItalicIcon from '@material-ui/icons/FormatItalic';
 import FormatBoldIcon from '@material-ui/icons/FormatBold';
@@ -19,9 +18,6 @@ import FormatAlignLeftIcon from '@material-ui/icons/FormatAlignLeft';
 import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
 import FormatAlignRightIcon from '@material-ui/icons/FormatAlignRight';
 import LensIcon from '@material-ui/icons/Lens';
-import FormatColorTextIcon from '@material-ui/icons/FormatColorText';
-import BorderColorIcon from '@material-ui/icons/BorderColor';
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 // Styles
