@@ -124,19 +124,26 @@ const styles = theme => ({
         minWidth: 100,
         width: '100%'
     },
+    tabsContainer: {
+        position: 'relative'
+    },
     uploadInfo: {
         position: 'absolute',
-        bottom: 0,
         top: 0,
         right: 0,
-        paddingLeft: theme.spacing.unit * 2.5,
-        paddingRight: theme.spacing.unit * 2.5,
+        padding: `${theme.spacing.unit * 1.75}px ${theme.spacing.unit * 2.5}px`,
         margin: 'auto',
-        display: 'flex',
-        alignItems: 'center',
         maxWidth: '50%',
         whiteSpace: 'normal',
-        textAlign: 'right'
+        textAlign: 'right',
+        [theme.breakpoints.down('sm')]: {
+            left: 0,
+            maxWidth: 'initial',
+            textAlign: 'center',
+            bottom: 0,
+            top: 'initial',
+            color: theme.palette.grey[800]
+        }
     }
 });
 

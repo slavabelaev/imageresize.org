@@ -108,95 +108,97 @@ class FileUploadManager extends React.Component {
                     messages={state.errorMessages} 
                 />
 
-                <Tabs
-                    className={classes.Tabs}
-                    value={activeTabIndex}
-                    onChange={this.handleTabChange}
-                    indicatorColor="primary">
-                    <Tab 
-                        className={classes.Tab}
-                        label={labels.chooseTab || 'Computer'} />
-                    <Tab 
-                        className={classes.Tab} 
-                        label={labels.uploadTab || 'URL'} />
+                <div className={classes.tabsContainer}>
                     <Typography component="div" className={classes.uploadInfo}>
                         {state.maxFiles > 1 ? 'Up to 20 files, ' : null} 
                         {`Max ${state.maxFileSize / 1024}MB`}
                         {state.maxFiles > 1 ? ' each' : null}
                     </Typography>
-                </Tabs>
-                <Dropzone 
-                    accept={state.accept}
-                    onDrop={this.handleDrop}
-                >
-                {({getRootProps, getInputProps, isDragActive}) => 
-                    <SwipeableViews
-                        animateHeight
-                        className={classNames(classes.SwipeableViews, isDragActive ? classes.dropzone_isActive : null)} 
-                        index={activeTabIndex}
-                        onChangeIndex={this.handleTabSwipe}>
-                        <TabContainer className={classes.TabContainer}>
-                            <div className={classes.tabContent}>
-                                <input
-                                    {...getInputProps()}
-                                    className={classes.input_uploadFile}
-                                />
-                                <label htmlFor="upload-file">
-                                    <Button 
-                                        {...getRootProps()}
-                                        variant="contained"
-                                        size="large" 
-                                        color="secondary" 
-                                        component="span" 
-                                        className={classes.Button}
-                                    >
-                                        <AttachFileIcon className={classes.Icon} /> 
-                                        {labels.selectFiles || 'Select Files'}
-                                    </Button>
-                                </label>
-                                <Typography 
-                                    className={classes.Typography_uploadFile} 
-                                    variant="body1">
-                                {labels.dropFiles || 'or, drop Files here'}
-                                </Typography>
-                        </div> 
-                        </TabContainer>
-                        <TabContainer className={classes.TabContainer}>
-                            <form 
-                                className={classes.tabContent} 
-                                onSubmit={this.handleFileDownload}>
-                                <TextField
-                                    className={classes.TextField}
-                                    id="file-url"
-                                    variant="outlined"
-                                    fullWidth
-                                    placeholder="http://"
-                                    type="url"
-                                    value={state.url}
-                                    onChange={this.handleUrlChange}
-                                    InputProps={{
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                <Button
-                                                    disabled={!state.url || state.isFileLoading}
-                                                    type="submit"
-                                                    variant="contained"
-                                                    size="large"
-                                                    color="secondary"
-                                                >
-                                                    {state.isFileLoading ? (
-                                                        <CircularProgress size={24} />
-                                                    ) : 'Go'}
-                                                </Button>
-                                            </InputAdornment>
-                                        )
-                                    }} 
-                                />
-                            </form>
-                        </TabContainer>
-                    </SwipeableViews>
-                }
-                </Dropzone>
+                    <Tabs
+                        className={classes.Tabs}
+                        value={activeTabIndex}
+                        onChange={this.handleTabChange}
+                        indicatorColor="primary">
+                        <Tab 
+                            className={classes.Tab}
+                            label={labels.chooseTab || 'Computer'} />
+                        <Tab 
+                            className={classes.Tab} 
+                            label={labels.uploadTab || 'URL'} />
+                    </Tabs>
+                    <Dropzone 
+                        accept={state.accept}
+                        onDrop={this.handleDrop}
+                    >
+                    {({getRootProps, getInputProps, isDragActive}) => 
+                        <SwipeableViews
+                            animateHeight
+                            className={classNames(classes.SwipeableViews, isDragActive ? classes.dropzone_isActive : null)} 
+                            index={activeTabIndex}
+                            onChangeIndex={this.handleTabSwipe}>
+                            <TabContainer className={classes.TabContainer}>
+                                <div className={classes.tabContent}>
+                                    <input
+                                        {...getInputProps()}
+                                        className={classes.input_uploadFile}
+                                    />
+                                    <label htmlFor="upload-file">
+                                        <Button 
+                                            {...getRootProps()}
+                                            variant="contained"
+                                            size="large" 
+                                            color="secondary" 
+                                            component="span" 
+                                            className={classes.Button}
+                                        >
+                                            <AttachFileIcon className={classes.Icon} /> 
+                                            {labels.selectFiles || 'Select Files'}
+                                        </Button>
+                                    </label>
+                                    <Typography 
+                                        className={classes.Typography_uploadFile} 
+                                        variant="body1">
+                                    {labels.dropFiles || 'or, drop Files here'}
+                                    </Typography>
+                            </div> 
+                            </TabContainer>
+                            <TabContainer className={classes.TabContainer}>
+                                <form 
+                                    className={classes.tabContent} 
+                                    onSubmit={this.handleFileDownload}>
+                                    <TextField
+                                        className={classes.TextField}
+                                        id="file-url"
+                                        variant="outlined"
+                                        fullWidth
+                                        placeholder="http://"
+                                        type="url"
+                                        value={state.url}
+                                        onChange={this.handleUrlChange}
+                                        InputProps={{
+                                            endAdornment: (
+                                                <InputAdornment position="end">
+                                                    <Button
+                                                        disabled={!state.url || state.isFileLoading}
+                                                        type="submit"
+                                                        variant="contained"
+                                                        size="large"
+                                                        color="secondary"
+                                                    >
+                                                        {state.isFileLoading ? (
+                                                            <CircularProgress size={24} />
+                                                        ) : 'Go'}
+                                                    </Button>
+                                                </InputAdornment>
+                                            )
+                                        }} 
+                                    />
+                                </form>
+                            </TabContainer>
+                        </SwipeableViews>
+                    }
+                    </Dropzone>
+                </div>
 
                 <List className={classes.List_file}>
                     {state.files.map((file, index) => 
