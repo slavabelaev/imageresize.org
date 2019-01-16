@@ -75,6 +75,13 @@ const styles = theme => ({
         '&+button': {
             marginLeft: theme.spacing.unit
         }
+    },
+    isSticky: {
+        position: 'sticky',
+        bottom: 0,
+        padding: theme.spacing.unit,
+        marginTop: -theme.spacing.unit,
+        backgroundColor: theme.palette.white
     }
 });
 

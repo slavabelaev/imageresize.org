@@ -127,9 +127,12 @@ class PdfMergeTool extends React.Component {
                 ) : state.activeStep === 2 ? (
                     <Processing  />
                 ) : null}
-
+                
                 {state.activeStep < 2 ? (
-                <div className={classes.actionsContainer}>
+                <div ref="sticked" className={classNames(
+                    classes.actionsContainer, 
+                    state.activeStep === 1 ? classes.isSticky : null
+                )}>
                     {state.activeStep > 0 ? (
                     <Button
                         className={classes.Button_action}
