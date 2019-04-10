@@ -31,5 +31,29 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "previews": {
+    "directory": "previews",
+    "main": {
+      "path": "/thumbs/start.png"
+    },
+    "images": [
+      {
+        "path": "preview-1.png",
+        "title": "Meme Maker"
+      },
+      {
+        "path": "preview-2.png",
+        "title": "Modal Editor"
+      },
+      {
+        "path": "preview-3.png",
+        "title": "Meme Share"
+      },
+      {
+        "path": "preview-4.png",
+        "title": "PDF Resize"
+      }
+    ]
+  }
 }
