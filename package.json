@@ -35,7 +35,7 @@
   "previews": {
     "directory": "previews",
     "main": {
-      "path": "/thumbs/start.png"
+      "path": "index.png"
     },
     "images": [
       {
