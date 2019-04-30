@@ -39,6 +39,10 @@
     },
     "images": [
       {
+        "path": "home.png",
+        "title": "Home"
+      },
+      {
         "path": "preview-1.png",
         "title": "Meme Maker"
       },
